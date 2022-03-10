@@ -42,7 +42,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="mr-sm-2">State</label>
-                                    <select class="form-control" id="state" name="state">
+                                    <select class="form-control " id="state-list" name="state">
+                                        <option value="">Select</option>
 
 
                                     </select>
@@ -130,31 +131,36 @@
         //     // getState();
         // }
 
+        function getState(states) {
+
+            let select = document.getElementById("state-list");
+
+            if (select.style.display = "none") {
+                for (const i in states) {
+                    select.add(new Option(states[i].state_name, states[i].state_name))
+                }
+                document.getElementById("state-list").style.display = "block";
+                // document.getElementById("state-list").classList.remove('nice-select')
+
+            } else {
+                document.getElementById('state-list').style.display = "none";
+
+            }
+
+            console.log({
+
+                select
+            });
+        }
 
         $(document).ready(function() {
 
             $('#country').change(function() {
                 var options = $('#country').val();
-                console.log({
-                    options
-                });
+
                 $.get(`/get-state/${options}`, function(data, textStatus, jqXHR) {
-                    console.log({
-                        data,
-                        textStatus
-                    });
-                    var optionsState = '<option value="null">Select State</option>'
 
-
-                    data.forEach(state => {
-                        optionsState = ' <option value=\'' + JSON.stringify(state) + '\'>' +
-                            state.state_name + '</option>'
-                    });
-                    $('#state').appendTo(optionsState)
-
-                    console.log({
-                        optionsState
-                    });
+                    getState(data)
                 });
 
             });
