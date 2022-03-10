@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\UniversalController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -110,13 +111,14 @@ Route::get('/reset', function () {
     return view('reset');
 })->name('reset');
 
-Route::get('/signin', function () {
-    return view('signin');
-})->name('signin');
+Route::get('/get-state/{country}', [
+    UniversalController::class,
+    'getState',
+])->name('state');
 
-Route::get('/signup', function () {
-    return view('signup');
-})->name('signup');
+// Route::get('/signup', function () {
+//     return view('signup');
+// })->name('signup');
 
 Route::get('/400', function () {
     return view('400');
