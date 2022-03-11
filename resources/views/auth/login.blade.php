@@ -16,7 +16,8 @@
                             <h4 class="card-title">Sign in</h4>
                         </div>
                         <div class="card-body">
-                            <form method="post" name="myform" class="signin_validate" action="otp-1.html">
+                            <form method="post" name="myform" class="signin_validate" action="{{ route('login') }}">
+                                @csrf
                                 <div class="form-group">
                                     <label>Email</label>
                                     <input type="email" class="form-control" placeholder="hello@example.com" name="email">

@@ -66,9 +66,15 @@
                                      <a href="lock.html" class="dropdown-item">
                                          <i class="mdi mdi-lock"></i> Lock
                                      </a>
-                                     <a href="signin.html" class="dropdown-item logout">
+                                     <a href="{{ route('logout') }}"
+                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                         class="dropdown-item logout">
                                          <i class="mdi mdi-logout"></i> Logout
                                      </a>
+
+                                     <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                         @csrf
+                                     </form>
                                  </div>
                              </div>
                          </div>

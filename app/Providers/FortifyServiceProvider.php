@@ -60,5 +60,8 @@ class FortifyServiceProvider extends ServiceProvider
             // return $countries;
             return view('auth.register', compact(['countries']));
         });
+        Fortify::verifyEmailView(function () {
+            return view('auth.verify-email');
+        });
     }
 }

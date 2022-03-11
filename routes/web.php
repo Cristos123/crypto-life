@@ -17,9 +17,14 @@ use App\Http\Controllers\UniversalController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/dashboard', function () {
+
+Route::get('home', function () {
     return view('dashboard');
-});
+})->middleware(['auth', 'verified']);
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// });
 
 //Acount route
 Route::get('/account-affiliate', function () {

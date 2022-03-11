@@ -16,7 +16,11 @@
                             <h4 class="card-title">Sign up your account</h4>
                         </div>
                         <div class="card-body">
+                            @if ($errors->any())
+                                {{ implode('', $errors->all($message)) }}
+                            @endif
                             <form method="POST" action="{{ route('register') }}" name="myform" class="signup_validate">
+                                @csrf
                                 <div class="form-group">
                                     <label>fullname</label>
                                     <input type="text" class="form-control" placeholder="fullname" name="fullname">
@@ -39,6 +43,7 @@
                                         @endforelse
 
                                     </select>
+
                                 </div>
                                 <div class="form-group">
                                     <label class="mr-sm-2">State</label>
@@ -51,20 +56,19 @@
 
 
                                 <div class="row ">
-                                    <div class=" form-group col-xl-3 col-md-3">
+                                    <div class=" form-group col-sm-4 col-xl-4 col-md-">
 
-                                        <label>Country Code</label>
-                                        <select class="form-control" name="code">
-                                            <option value="">Select</option>
-                                            <option value="Afghanistan">Afghanistan</option>
+                                        <label> Code</label>
+                                        <input type="text" id="code" readonly value="" class="form-control"
+                                            placeholder="0810227485" name="code">
 
-                                        </select>
+
                                     </div>
-                                    <div class="form-group col-xl-8 col-md-8">
+                                    <div class="form-group col-sm-8 col-xl-8 col-md-8">
 
                                         <label>Mobile Number</label>
                                         <input type="tel" class="form-control" placeholder="0810227485"
-                                            name="memailobilenumber">
+                                            name="mobilenumber">
                                     </div>
 
                                 </div>
@@ -75,7 +79,7 @@
                                 <div class="form-group">
                                     <label>Confirm Password</label>
                                     <input type="password" class="form-control" placeholder="Confirm Password"
-                                        name="confirm_password">
+                                        name="password_confirmation">
                                 </div>
                                 <div class="text-center mt-4">
                                     <button type="submit" class="btn btn-success btn-block">Sign up</button>
@@ -103,6 +107,7 @@
 @push('scripts')
     <script src="{{ asset('assets/vendor/validator/jquery.validate.js') }}"></script>
     <script src="{{ asset('assets/vendor/validator/validator-init.js') }}"></script>
+    <?php $comments = 'php variables'; ?>
     <script>
         // const selects = document.getElementById('country')
         // selects.addEventListener('change', () => getState())
@@ -131,6 +136,21 @@
         //     // getState();
         // }
 
+
+        function displayCountryCode() {
+
+
+
+            let country = document.getElementById("country").value
+            let code = document.getElementById("code").value
+            if (country != 'select') {
+                code
+            } else {
+
+            }
+
+        }
+
         function getState(states) {
 
             let select = document.getElementById("state-list");
@@ -147,13 +167,16 @@
 
             }
 
-            console.log({
 
-                select
-            });
         }
-
+        let country;
+        @php
+        
+        echo 'country = ' . json_encode($countries) . ';';
+        @endphp
+        console.log(country);
         $(document).ready(function() {
+
 
             $('#country').change(function() {
                 var options = $('#country').val();
@@ -162,8 +185,18 @@
 
                     getState(data)
                 });
+                let countryName = $('#country').val()
+                $(country).each(function(index) {
+                    if (country[index].country_name == countryName) {
+                        $('#code').val(country[index].country_phone_code)
+                        return
+                    }
+                })
 
             });
+
+
+
 
         });
     </script>
