@@ -2186,4 +2186,5 @@
 @endpush
 
 @push('scripts')
+
 @endpush

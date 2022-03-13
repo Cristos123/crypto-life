@@ -1,6 +1,6 @@
-@extends('layout.app-dashboard')
+@extends('layout.basic')
 
-@section('title', 'sign-in')
+@section('title', 'Sign In')
 
 @section('content')
 

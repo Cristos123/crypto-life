@@ -80,9 +80,6 @@ jQuery(window).on("load", function () {
 
 
 
-
-
-
 const ml = new PerfectScrollbar('.market-limit');
 const mn = new PerfectScrollbar('.market-nested');
 const ln = new PerfectScrollbar('.limit-nested');

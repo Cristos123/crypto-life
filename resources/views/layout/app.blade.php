@@ -35,11 +35,6 @@
 
     </div>
 
-
-
-
-
-
     <script src="{{ asset('assets/js/global.js')}}"></script>
     <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
@@ -52,7 +47,7 @@
     <script src="{{ asset('assets/vendor/apexchart/apexcharts.min.js')}}"></script>
     <script src="{{ asset('assets/vendor/apexchart/apexchart-init.js')}}"></script>
 
-    <script src="{{ asset('assets/js/scripts.js')}}"></script>
+    <script src="{{ asset('assets/js/scripts.js?v=') . time() }}"></script>
 
     {{-- Page Custom Javascript(used by the current page) --}}
     @stack('scripts')

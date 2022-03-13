@@ -30,7 +30,7 @@ class CreateNewUser implements CreatesNewUsers
                 'max:255',
                 Rule::unique(User::class),
             ],
-            'mobilenumber' => ['required', 'numeric', 'min:11'],
+            'mobilenumber' => ['required', 'string'],
             'country' => ['required', 'string'],
             'code' => ['required', 'numeric'],
             'state' => ['required', 'string'],

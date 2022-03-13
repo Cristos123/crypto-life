@@ -688,9 +688,6 @@
         </div>
     </div>
 
-
-
-
     <div class="bottom section-padding">
         <div class="container">
             <div class="row">
