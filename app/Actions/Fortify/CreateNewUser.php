@@ -32,23 +32,28 @@ class CreateNewUser implements CreatesNewUsers
             ],
             'mobilenumber' => ['required', 'string'],
             'country' => ['required', 'string'],
-            'code' => ['required', 'numeric'],
             'state' => ['required', 'string'],
             'password' => $this->passwordRules(),
         ])->validate();
 
+        $explodedInput = explode("/", $input['country']);
+        $country = $explodedInput[0];
+        $code = $explodedInput[1];
+
+
         $user = User::create([
             'fullname' => $input['fullname'],
             'email' => $input['email'],
-            'country' => $input['country'],
-            'code' => $input['code'],
+            'country' => $country,
+            'country_code' => $code,
             'state' => $input['state'],
-
             'mobilenumber' => $input['mobilenumber'],
             'password' => Hash::make($input['password']),
         ]);
+
         $wallet = Wallet::create([]);
         $user->wallet()->save($wallet);
+
         return $user;
     }
 }

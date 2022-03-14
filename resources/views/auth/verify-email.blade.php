@@ -1,6 +1,6 @@
-@extends('layout.app-dashboard')
+@extends('layout.basic')
 
-@section('title', 'Verify Email Verification')
+@section('title', 'Email Verification')
 
 @section('content')
 
@@ -12,15 +12,18 @@
                 <div class="col-xl-5 col-md-6">
                     <div class="auth-form card">
                         <div class="card-body">
-                            @if (session('status') == 'verification-link-sent')
-                                <div class="mb-4 font-medium text-sm text-green-600">
-                                    A new email verification link has been emailed to you!
-                                </div>
-                            @endif
-
                             <div class="text-center mb-5">
                                 <div class="identity-content">
-                                    <span class="icon"><i class="fa fa-check"></i></span>
+                                    @if (session('status') == 'verification-link-sent')
+                                        <span class="icon"><i class="fa fa-check"></i></span>
+                                        <div class="alert alert-success">
+                                            A new email verification link has been emailed to you!
+                                            <button type="button" class="close" data-dismiss="alert"
+                                                aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                    @endif
                                     <h3>Verify e-mail address</h3>
                                     <p>You must verify your email address to access this page.</p>
                                 </div>
