@@ -60,7 +60,8 @@
                                 <br>
 
                                 <div class="form-group">
-                                    <label class="mr-sm-2">State <i class="fa fa-spinner fa-spin" id="spinner"></i> </label>
+                                    <label class="mr-sm-2">State <i class="fa fa-spinner fa-spin" id="spinner"></i>
+                                    </label>
                                     <select class="form-control @error('state') is-invalid @enderror"
                                         value="{{ old('fullname') }}" id="state-list" name="state">
                                         <option value="">Select</option>
@@ -124,11 +125,12 @@
                                     @enderror
                                 </div>
                                 <div class="text-center mt-4">
-                                    <button type="submit" class="btn btn-success btn-block" id="sign-up-btn">Sign up</button>
+                                    <button type="submit" class="btn btn-success btn-block" id="sign-up-btn">Sign
+                                        up</button>
                                 </div>
                             </form>
                             <div class="new-account mt-3">
-                                <p>Already have an account? <a class="text-primary" href="{{ route('register') }}">Sign
+                                <p>Already have an account? <a class="text-primary" href="{{ route('login') }}">Sign
                                         in</a>
                                 </p>
                             </div>
