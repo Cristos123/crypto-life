@@ -20,22 +20,34 @@
                                 @csrf
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input type="email" class="form-control" placeholder="hello@example.com" name="email">
+                                    <input type="email" class="form-control @error('email') is-invalid @enderror"
+                                        value="{{ old('email') }}" placeholder="hello@example.com" name="email">
+                                    @error('email')
+                                        <div class="invalid-feedback d-block">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>
-                                    <input type="password" class="form-control" placeholder="Password" name="password">
+                                    <input type="password" class="form-control @error('password') is-invalid @enderror"
+                                        placeholder="Password" name="password">
+                                    @error('password')
+                                        <div class="invalid-feedback d-block">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="form-row d-flex justify-content-between mt-4 mb-2">
                                     <div class="form-group mb-0">
                                         <label class="toggle">
-                                            <input class="toggle-checkbox" type="checkbox">
+                                            <input class="toggle-checkbox" type="checkbox" name="remember">
                                             <span class="toggle-switch"></span>
                                             <span class="toggle-label">Remember me</span>
                                         </label>
                                     </div>
                                     <div class="form-group mb-0">
-                                        <a href="reset.html">Forgot Password?</a>
+                                        <a href="/forgot-password">Forgot Password?</a>
                                     </div>
                                 </div>
                                 <div class="text-center">
@@ -43,7 +55,7 @@
                                 </div>
                             </form>
                             <div class="new-account mt-3">
-                                <p>Don't have an account? <a class="text-primary" href="signup.html">Sign
+                                <p>Don't have an account? <a class="text-primary" href="{{ route('register') }}">Sign
                                         up</a></p>
                             </div>
                         </div>

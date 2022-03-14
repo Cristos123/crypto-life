@@ -44,7 +44,7 @@
                             </div>
 
                             <div class="signin-btn">
-                                <a class="btn btn-primary" href="./signin.html">Sign in</a>
+                                <a class="btn btn-primary" href="{{ route('login') }}">Sign in</a>
                             </div>
                         </nav>
                     </div>
