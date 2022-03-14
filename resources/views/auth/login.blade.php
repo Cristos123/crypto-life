@@ -41,7 +41,7 @@
                                 <div class="form-row d-flex justify-content-between mt-4 mb-2">
                                     <div class="form-group mb-0">
                                         <label class="toggle">
-                                            <input class="toggle-checkbox" type="checkbox">
+                                            <input class="toggle-checkbox" type="checkbox" name="remember">
                                             <span class="toggle-switch"></span>
                                             <span class="toggle-label">Remember me</span>
                                         </label>
