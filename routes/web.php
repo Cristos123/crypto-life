@@ -29,12 +29,13 @@ Route::get('/admin-dashboard', [KYCController::class, 'index'])->name(
     'admin-dashboard'
 );
 
-Route::get('show/{kyc}', [KYCController::class, 'show'])->name('show');
+Route::get('admin.show/{kyc}', [KYCController::class, 'show'])->name(
+    'admin.show'
+);
 
-Route::get('/admin-dashboard/{kyc}', [
-    KYCController::class,
-    'changestatus',
-])->name('admin-dashboard');
+Route::post('/admin-dashboard/{kyc}', [KYCController::class, 'update'])->name(
+    'admin-dashboard'
+);
 
 //Acount route
 Route::get('/kyc-verification', [KYCController::class, 'create'])->name(

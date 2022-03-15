@@ -17,7 +17,7 @@ class KYCController extends Controller
     public function index()
     {
         $kycs = KYC::paginate(25);
-        return view('admin-dashboard', compact('kycs'));
+        return view('kyc.admin-dashboard', compact('kycs'));
     }
 
     /**
@@ -32,25 +32,6 @@ class KYCController extends Controller
             return view('kyc.kyc-verify');
         }
         return view('kyc.kyc-verifcation');
-    }
-
-    public function changeStatus(KYC $kyc)
-    {
-        // $walletRecharges = WalletRecharge::find($id);
-
-        if ($kyc->status == 'pending') {
-            $kyc->status = 'succeed';
-            $kyc->save();
-        } elseif ($kyc->status == 'rejected') {
-            redirect()
-                ->back()
-                ->withErrors('The documents uploaded  is not valid');
-        } else {
-            $kyc->status = 'pending';
-            $kyc->save();
-        }
-
-        return redirect()->back();
     }
 
     /**
@@ -155,9 +136,26 @@ class KYCController extends Controller
      * @param  \App\Models\KYC  $kYC
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, KYC $kYC)
+    public function update(Request $request, KYC $kyc)
     {
-        //
+        if ($request->approved) {
+            if ($kyc->status == 'pending') {
+                $kyc->status = 'succeed';
+
+                $kyc->save();
+            } elseif ($kyc->status == 'rejected') {
+                $kyc->status = 'succeed';
+                $kyc->save();
+            }
+        } elseif ($request->rejected) {
+            if ($kyc->status == 'pending') {
+                $kyc->status = 'rejected';
+
+                $kyc->save();
+            }
+        }
+
+        return redirect()->back();
     }
 
     /**
