@@ -28,7 +28,7 @@ class KYCController extends Controller
     public function create()
     {
         $kyc = Auth::user()->kyc;
-        if (Auth::user()->has('kyc') || $kyc->status == 'pending') {
+        if (!is_null($kyc)) {
             return view('kyc.kyc-verify');
         }
         return view('kyc.kyc-verifcation');
@@ -44,25 +44,18 @@ class KYCController extends Controller
     {
         $request->validate([
             'fullname' => ['required', 'string', 'max:255'],
-            'photo' => ['max:2048|mimes:jpeg,png,'],
-            'identification' => ['max:2048|mimes:jpeg,png,'],
+            'photo' => ['required', 'image', 'mimes:jpeg,png', 'max:2048'],
+            'identification' => [
+                'required',
+                'image',
+                'mimes:jpeg,png',
+                'max:2048',
+            ],
             'ssn' => ['alpha_num'],
             'identificationType' => ['required', 'string'],
             'date_of_birth' => ['date_format:d/m/Y'],
         ]);
-        $request->all();
         // Uploading the identification
-        if (!$request->has('photo')) {
-            return response()->json(
-                ['message' => 'Please upload your photo'],
-                422
-            );
-        } elseif (!$request->has('identification')) {
-            return response()->json(
-                ['message' => 'Please upload your identification'],
-                422
-            );
-        }
 
         $identificationFile = $request->file('identification');
         $filename =
@@ -99,8 +92,6 @@ class KYCController extends Controller
             'user_id' => Auth::user()->id,
         ]);
 
-        $kyc->save();
-
         return view('kyc.kyc-verify')->with(
             'success',
             'Verification successfully!'
@@ -126,7 +117,6 @@ class KYCController extends Controller
      */
     public function edit(KYC $kYC)
     {
-        //
     }
 
     /**
@@ -138,13 +128,10 @@ class KYCController extends Controller
      */
     public function update(Request $request, KYC $kyc)
     {
-        if ($request->approved) {
+        if ($request->approved || $kyc->status == 'rejected') {
             if ($kyc->status == 'pending') {
                 $kyc->status = 'succeed';
 
-                $kyc->save();
-            } elseif ($kyc->status == 'rejected') {
-                $kyc->status = 'succeed';
                 $kyc->save();
             }
         } elseif ($request->rejected) {
@@ -166,6 +153,5 @@ class KYCController extends Controller
      */
     public function destroy(KYC $kYC)
     {
-        //
     }
 }
