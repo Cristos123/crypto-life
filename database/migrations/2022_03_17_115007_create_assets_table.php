@@ -15,6 +15,8 @@ class CreateAssetsTable extends Migration
     {
         Schema::create('assets', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->unique();
+            $table->string('currency')->unique();
             $table->timestamps();
         });
     }

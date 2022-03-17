@@ -1,6 +1,6 @@
 @extends('layout.app-dashboard')
 
-@section('title', ' Categories')
+@section('title', ' Asset')
 @section('content')
 
     </div>
@@ -12,7 +12,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title">Transactions History</h4>
-                            <a href="{{ route('admin.create-category') }}" class="btn btn-primary">Create New Category</a>
+                            <a href="{{ route('admin.create-asset') }}" class="btn btn-primary">Create New Asset</a>
                         </div>
                         <div class="card-body">
                             <div class="transaction-table">
@@ -21,7 +21,7 @@
                                         <thead>
                                             <tr>
                                                 <th> Name </th>
-                                                <th>Description </th>
+                                                <th>Currency </th>
                                                 <th>Created Date </th>
                                                 <th class="colSpan2">Action </th>
 
@@ -29,21 +29,21 @@
                                         </thead>
                                         <tbody>
 
-                                            @forelse ($categories as $category)
+                                            @forelse ($assets as $asset)
                                                 <tr>
 
 
-                                                    <td> {{ $category->name }} </td>
-                                                    <td> {{ $category->description }}</td>
-                                                    <td> {{ $category->created_at }}</td>
+                                                    <td> {{ $asset->name }} </td>
+                                                    <td> {{ $asset->currency }}</td>
+                                                    <td> {{ $asset->created_at }}</td>
 
                                                     <td>
-                                                        <a href="{{ route('admin.edit-category', $category) }}"
+                                                        <a href="{{ route('admin.edit-asset', $asset) }}"
                                                             class="btn btn-warning">Edit</a>
                                                     </td>
                                                     <td>
                                                         <form method="post"
-                                                            action="{{ route('admin.delete-category', $category) }}">
+                                                            action="{{ route('admin.delete-asset', $asset) }}">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit" class="btn btn-danger">Delete</button>
@@ -55,7 +55,7 @@
                                                 </tr>
                                             @empty
                                                 <tr>
-                                                    <td class="colspan6">NO Categories</td>
+                                                    <td class="colspan5">NO Assets created yet</td>
                                                 </tr>
                                             @endforelse
 

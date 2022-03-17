@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Asset;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class AssetController extends Controller
 {
@@ -14,7 +15,8 @@ class AssetController extends Controller
      */
     public function index()
     {
-        //
+        $assets = Asset::paginate(25);
+        return view('asset.index', compact('assets'));
     }
 
     /**
@@ -24,7 +26,7 @@ class AssetController extends Controller
      */
     public function create()
     {
-        //
+        return view('asset.create');
     }
 
     /**
@@ -35,7 +37,24 @@ class AssetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => [
+                'required',
+                Rule::unique(Asset::class),
+
+                'string',
+                'max:255',
+            ],
+            'currency' => ['required', 'string', Rule::unique(Asset::class)],
+        ]);
+        Asset::create([
+            'name' => $request['name'],
+            'currency' => $request['currency'],
+        ]);
+
+        return redirect()
+            ->back()
+            ->with('message', 'Asset created  successfully!');
     }
 
     /**
@@ -57,7 +76,7 @@ class AssetController extends Controller
      */
     public function edit(Asset $asset)
     {
-        //
+        return view('asset.edit', compact('asset'));
     }
 
     /**
@@ -69,7 +88,17 @@ class AssetController extends Controller
      */
     public function update(Request $request, Asset $asset)
     {
-        //
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'currency' => ['required', 'string', 'max:255'],
+        ]);
+
+        $asset->name = $request->name;
+        $asset->currency = $request->currency;
+        $asset->save();
+        return redirect()
+            ->back()
+            ->with('message', 'Asset   updated succesfully!');
     }
 
     /**
@@ -80,6 +109,7 @@ class AssetController extends Controller
      */
     public function destroy(Asset $asset)
     {
-        //
+        $asset->delete();
+        return redirect()->back();
     }
 }

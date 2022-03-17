@@ -16,9 +16,9 @@
                             <h4 class="card-title">Create category</h4>
                         </div>
                         <div class="card-body">
-                            @if (session('status'))
-                                <div class="alert alert-success" role="alert">
-                                    {{ session('status') }}
+                            @if (session()->has('message'))
+                                <div class="alert alert-success">
+                                    {{ session()->get('message') }}
                                 </div>
                             @endif
                             <form action="{{ route('admin.create-category') }}" method="POST">

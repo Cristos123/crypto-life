@@ -1,6 +1,6 @@
 @extends('layout.app-dashboard')
 
-@section('title', 'Create Category')
+@section('title', 'Create Asset')
 
 @section('content')
 
@@ -13,11 +13,11 @@
                     </div>
                     <div class="auth-form card">
                         <div class="card-header justify-content-center">
-                            <h4 class="card-title">Create category</h4>
+                            <h4 class="card-title">Create asset</h4>
                         </div>
                         <div class="card-body">
 
-                            <form action="{{ route('admin.update-category', $category) }}" method="POST">
+                            <form action="{{ route('admin.update-asset', $asset) }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 @if (session()->has('message'))
@@ -27,7 +27,7 @@
                                 @endif
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input type="text" value="{{ $category->name }}" placeholder="Category Name"
+                                    <input type="text" value="{{ $asset->name }}" placeholder="Asset Name"
                                         class="form-control @error('name') is-invalid @enderror" name="name">
                                     @error('name')
                                         <div class="invalid-feedback d-block">
@@ -36,11 +36,10 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label>Description</label>
-                                    <input type="text" value="{{ $category->description }}"
-                                        placeholder="Type your description"
-                                        class="form-control @error('description') is-invalid @enderror" name="description">
-                                    @error('description')
+                                    <label>Currency</label>
+                                    <input type="text" value="{{ $asset->currency }}" placeholder="Type your currency"
+                                        class="form-control @error('currency') is-invalid @enderror" name="currency">
+                                    @error('currency')
                                         <div class="invalid-feedback d-block">
                                             {{ $message }}
                                         </div>
@@ -52,7 +51,7 @@
                             </form>
                             <div class="new-account mt-3">
                                 {{-- <p class="mb-1">Don't Received? </p> --}}
-                                <a class="text-primary" href="{{ route('admin.category') }}">Go back </a>
+                                <a class="text-primary" href="{{ route('admin.asset.index') }}">Go back </a>
                             </div>
                         </div>
                     </div>

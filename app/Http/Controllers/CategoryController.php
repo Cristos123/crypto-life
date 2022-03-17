@@ -53,7 +53,7 @@ class CategoryController extends Controller
 
         return redirect()
             ->back()
-            ->with('success', 'Category created  successfully!');
+            ->with('message', 'Category created  successfully!');
     }
 
     /**
@@ -87,13 +87,7 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $request->validate([
-            'name' => [
-                'required',
-                Rule::unique(Category::class),
-
-                'string',
-                'max:255',
-            ],
+            'name' => ['required', 'string', 'max:255'],
         ]);
 
         $category->name = $request->name;
@@ -101,7 +95,7 @@ class CategoryController extends Controller
         $category->save();
         return redirect()
             ->back()
-            ->with('success', 'Category created  updated!');
+            ->with('message', 'Category   updated successfully!');
     }
 
     /**

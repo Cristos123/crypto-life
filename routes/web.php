@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UniversalController;
 use App\Http\Controllers\KYCController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AssetController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,7 +28,7 @@ Route::get('home', function () {
     ->middleware(['auth', 'verified', 'kyc']);
 
 Route::get('/admin-dashboard', [KYCController::class, 'index'])->name(
-    'admin-dashboard'
+    'admin.dashboard'
 );
 
 // categories route
@@ -58,6 +59,24 @@ Route::post('/admin.create-category', [
     CategoryController::class,
     'store',
 ])->name('admin.create-category');
+
+//assets route
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/create-asset', [AssetController::class, 'create'])->name(
+        'admin.create-asset'
+    );
+    Route::post('/create-asset', [AssetController::class, 'store'])->name(
+        'admin.create-asset'
+    );
+
+    Route::resource('asset', AssetController::class)->names([
+        'index' => 'admin.asset.index',
+        'edit' => 'admin.edit-asset',
+        'update' => 'admin.update-asset',
+
+        'destroy' => 'admin.delete-asset',
+    ]);
+});
 
 Route::get('/admin.show/{kyc}', [KYCController::class, 'show'])->name(
     'admin.show'
