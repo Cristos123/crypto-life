@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UniversalController;
 use App\Http\Controllers\KYCController;
+use App\Http\Controllers\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,7 +30,36 @@ Route::get('/admin-dashboard', [KYCController::class, 'index'])->name(
     'admin-dashboard'
 );
 
-Route::get('admin.show/{kyc}', [KYCController::class, 'show'])->name(
+// categories route
+
+Route::get('/admin.create-category', [
+    CategoryController::class,
+    'create',
+])->name('admin.create-category');
+
+Route::get('/admin.category', [CategoryController::class, 'index'])->name(
+    'admin.category'
+);
+Route::get('/admin.category/{category}', [
+    CategoryController::class,
+    'edit',
+])->name('admin.edit-category');
+
+Route::put('/admin.category/{category}', [
+    CategoryController::class,
+    'update',
+])->name('admin.update-category');
+
+Route::delete('/admin.category/{category}', [
+    CategoryController::class,
+    'destroy',
+])->name('admin.delete-category');
+Route::post('/admin.create-category', [
+    CategoryController::class,
+    'store',
+])->name('admin.create-category');
+
+Route::get('/admin.show/{kyc}', [KYCController::class, 'show'])->name(
     'admin.show'
 );
 
