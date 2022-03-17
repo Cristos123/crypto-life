@@ -53,4 +53,14 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasOne(Wallet::class);
     }
+
+    /**
+     * Get the kyc associated with the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function kyc(): HasOne
+    {
+        return $this->hasOne(KYC::class);
+    }
 }

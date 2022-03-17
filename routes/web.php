@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UniversalController;
+use App\Http\Controllers\KYCController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,13 +21,29 @@ Route::get('/', function () {
 
 Route::get('home', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified']);
+})
+    ->name('home')
+    ->middleware(['auth', 'verified', 'kyc']);
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// });
+Route::get('/admin-dashboard', [KYCController::class, 'index'])->name(
+    'admin-dashboard'
+);
+
+Route::get('admin.show/{kyc}', [KYCController::class, 'show'])->name(
+    'admin.show'
+);
+
+Route::post('/admin-dashboard/{kyc}', [KYCController::class, 'update'])->name(
+    'admin-dashboard'
+);
 
 //Acount route
+Route::get('/kyc-verification', [KYCController::class, 'create'])->name(
+    'kyc-verification'
+);
+Route::post('/kyc-verification', [KYCController::class, 'store'])->name(
+    'kyc-verification'
+);
 Route::get('/account-affiliate', function () {
     return view('account-affiliate');
 });
