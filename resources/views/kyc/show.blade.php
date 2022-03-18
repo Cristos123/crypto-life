@@ -55,7 +55,7 @@
                                     @csrf
 
                                     <input type="hidden" value="rejected" name="rejected">
-                                    <button type="submit" class="btn btn-warning">Rejected</button>
+                                    <button type="submit" class="btn btn-danger">Rejected</button>
                                 </form>
                             @else
                             @endif

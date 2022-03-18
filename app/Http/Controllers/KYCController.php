@@ -51,7 +51,7 @@ class KYCController extends Controller
                 'mimes:jpeg,png',
                 'max:2048',
             ],
-            'ssn' => ['alpha_num'],
+            'ssn' => ['required', 'alpha_num'],
             'identificationType' => ['required', 'string'],
             'date_of_birth' => ['date_format:d/m/Y'],
         ]);

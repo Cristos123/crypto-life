@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UniversalController;
 use App\Http\Controllers\KYCController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AssetController;
+use App\Http\Controllers\DurationController;
+use App\Http\Controllers\InvestmentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,10 +30,54 @@ Route::get('home', function () {
     ->middleware(['auth', 'verified', 'kyc']);
 
 Route::get('/admin-dashboard', [KYCController::class, 'index'])->name(
-    'admin-dashboard'
+    'admin.dashboard'
 );
 
-Route::get('admin.show/{kyc}', [KYCController::class, 'show'])->name(
+//assets route
+Route::group(['prefix' => 'admin'], function () {
+    //category routes
+    Route::resource('category', CategoryController::class)->names([
+        'index' => 'admin.category',
+        'create' => 'admin.create-category',
+        'store' => 'admin.store-category',
+        'update' => 'admin.update-category',
+        'edit' => 'admin.edit-category',
+        'destroy' => 'admin.delete-category',
+    ]);
+
+    //Asset routes
+    Route::resource('asset', AssetController::class)->names([
+        'index' => 'admin.asset.index',
+        'edit' => 'admin.edit-asset',
+        'update' => 'admin.update-asset',
+        'store' => 'admin.store-asset',
+        'create' => 'admin.create-asset',
+        'destroy' => 'admin.delete-asset',
+    ]);
+
+    //Duration routes
+    Route::resource('duration', DurationController::class)->names([
+        'index' => 'admin.duration.index',
+        'edit' => 'admin.edit-duration',
+        'update' => 'admin.update-duration',
+        'create' => 'admin.create-duration',
+        'store' => 'admin.store-duration',
+        'destroy' => 'admin.delete-duration',
+    ]);
+
+    //Investment routes
+    Route::resource('investment', InvestmentController::class)->names([
+        'index' => 'admin.investment.index',
+        'show' => 'admin.show-investment',
+        'edit' => 'admin.edit-investment',
+        'update' => 'admin.update-investment',
+        'create' => 'admin.create-investment',
+        'store' => 'admin.store-investment',
+        // 'destroy' => 'admin.delete',
+    ]);
+});
+
+Route::get('/admin.show/{kyc}', [KYCController::class, 'show'])->name(
     'admin.show'
 );
 

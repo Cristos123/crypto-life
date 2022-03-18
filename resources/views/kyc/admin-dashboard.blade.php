@@ -3,11 +3,13 @@
 @section('title', ' KYC')
 @section('content')
 
-    </div>
+
 
     <div class="content-body">
+
         <div class="container">
             <div class="row">
+                @include('layout.partials.admin.page-title')
                 <div class="col-xl-12">
                     <div class="card">
                         <div class="card-header">
