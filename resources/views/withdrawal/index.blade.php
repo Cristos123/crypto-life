@@ -11,9 +11,9 @@
                 <div class="col-xl-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Durations</h4>
-                            <a href="{{ route('admin.create-investment') }}" class="btn btn-primary">Create New
-                                Investment</a>
+                            <h4 class="card-title"> Withdrawal History</h4>
+                            <a href="{{ route('admin.withdrawal.create') }}" class="btn btn-primary">
+                                Withdrawal </a>
                         </div>
                         <div class="card-body">
                             <div class="transaction-table">
@@ -21,12 +21,13 @@
                                     <table class="table table-striped mb-0 table-responsive-sm">
                                         <thead>
                                             <tr>
-                                                <th> Name </th>
-                                                <th>Rate </th>
+                                                <th> Status </th>
+                                                <th> Amount </th>
+                                                <th>Balance </th>
                                                 <th>Amount </th>
                                                 <th>AssetID </th>
-                                                <th>CategoryID </th>
-                                                <th>DurationID </th>
+                                                <th>refernce </th>
+                                                <th> User Name </th>
                                                 <th>Created Date </th>
                                                 <th class="colSpan3">Action </th>
 
@@ -34,30 +35,31 @@
                                         </thead>
                                         <tbody>
 
-                                            @forelse ($investments as $investment)
+                                            @forelse ($withdrawals as $withdrawal)
                                                 <tr>
 
 
-                                                    <td class="{{ statusColor($funding->status) }}">
-                                                        {{ status($investment->name) }} </td>
-                                                    <td> {{ $investment->rate }}</td>
-                                                    <td> {{ $investment->amount }}</td>
-                                                    <td> {{ $investment->asset_id }}</td>
-                                                    <td> {{ $investment->category_id }}</td>
-                                                    <td> {{ $investment->duration_id }}</td>
-                                                    <td> {{ $investment->created_at }}</td>
+                                                    <td class="{{ statusColor($withdrawal->status) }}">
+                                                        {{ status($withdrawal->status) }} </td>
+                                                    <td> {{ toMoney($withdrawal->amount) }} </td>
+                                                    <td> {{ toMoney($withdrawal->balance) }}</td>
+                                                    <td> {{ $withdrawal->amount }}</td>
+                                                    <td> {{ $withdrawal->asset_id }}</td>
+                                                    <td> {{ $withdrawal->reference }}</td>
+                                                    <td> {{ $withdrawal->user->fullname }}</td>
+                                                    <td> {{ $withdrawal->created_at }}</td>
 
-                                                    <td>
-                                                        <a href="{{ route('admin.edit-investment', $investment) }}"
+                                                    {{-- <td>
+                                                        <a href="{{ route('admin.edit-withdrawal', $withdrawal) }}"
                                                             class="btn btn-warning">Edit</a>
                                                     </td>
                                                     <td>
-                                                        <a href="{{ route('admin.show-investment', $investment) }}"
+                                                        <a href="{{ route('admin.show-withdrawal', $withdrawal) }}"
                                                             class="btn btn-info">Show</a>
-                                                    </td>
+                                                    </td> --}}
                                                     <td>
                                                         {{-- <form method="post"
-                                                            action="{{ route('admin.delete', $investment) }}">
+                                                            action="{{ route('admin.delete', $withdrawal) }}">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit" class="btn btn-danger">Delete</button>

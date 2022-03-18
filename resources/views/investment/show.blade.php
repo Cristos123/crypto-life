@@ -65,9 +65,8 @@
 
                                     <h4 class="mb-2">{{ $investment->fullname }}</h4>
                                     <p class="mb-1"> <span class="mr-3 ">Status:</span>
-                                        <span
-                                            class="{{ $investment->status == 'succeed' ? 'text-success' : 'text-warning' }}">
-                                            {{ $investment->status }}</span>
+                                        <span class="{{ statusColor($investment->status) }}  ">
+                                            {{ status($investment->status) }}</span>
                                     </p>
                                     <p class="mb-1"> <span class="mr-3 ">Investment Name:</span>
                                         <span class="">
@@ -77,7 +76,7 @@
                                         {{ $investment->amount }}
                                     </p>
                                     <p class="mb-1"> <span class="mr-4 ">Created date</i></span>
-                                        <span class="text-danger">{{ $investment->created_at }}</span>
+                                        <span class="text-primary">{{ $investment->created_at }}</span>
                                     </p>
                                 </div>
                             </div>

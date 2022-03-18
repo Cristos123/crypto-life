@@ -9,7 +9,7 @@
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="{{ route('admin.category') }}" class="nav-link">
+                     <a href="{{ route('admin.category.index') }}" class="nav-link">
                          {{-- <i class="mdi mdi-heart"></i> --}}
                          <span>Category</span>
                      </a>
@@ -21,13 +21,13 @@
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="./account-api.html" class="nav-link">
+                     <a href="{{ route('admin.duration.index') }}" class="nav-link">
                          <i class="mdi mdi-heart"></i>
-                         <span>Deposite</span>
+                         <span>Duration</span>
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="./account-affiliate.html" class="nav-link">
+                     <a href="{{ route('admin.investment.index') }}" class="nav-link">
                          <i class="mdi mdi-diamond"></i>
                          <span>Investment</span>
                      </a>
