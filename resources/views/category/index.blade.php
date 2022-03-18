@@ -11,7 +11,7 @@
                 <div class="col-xl-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Transactions History</h4>
+                            <h4 class="card-title">Categories History</h4>
                             <a href="{{ route('admin.create-category') }}" class="btn btn-primary">Create New Category</a>
                         </div>
                         <div class="card-body">

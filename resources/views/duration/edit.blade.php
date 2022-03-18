@@ -1,6 +1,6 @@
 @extends('layout.app-dashboard')
 
-@section('title', 'Edit Asset')
+@section('title', 'Edit Duration')
 
 @section('content')
 
@@ -13,11 +13,11 @@
                     </div>
                     <div class="auth-form card">
                         <div class="card-header justify-content-center">
-                            <h4 class="card-title">Edit asset</h4>
+                            <h4 class="card-title">Create Duration</h4>
                         </div>
                         <div class="card-body">
 
-                            <form action="{{ route('admin.update-asset', $asset) }}" method="POST">
+                            <form action="{{ route('admin.update', $duration) }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 @if (session()->has('message'))
@@ -27,7 +27,7 @@
                                 @endif
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input type="text" value="{{ $asset->name }}" placeholder="Asset Name"
+                                    <input type="text" value="{{ $duration->name }}" placeholder="Duration Name"
                                         class="form-control @error('name') is-invalid @enderror" name="name">
                                     @error('name')
                                         <div class="invalid-feedback d-block">
@@ -36,10 +36,10 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label>Currency</label>
-                                    <input type="text" value="{{ $asset->currency }}" placeholder="Type your currency"
-                                        class="form-control @error('currency') is-invalid @enderror" name="currency">
-                                    @error('currency')
+                                    <label>Duration</label>
+                                    <input type="text" value="{{ $duration->duration }}" placeholder="Type your duration"
+                                        class="form-control @error('duration') is-invalid @enderror" name="duration">
+                                    @error('duration')
                                         <div class="invalid-feedback d-block">
                                             {{ $message }}
                                         </div>
@@ -51,7 +51,7 @@
                             </form>
                             <div class="new-account mt-3">
                                 {{-- <p class="mb-1">Don't Received? </p> --}}
-                                <a class="text-primary" href="{{ route('admin.asset.index') }}">Go back </a>
+                                <a class="text-primary" href="{{ route('admin.duration.index') }}">Go back </a>
                             </div>
                         </div>
                     </div>

@@ -1,6 +1,6 @@
 @extends('layout.app-dashboard')
 
-@section('title', ' Asset')
+@section('title', ' Duration')
 @section('content')
 
     </div>
@@ -11,8 +11,8 @@
                 <div class="col-xl-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Assets History</h4>
-                            <a href="{{ route('admin.create-asset') }}" class="btn btn-primary">Create New Asset</a>
+                            <h4 class="card-title">Durations</h4>
+                            <a href="{{ route('admin.create') }}" class="btn btn-primary">Create New duration</a>
                         </div>
                         <div class="card-body">
                             <div class="transaction-table">
@@ -21,7 +21,7 @@
                                         <thead>
                                             <tr>
                                                 <th> Name </th>
-                                                <th>Currency </th>
+                                                <th>Duration </th>
                                                 <th>Created Date </th>
                                                 <th class="colSpan2">Action </th>
 
@@ -29,21 +29,21 @@
                                         </thead>
                                         <tbody>
 
-                                            @forelse ($assets as $asset)
+                                            @forelse ($durations as $duration)
                                                 <tr>
 
 
-                                                    <td> {{ $asset->name }} </td>
-                                                    <td> {{ $asset->currency }}</td>
-                                                    <td> {{ $asset->created_at }}</td>
+                                                    <td> {{ $duration->name }} </td>
+                                                    <td> {{ $duration->duration }}</td>
+                                                    <td> {{ $duration->created_at }}</td>
 
                                                     <td>
-                                                        <a href="{{ route('admin.edit-asset', $asset) }}"
+                                                        <a href="{{ route('admin.edit', $duration) }}"
                                                             class="btn btn-warning">Edit</a>
                                                     </td>
                                                     <td>
                                                         <form method="post"
-                                                            action="{{ route('admin.delete-asset', $asset) }}">
+                                                            action="{{ route('admin.delete', $duration) }}">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit" class="btn btn-danger">Delete</button>
@@ -55,7 +55,7 @@
                                                 </tr>
                                             @empty
                                                 <tr>
-                                                    <td class="colspan5">NO Assets created yet</td>
+                                                    <td class="colspan5">NO durations created yet</td>
                                                 </tr>
                                             @endforelse
 

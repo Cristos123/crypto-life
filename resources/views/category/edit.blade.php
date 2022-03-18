@@ -1,6 +1,6 @@
 @extends('layout.app-dashboard')
 
-@section('title', 'Create Category')
+@section('title', 'Edit Category')
 
 @section('content')
 
@@ -13,7 +13,7 @@
                     </div>
                     <div class="auth-form card">
                         <div class="card-header justify-content-center">
-                            <h4 class="card-title">Create category</h4>
+                            <h4 class="card-title">Edit category</h4>
                         </div>
                         <div class="card-body">
 

@@ -6,6 +6,8 @@ use App\Http\Controllers\UniversalController;
 use App\Http\Controllers\KYCController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AssetController;
+use App\Http\Controllers\DurationController;
+use App\Http\Controllers\InvestmentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -75,6 +77,23 @@ Route::group(['prefix' => 'admin'], function () {
         'update' => 'admin.update-asset',
 
         'destroy' => 'admin.delete-asset',
+    ]);
+    Route::resource('duration', DurationController::class)->names([
+        'index' => 'admin.duration.index',
+        'edit' => 'admin.edit',
+        'update' => 'admin.update',
+        'create' => 'admin.create',
+        'store' => 'admin.store',
+        'destroy' => 'admin.delete',
+    ]);
+    Route::resource('investment', InvestmentController::class)->names([
+        'index' => 'admin.investment.index',
+        'show' => 'admin.show-investment',
+        'edit' => 'admin.edit-investment',
+        'update' => 'admin.update-investment',
+        'create' => 'admin.create-investment',
+        'store' => 'admin.store-investment',
+        // 'destroy' => 'admin.delete',
     ]);
 });
 
