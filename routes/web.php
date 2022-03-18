@@ -37,7 +37,7 @@ Route::get('/admin-dashboard', [KYCController::class, 'index'])->name(
 Route::group(['prefix' => 'admin'], function () {
     //category routes
     Route::resource('category', CategoryController::class)->names([
-        'index' => 'admin.category',
+        'index' => 'admin.category.index',
         'create' => 'admin.create-category',
         'store' => 'admin.store-category',
         'update' => 'admin.update-category',

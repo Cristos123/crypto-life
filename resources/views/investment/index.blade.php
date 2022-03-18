@@ -68,7 +68,7 @@
                                                 </tr>
                                             @empty
                                                 <tr>
-                                                    <td class="colspan5">NO durations created yet</td>
+                                                    <td class="colspan8">NO durations created yet</td>
                                                 </tr>
                                             @endforelse
 
