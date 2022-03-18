@@ -12,7 +12,8 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title">Durations</h4>
-                            <a href="{{ route('admin.create') }}" class="btn btn-primary">Create New Investment</a>
+                            <a href="{{ route('admin.create-investment') }}" class="btn btn-primary">Create New
+                                Investment</a>
                         </div>
                         <div class="card-body">
                             <div class="transaction-table">

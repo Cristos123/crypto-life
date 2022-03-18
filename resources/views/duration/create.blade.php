@@ -21,7 +21,7 @@
                                     {{ session()->get('message') }}
                                 </div>
                             @endif
-                            <form action="{{ route('admin.store') }}" method="POST">
+                            <form action="{{ route('admin.store-duration') }}" method="POST">
                                 @csrf
 
                                 <div class="form-group">

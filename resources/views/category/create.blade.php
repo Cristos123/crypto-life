@@ -21,7 +21,7 @@
                                     {{ session()->get('message') }}
                                 </div>
                             @endif
-                            <form action="{{ route('admin.create-category') }}" method="POST">
+                            <form action="{{ route('admin.store-category') }}" method="POST">
                                 @csrf
 
                                 <div class="form-group">

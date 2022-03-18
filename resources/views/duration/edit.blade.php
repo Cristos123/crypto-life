@@ -17,7 +17,7 @@
                         </div>
                         <div class="card-body">
 
-                            <form action="{{ route('admin.update', $duration) }}" method="POST">
+                            <form action="{{ route('admin.update-duration', $duration) }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 @if (session()->has('message'))

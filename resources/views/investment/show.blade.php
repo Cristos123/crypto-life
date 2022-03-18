@@ -1,6 +1,6 @@
 @extends('layout.app-dashboard')
 
-@section('title', 'show KYC')
+@section('title', 'show Investment')
 
 @section('content')
 

@@ -21,7 +21,7 @@
                                     {{ session()->get('message') }}
                                 </div>
                             @endif
-                            <form action="{{ route('admin.create-asset') }}" method="POST">
+                            <form action="{{ route('admin.store-asset') }}" method="POST">
                                 @csrf
 
                                 <div class="form-group">

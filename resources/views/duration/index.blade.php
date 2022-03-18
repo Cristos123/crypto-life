@@ -12,7 +12,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title">Durations</h4>
-                            <a href="{{ route('admin.create') }}" class="btn btn-primary">Create New duration</a>
+                            <a href="{{ route('admin.create-duration') }}" class="btn btn-primary">Create New duration</a>
                         </div>
                         <div class="card-body">
                             <div class="transaction-table">
@@ -38,12 +38,12 @@
                                                     <td> {{ $duration->created_at }}</td>
 
                                                     <td>
-                                                        <a href="{{ route('admin.edit', $duration) }}"
+                                                        <a href="{{ route('admin.edit-duration', $duration) }}"
                                                             class="btn btn-warning">Edit</a>
                                                     </td>
                                                     <td>
                                                         <form method="post"
-                                                            action="{{ route('admin.delete', $duration) }}">
+                                                            action="{{ route('admin.delete-duration', $duration) }}">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit" class="btn btn-danger">Delete</button>

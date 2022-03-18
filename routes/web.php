@@ -35,7 +35,7 @@ Route::get('/admin-dashboard', [KYCController::class, 'index'])->name(
 
 // categories route
 
-Route::get('/admin.create-category', [
+/* Route::get('/admin.create-category', [
     CategoryController::class,
     'create',
 ])->name('admin.create-category');
@@ -60,32 +60,48 @@ Route::delete('/admin.category/{category}', [
 Route::post('/admin.create-category', [
     CategoryController::class,
     'store',
-])->name('admin.create-category');
+])->name('admin.create-category'); */
 
 //assets route
 Route::group(['prefix' => 'admin'], function () {
-    Route::get('/create-asset', [AssetController::class, 'create'])->name(
-        'admin.create-asset'
-    );
-    Route::post('/create-asset', [AssetController::class, 'store'])->name(
-        'admin.create-asset'
-    );
+    // Route::get('/create-asset', [AssetController::class, 'create'])->name(
+    //     'admin.create-asset'
+    // );
+    // Route::post('/create-asset', [AssetController::class, 'store'])->name(
+    //     'admin.create-asset'
+    // );
 
+    //category routes
+    Route::resource('category', CategoryController::class)->names([
+        'index' => 'admin.category',
+        'create' => 'admin.create-category',
+        'store' => 'admin.store-category',
+        'update' => 'admin.update-category',
+        'edit' => 'admin.edit-category',
+        'destroy' => 'admin.delete-category',
+    ]);
+
+    //Asset routes
     Route::resource('asset', AssetController::class)->names([
         'index' => 'admin.asset.index',
         'edit' => 'admin.edit-asset',
         'update' => 'admin.update-asset',
-
+        'store' => 'admin.store-asset',
+        'create' => 'admin.create-asset',
         'destroy' => 'admin.delete-asset',
     ]);
+
+    //Duration routes
     Route::resource('duration', DurationController::class)->names([
         'index' => 'admin.duration.index',
-        'edit' => 'admin.edit',
-        'update' => 'admin.update',
-        'create' => 'admin.create',
-        'store' => 'admin.store',
-        'destroy' => 'admin.delete',
+        'edit' => 'admin.edit-duration',
+        'update' => 'admin.update-duration',
+        'create' => 'admin.create-duration',
+        'store' => 'admin.store-duration',
+        'destroy' => 'admin.delete-duration',
     ]);
+
+    //Investment routes
     Route::resource('investment', InvestmentController::class)->names([
         'index' => 'admin.investment.index',
         'show' => 'admin.show-investment',
