@@ -52,7 +52,7 @@
                             </form>
                             <div class="new-account mt-3">
                                 {{-- <p class="mb-1">Don't Received? </p> --}}
-                                <a class="text-primary" href="{{ route('admin.category') }}">Go back </a>
+                                <a class="text-primary" href="{{ route('admin.category.index') }}">Go back </a>
                             </div>
                         </div>
                     </div>
