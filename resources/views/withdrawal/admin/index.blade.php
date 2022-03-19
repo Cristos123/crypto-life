@@ -24,11 +24,11 @@
                                                 <th> Amount </th>
                                                 <th>Balance </th>
                                                 <th>Amount </th>
-                                                <th>AssetID </th>
+                                                <th>Asset </th>
                                                 <th>Reference </th>
                                                 <th> User Name </th>
                                                 <th>Created Date </th>
-                                                <th class="colSpan3">Action </th>
+                                                <th>Action </th>
 
                                             </tr>
                                         </thead>
@@ -57,7 +57,7 @@
                                                 </tr>
                                             @empty
                                                 <tr>
-                                                    <td class="colspan9">NO durations created yet</td>
+                                                    <td colspan="9" class="text-center">NO withdrawals History yet</td>
                                                 </tr>
                                             @endforelse
 

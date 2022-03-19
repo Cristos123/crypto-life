@@ -1,6 +1,6 @@
 @extends('layout.app-dashboard')
 
-@section('title', ' Duration')
+@section('title', ' Withdrawal')
 @section('content')
 
     </div>
@@ -24,12 +24,11 @@
                                                 <th> Status </th>
                                                 <th> Amount </th>
                                                 <th>Balance </th>
-                                                <th>Amount </th>
-                                                <th>AssetID </th>
-                                                <th>refernce </th>
+                                                <th>Asset </th>
+                                                <th>Reference </th>
                                                 <th> User Name </th>
                                                 <th>Created Date </th>
-                                                <th class="colSpan3">Action </th>
+
 
                                             </tr>
                                         </thead>
@@ -43,35 +42,18 @@
                                                         {{ status($withdrawal->status) }} </td>
                                                     <td> {{ toMoney($withdrawal->amount) }} </td>
                                                     <td> {{ toMoney($withdrawal->balance) }}</td>
-                                                    <td> {{ $withdrawal->amount }}</td>
-                                                    <td> {{ $withdrawal->asset_id }}</td>
+
+                                                    <td> {{ $withdrawal->asset->name }}</td>
                                                     <td> {{ $withdrawal->reference }}</td>
                                                     <td> {{ $withdrawal->user->fullname }}</td>
                                                     <td> {{ $withdrawal->created_at }}</td>
 
-                                                    {{-- <td>
-                                                        <a href="{{ route('admin.edit-withdrawal', $withdrawal) }}"
-                                                            class="btn btn-warning">Edit</a>
-                                                    </td>
-                                                    <td>
-                                                        <a href="{{ route('admin.show-withdrawal', $withdrawal) }}"
-                                                            class="btn btn-info">Show</a>
-                                                    </td> --}}
-                                                    <td>
-                                                        {{-- <form method="post"
-                                                            action="{{ route('admin.delete', $withdrawal) }}">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                                        </form> --}}
 
-
-                                                    </td>
 
                                                 </tr>
                                             @empty
                                                 <tr>
-                                                    <td class="colspan8">NO durations created yet</td>
+                                                    <td colspan="8" class="text-center">NO Withdrawal created yet</td>
                                                 </tr>
                                             @endforelse
 

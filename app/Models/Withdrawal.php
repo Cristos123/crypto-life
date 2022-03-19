@@ -13,9 +13,8 @@ class Withdrawal extends Model
         'asset_id',
         'amount',
         'balance',
+        'withdrawal_address',
         'reference',
-        'address',
-        'status',
     ];
     /**
      * Get the user that owns the Withdrawal

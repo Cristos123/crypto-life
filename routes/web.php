@@ -42,14 +42,16 @@ Route::get('/admin-dashboard', [KYCController::class, 'index'])->name(
 //     'withdrawal'
 // );
 
-Route::resource('withdrawal', WithdrawalController::class)->names([
-    'index' => 'admin.withdrawal.index',
-    'create' => 'admin.withdrawal.create',
-    'store' => 'admin.withdrawal.store',
-    'update' => 'admin.withdrawal.update',
-    'edit' => 'admin.withdrawal.edit',
-    'destroy' => 'admin.withdrawal.delete',
-]);
+Route::resource('withdrawal', WithdrawalController::class)
+    ->names([
+        'index' => 'admin.withdrawal.index',
+        'create' => 'admin.withdrawal.create',
+        'store' => 'admin.withdrawal.store',
+        'update' => 'admin.withdrawal.update',
+        'edit' => 'admin.withdrawal.edit',
+        'destroy' => 'admin.withdrawal.delete',
+    ])
+    ->middleware(['auth']);
 
 //assets route
 Route::group(['prefix' => 'admin'], function () {

@@ -28,7 +28,7 @@ class CreateWithdrawalsTable extends Migration
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('set null');
-            $table->string('address');
+            $table->string('withdrawal_address');
             $table->unsignedBigInteger('amount');
             $table->unsignedBigInteger('balance');
             $table

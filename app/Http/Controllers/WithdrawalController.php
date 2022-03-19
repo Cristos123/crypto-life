@@ -16,7 +16,11 @@ class WithdrawalController extends Controller
      */
     public function index()
     {
-        $withdrawals = Withdrawal::paginate(25);
+        // $withdrawals = auth()->user()->withdrawals;
+        // $withdrawals = Withdrawal::find(auth()->user()->id);
+        $withdrawals = Withdrawal::where('user_id', auth()->user()->id)->get();
+        // dd($withdrawals);
+        // $withdrawals = Withdrawal::paginate(25);
         return view('withdrawal.index', compact('withdrawals'));
     }
 
@@ -74,7 +78,7 @@ class WithdrawalController extends Controller
             'asset_id' => $asset_id,
             'reference' => $reference,
         ]);
-        $withdrawal = Withdrawal::create([$request->all()]);
+        $withdrawal = Withdrawal::create($request->all());
         $user->withdrawals()->save($withdrawal);
 
         return back()->with(
