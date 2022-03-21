@@ -85,8 +85,9 @@ Route::group(['prefix' => 'admin'], function () {
         'destroy' => 'admin.delete-asset',
     ]);
     Route::resource('payment-address', PaymentAddressController::class)->names([
-        'index' => 'admin.asset.index',
-        'edit' => 'admin.edit-asset',
+        'index' => 'admin.payment-address.index',
+        'edit' => 'admin.payment-address.edit',
+        'show' => 'admin.payment-address.show',
         'update' => 'admin.update-asset',
         'store' => 'admin.payment-address.store',
         'create' => 'admin.payment-address.create',

@@ -11,7 +11,7 @@
                 <div class="col-xl-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Durations</h4>
+                            <h4 class="card-title">Investment History</h4>
                             <a href="{{ route('admin.create-investment') }}" class="btn btn-primary">Create New
                                 Investment</a>
                         </div>

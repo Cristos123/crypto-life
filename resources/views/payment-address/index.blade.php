@@ -1,6 +1,6 @@
 @extends('layout.app-dashboard')
 
-@section('title', ' Duration')
+@section('title', ' Payment Address')
 @section('content')
 
     </div>
@@ -11,9 +11,9 @@
                 <div class="col-xl-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Durations</h4>
-                            <a href="{{ route('admin.create-investment') }}" class="btn btn-primary">Create New
-                                Investment</a>
+                            <h4 class="card-title">Payment Address</h4>
+                            <a href="{{ route('admin.payment-address.create') }}" class="btn btn-primary">Create New
+                                Payment Address</a>
                         </div>
                         <div class="card-body">
                             <div class="transaction-table">
@@ -21,46 +21,46 @@
                                     <table class="table table-striped mb-0 table-responsive-sm">
                                         <thead>
                                             <tr>
-                                                <th> Name </th>
-                                                <th>Rate </th>
-                                                <th>Amount </th>
-                                                <th>AssetID </th>
-                                                <th>CategoryID </th>
-                                                <th>DurationID </th>
+
+                                                <th>Asset </th>
+                                                <th>Payment address </th>
+                                                <th>Default Address </th>
                                                 <th>Created Date </th>
-                                                <th colspan="2">Action </th>
+                                                <th colspan="">Action </th>
 
                                             </tr>
                                         </thead>
                                         <tbody>
 
-                                            @forelse ($investments as $investment)
+                                            @forelse ($paymentAddresses as $paymentAddress)
                                                 <tr>
 
 
-                                                    <td class="{{ statusColor($funding->status) }}">
-                                                        {{ status($investment->name) }} </td>
-                                                    <td> {{ $investment->rate }}</td>
-                                                    <td> {{ $investment->amount }}</td>
-                                                    <td> {{ $investment->asset_id }}</td>
-                                                    <td> {{ $investment->category_id }}</td>
-                                                    <td> {{ $investment->duration_id }}</td>
-                                                    <td> {{ $investment->created_at }}</td>
+
+                                                    <td> {{ $paymentAddress->asset->name }}</td>
+                                                    <td> {{ $paymentAddress->address }}</td>
+                                                    <td> {{ $paymentAddress->default == true ? 'True' : 'False' }}</td>
+                                                    <td> {{ $paymentAddress->created_at }}</td>
 
                                                     <td>
-                                                        <a href="{{ route('admin.edit-investment', $investment) }}"
+                                                        <a href="{{ route('admin.payment-address.edit', $paymentAddress) }}"
                                                             class="btn btn-warning">Edit</a>
                                                     </td>
                                                     <td>
-                                                        <a href="{{ route('admin.show-investment', $investment) }}"
+                                                        <a href="{{ route('admin.payment-address.show', $paymentAddress) }}"
                                                             class="btn btn-info">Show</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="{{ route('admin.payment-address.show', $paymentAddress) }}"
+                                                            class="btn btn-danger">Delete</a>
                                                     </td>
 
 
                                                 </tr>
                                             @empty
                                                 <tr>
-                                                    <td colspan="9" class="text-center">NO investment created yet</td>
+                                                    <td colspan="9" class="text-center">NO payment address created yet
+                                                    </td>
                                                 </tr>
                                             @endforelse
 

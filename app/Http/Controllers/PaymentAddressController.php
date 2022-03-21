@@ -15,7 +15,8 @@ class PaymentAddressController extends Controller
      */
     public function index()
     {
-        //
+        $paymentAddresses = paymentAddress::paginate(25);
+        return view('payment-address.index', compact('paymentAddresses'));
     }
 
     /**
@@ -42,13 +43,13 @@ class PaymentAddressController extends Controller
             'asset_id' => ['required', 'string'],
         ]);
 
-        $asset = Asset::find($request->assetId);
+        $asset = Asset::find($request->asset_id);
         $paymentAddress = PaymentAddress::create([
             'address' => $request['payment_address'],
         ]);
 
         $paymentAddress->asset()->associate($asset);
-
+        $paymentAddress->save();
         return redirect()
             ->back()
             ->with('message', 'payment address created  successfully!');
