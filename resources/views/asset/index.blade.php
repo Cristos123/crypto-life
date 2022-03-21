@@ -55,7 +55,7 @@
                                                 </tr>
                                             @empty
                                                 <tr>
-                                                    <td class="colspan6">NO Assets created yet</td>
+                                                    <td colspan="5" class="text-center">NO Assets created yet</td>
                                                 </tr>
                                             @endforelse
 

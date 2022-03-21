@@ -8,6 +8,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AssetController;
 use App\Http\Controllers\DurationController;
 use App\Http\Controllers\InvestmentController;
+use App\Http\Controllers\WithdrawalController;
+use App\Http\Controllers\AdminWithdrawalController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,6 +35,24 @@ Route::get('/admin-dashboard', [KYCController::class, 'index'])->name(
     'admin.dashboard'
 );
 
+// Route::get('withdrawal', [WithdrawalController::class, 'create'])->name(
+//     'withdrawal'
+// );
+// Route::get('withdrawal', [WithdrawalController::class, 'create'])->name(
+//     'withdrawal'
+// );
+
+Route::resource('withdrawal', WithdrawalController::class)
+    ->names([
+        'index' => 'admin.withdrawal.index',
+        'create' => 'admin.withdrawal.create',
+        'store' => 'admin.withdrawal.store',
+        'update' => 'admin.withdrawal.update',
+        'edit' => 'admin.withdrawal.edit',
+        'destroy' => 'admin.withdrawal.delete',
+    ])
+    ->middleware(['auth']);
+
 //assets route
 Route::group(['prefix' => 'admin'], function () {
     //category routes
@@ -45,6 +65,15 @@ Route::group(['prefix' => 'admin'], function () {
         'destroy' => 'admin.delete-category',
     ]);
 
+    //admin withdrawal route
+    Route::resource('withdrawal', AdminWithdrawalController::class)->names([
+        'index' => 'admin.withdrawal.index',
+        'show' => 'admin.withdrawal.show',
+        // 'store' => 'admin.store-category',
+        'update' => 'admin.withdrawal.update',
+        // 'edit' => 'admin.edit-category',
+        // 'destroy' => 'admin.delete-category',
+    ]);
     //Asset routes
     Route::resource('asset', AssetController::class)->names([
         'index' => 'admin.asset.index',

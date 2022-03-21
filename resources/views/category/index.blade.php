@@ -23,7 +23,7 @@
                                                 <th> Name </th>
                                                 <th>Description </th>
                                                 <th>Created Date </th>
-                                                <th class="colSpan2">Action </th>
+                                                <th colspan="2">Action </th>
 
                                             </tr>
                                         </thead>
@@ -55,7 +55,7 @@
                                                 </tr>
                                             @empty
                                                 <tr>
-                                                    <td class="colspan6">NO Categories</td>
+                                                    <td colspan="5" class="text-center">NO Categories created yet</td>
                                                 </tr>
                                             @endforelse
 

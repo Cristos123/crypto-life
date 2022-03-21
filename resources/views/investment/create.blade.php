@@ -33,7 +33,7 @@
                                             {{ $message }}
                                         </div>
                                     @enderror
-                                </div>
+                                </div> <br>
 
                                 <div class="form-group ">
                                     <label class="mr-sm-2">Assets</label>
@@ -52,7 +52,7 @@
                                             {{ $message }}
                                         </div>
                                     @enderror
-                                </div>
+                                </div><br>
                                 <div class="form-group">
                                     <label class="mr-sm-2">Category</label>
                                     <select class="form-control @error('type') is-invalid @enderror" id="selected_type"
@@ -70,7 +70,7 @@
                                             {{ $message }}
                                         </div>
                                     @enderror
-                                </div>
+                                </div><br>
                                 <div class="form-group">
                                     <label class="mr-sm-2">Duration</label>
                                     <select class="form-control @error('type') is-invalid @enderror" id="selected_type"

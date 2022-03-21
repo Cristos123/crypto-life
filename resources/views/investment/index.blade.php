@@ -28,7 +28,7 @@
                                                 <th>CategoryID </th>
                                                 <th>DurationID </th>
                                                 <th>Created Date </th>
-                                                <th class="colSpan3">Action </th>
+                                                <th colspan="2">Action </th>
 
                                             </tr>
                                         </thead>
@@ -38,7 +38,8 @@
                                                 <tr>
 
 
-                                                    <td> {{ $investment->name }} </td>
+                                                    <td class="{{ statusColor($funding->status) }}">
+                                                        {{ status($investment->name) }} </td>
                                                     <td> {{ $investment->rate }}</td>
                                                     <td> {{ $investment->amount }}</td>
                                                     <td> {{ $investment->asset_id }}</td>
@@ -54,21 +55,12 @@
                                                         <a href="{{ route('admin.show-investment', $investment) }}"
                                                             class="btn btn-info">Show</a>
                                                     </td>
-                                                    <td>
-                                                        {{-- <form method="post"
-                                                            action="{{ route('admin.delete', $investment) }}">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                                        </form> --}}
 
-
-                                                    </td>
 
                                                 </tr>
                                             @empty
                                                 <tr>
-                                                    <td class="colspan8">NO durations created yet</td>
+                                                    <td colspan="9" class="text-center">NO investment created yet</td>
                                                 </tr>
                                             @endforelse
 

@@ -15,4 +15,13 @@ class Asset extends Model
     {
         return $this->hasMany(Investment::class);
     }
+    /**
+     * Get the withdrawal associated with the Asset
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function withdrawal(): HasMany
+    {
+        return $this->hasMany(Withdrawal::class);
+    }
 }
