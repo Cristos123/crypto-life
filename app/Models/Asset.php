@@ -18,10 +18,10 @@ class Asset extends Model
     /**
      * Get the withdrawal associated with the Asset
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function withdrawal(): HasOne
+    public function withdrawal(): HasMany
     {
-        return $this->hasOne(Withdrawal::class);
+        return $this->hasMany(Withdrawal::class);
     }
 }

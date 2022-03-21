@@ -18,7 +18,10 @@ class WithdrawalController extends Controller
     {
         // $withdrawals = auth()->user()->withdrawals;
         // $withdrawals = Withdrawal::find(auth()->user()->id);
-        $withdrawals = Withdrawal::where('user_id', auth()->user()->id)->get();
+        $withdrawals = Withdrawal::where(
+            'user_id',
+            auth()->user()->id
+        )->paginate(25);
         // dd($withdrawals);
         // $withdrawals = Withdrawal::paginate(25);
         return view('withdrawal.index', compact('withdrawals'));
