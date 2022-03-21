@@ -52,7 +52,7 @@ class PaymentAddressController extends Controller
         $paymentAddress->save();
         return redirect()
             ->back()
-            ->with('message', 'payment address created  successfully!');
+            ->with('success', 'payment address created  successfully!');
     }
 
     /**
@@ -93,7 +93,7 @@ class PaymentAddressController extends Controller
         // dd($paymentAddress);
         return redirect()
             ->back()
-            ->with('message', 'Payment address  updated  successfully!');
+            ->with('success', 'Payment address  updated  successfully!');
     }
 
     /**

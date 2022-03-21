@@ -53,7 +53,7 @@ class CategoryController extends Controller
 
         return redirect()
             ->back()
-            ->with('message', 'Category created  successfully!');
+            ->with('success', 'Category created  successfully!');
     }
 
     /**
@@ -95,7 +95,7 @@ class CategoryController extends Controller
         $category->save();
         return redirect()
             ->back()
-            ->with('message', 'Category   updated successfully!');
+            ->with('success', 'Category   updated successfully!');
     }
 
     /**

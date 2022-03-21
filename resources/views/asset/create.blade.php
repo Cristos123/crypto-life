@@ -16,11 +16,7 @@
                             <h4 class="card-title">Create Assets</h4>
                         </div>
                         <div class="card-body">
-                            @if (session()->has('message'))
-                                <div class="alert alert-success">
-                                    {{ session()->get('message') }}
-                                </div>
-                            @endif
+                            @include('layout.partials.errors')
                             <form action="{{ route('admin.store-asset') }}" method="POST">
                                 @csrf
 

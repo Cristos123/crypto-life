@@ -54,7 +54,7 @@ class DurationController extends Controller
 
         return redirect()
             ->back()
-            ->with('message', 'Duration created  successfully!');
+            ->with('success', 'Duration created  successfully!');
     }
 
     /**
@@ -98,7 +98,7 @@ class DurationController extends Controller
         $duration->save();
         return redirect()
             ->back()
-            ->with('message', 'Duration   updated succesfully!');
+            ->with('success', 'Duration   updated succesfully!');
     }
 
     /**

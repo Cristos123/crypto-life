@@ -20,11 +20,7 @@
                             <form action="{{ route('admin.update-category', $category) }}" method="POST">
                                 @csrf
                                 @method('PUT')
-                                @if (session()->has('message'))
-                                    <div class="alert alert-success">
-                                        {{ session()->get('message') }}
-                                    </div>
-                                @endif
+                                @include('layout.partials.errors')
                                 <div class="form-group">
                                     <label>Name</label>
                                     <input type="text" value="{{ $category->name }}" placeholder="Category Name"

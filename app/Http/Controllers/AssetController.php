@@ -54,7 +54,7 @@ class AssetController extends Controller
 
         return redirect()
             ->back()
-            ->with('message', 'Asset created  successfully!');
+            ->with('success', 'Asset created  successfully!');
     }
 
     /**
@@ -101,7 +101,7 @@ class AssetController extends Controller
         $asset->save();
         return redirect()
             ->back()
-            ->with('message', 'Asset   updated succesfully!');
+            ->with('success', 'Asset   updated succesfully!');
     }
 
     /**

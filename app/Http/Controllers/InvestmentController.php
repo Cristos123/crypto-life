@@ -73,7 +73,7 @@ class InvestmentController extends Controller
         $investment->save();
         return redirect()
             ->back()
-            ->with('message', 'Investment  created  successfully!');
+            ->with('success', 'Investment  created  successfully!');
     }
 
     /**
@@ -140,7 +140,7 @@ class InvestmentController extends Controller
 
             return redirect()
                 ->back()
-                ->with('message', 'Investment  updated  successfully!');
+                ->with('success', 'Investment  updated  successfully!');
         }
         return redirect()->back();
     }
