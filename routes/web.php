@@ -81,6 +81,7 @@ Route::group(['prefix' => 'admin'], function () {
         'edit' => 'admin.edit-asset',
         'update' => 'admin.update-asset',
         'store' => 'admin.store-asset',
+        'show' => 'admin.asset.show',
         'create' => 'admin.create-asset',
         'destroy' => 'admin.delete-asset',
     ]);

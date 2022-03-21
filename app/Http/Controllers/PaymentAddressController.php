@@ -104,6 +104,7 @@ class PaymentAddressController extends Controller
      */
     public function destroy(PaymentAddress $paymentAddress)
     {
-        //
+        $paymentAddress->delete();
+        return redirect()->back();
     }
 }

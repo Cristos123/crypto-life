@@ -42,6 +42,10 @@
                                                             class="btn btn-warning">Edit</a>
                                                     </td>
                                                     <td>
+                                                        <a href="{{ route('admin.asset.show', $asset) }}"
+                                                            class="btn btn-primary">View</a>
+                                                    </td>
+                                                    <td>
                                                         <form method="post"
                                                             action="{{ route('admin.delete-asset', $asset) }}">
                                                             @csrf

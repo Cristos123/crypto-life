@@ -66,7 +66,9 @@ class AssetController extends Controller
     public function show(Asset $asset)
     {
         // payment_address
-        $assetWithAdress = asset()->payment_address;
+        $assetWithAdress = $asset->payment_address;
+        // return $assetWithAdress;
+        return view('asset.show-address', compact('assetWithAdress'));
     }
 
     /**

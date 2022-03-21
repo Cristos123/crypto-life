@@ -46,13 +46,15 @@
                                                         <a href="{{ route('admin.payment-address.edit', $paymentAddress) }}"
                                                             class="btn btn-warning">Edit</a>
                                                     </td>
+
                                                     <td>
-                                                        <a href="{{ route('admin.payment-address.show', $paymentAddress) }}"
-                                                            class="btn btn-info">Show</a>
-                                                    </td>
-                                                    <td>
-                                                        <a href="{{ route('admin.payment-address.show', $paymentAddress) }}"
-                                                            class="btn btn-danger">Delete</a>
+                                                        <form method="post"
+                                                            action="{{ route('admin.payment-address.show', $paymentAddress) }}">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                                        </form>
+
                                                     </td>
 
 
