@@ -131,10 +131,6 @@ class InvestmentController extends Controller
                 $investment->save();
             }
         } else {
-            //  $duration = Duration::find($request->durationId);
-            // $asset = Asset::find($request->assetId);
-            // $category = Category::find($request->categoryId);
-
             $request->validate([
                 'rate' => ['required', 'string', 'max:255'],
                 'amount' => ['required', 'string', 'max:255'],

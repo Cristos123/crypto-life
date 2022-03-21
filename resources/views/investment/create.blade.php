@@ -33,7 +33,7 @@
                                             {{ $message }}
                                         </div>
                                     @enderror
-                                </div> <br>
+                                </div>
 
                                 <div class="form-group ">
                                     <label class="mr-sm-2">Assets</label>
@@ -52,7 +52,8 @@
                                             {{ $message }}
                                         </div>
                                     @enderror
-                                </div><br>
+                                </div>
+                                <br>
                                 <div class="form-group">
                                     <label class="mr-sm-2">Category</label>
                                     <select class="form-control @error('type') is-invalid @enderror" id="selected_type"
@@ -70,7 +71,8 @@
                                             {{ $message }}
                                         </div>
                                     @enderror
-                                </div><br>
+                                </div>
+                                <br>
                                 <div class="form-group">
                                     <label class="mr-sm-2">Duration</label>
                                     <select class="form-control @error('type') is-invalid @enderror" id="selected_type"
@@ -89,6 +91,7 @@
                                         </div>
                                     @enderror
                                 </div>
+                                <br>
                                 <div class="form-group">
                                     <label>Rate</label>
                                     <input type="text" value="{{ old('rate') }}" placeholder="Type your rate"

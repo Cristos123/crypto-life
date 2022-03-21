@@ -88,7 +88,7 @@ class PaymentAddressController extends Controller
         $request->validate([
             'address' => ['required', 'string', 'max:255'],
         ]);
-        $request->all();
+
         $paymentAddress->update($request->all());
         // dd($paymentAddress);
         return redirect()
