@@ -10,6 +10,7 @@ use App\Http\Controllers\DurationController;
 use App\Http\Controllers\InvestmentController;
 use App\Http\Controllers\WithdrawalController;
 use App\Http\Controllers\AdminWithdrawalController;
+use App\Http\Controllers\PaymentAddressController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -81,6 +82,14 @@ Route::group(['prefix' => 'admin'], function () {
         'update' => 'admin.update-asset',
         'store' => 'admin.store-asset',
         'create' => 'admin.create-asset',
+        'destroy' => 'admin.delete-asset',
+    ]);
+    Route::resource('payment-address', PaymentAddressController::class)->names([
+        'index' => 'admin.asset.index',
+        'edit' => 'admin.edit-asset',
+        'update' => 'admin.update-asset',
+        'store' => 'admin.payment-address.store',
+        'create' => 'admin.payment-address.create',
         'destroy' => 'admin.delete-asset',
     ]);
 

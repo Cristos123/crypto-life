@@ -24,4 +24,8 @@ class Asset extends Model
     {
         return $this->hasMany(Withdrawal::class);
     }
+    public function payment_address(): HasMany
+    {
+        return $this->hasMany(PaymentAddress::class);
+    }
 }
