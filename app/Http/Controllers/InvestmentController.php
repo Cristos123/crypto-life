@@ -138,16 +138,9 @@ class InvestmentController extends Controller
             $request->validate([
                 'rate' => ['required', 'string', 'max:255'],
                 'amount' => ['required', 'string', 'max:255'],
-                // 'categoryId' => ['required', 'string', 'max:255'],
-                // 'assetId' => ['required', 'string'],
-                // 'durationId' => ['required', 'string'],
             ]);
-            // return $request->all();
-            $investment = Investment::create([
-                'name' => $request['name'],
-                'rate' => $request['rate'],
-                'amount' => $request['amount'],
-            ]);
+
+            $investment->update($request->all());
 
             return redirect()
                 ->back()

@@ -84,11 +84,17 @@ Route::group(['prefix' => 'admin'], function () {
         'create' => 'admin.create-asset',
         'destroy' => 'admin.delete-asset',
     ]);
+    //payment address route
+
+    // Route::put('/payment-address.update/{paymentAddress}', [
+    //     PaymentAddressController::class,
+    //     'update',
+    // ])->name('admin.payment-address.update');
     Route::resource('payment-address', PaymentAddressController::class)->names([
         'index' => 'admin.payment-address.index',
         'edit' => 'admin.payment-address.edit',
         'show' => 'admin.payment-address.show',
-        'update' => 'admin.update-asset',
+        'update' => 'admin.payment-address.update',
         'store' => 'admin.payment-address.store',
         'create' => 'admin.payment-address.create',
         'destroy' => 'admin.delete-asset',

@@ -63,7 +63,6 @@ class PaymentAddressController extends Controller
      */
     public function show(PaymentAddress $paymentAddress)
     {
-        //
     }
 
     /**
@@ -74,7 +73,7 @@ class PaymentAddressController extends Controller
      */
     public function edit(PaymentAddress $paymentAddress)
     {
-        //
+        return view('payment-address.edit', compact('paymentAddress'));
     }
 
     /**
@@ -86,7 +85,15 @@ class PaymentAddressController extends Controller
      */
     public function update(Request $request, PaymentAddress $paymentAddress)
     {
-        //
+        $request->validate([
+            'address' => ['required', 'string', 'max:255'],
+        ]);
+        $request->all();
+        $paymentAddress->update($request->all());
+        // dd($paymentAddress);
+        return redirect()
+            ->back()
+            ->with('message', 'Payment address  updated  successfully!');
     }
 
     /**

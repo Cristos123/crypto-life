@@ -1,6 +1,6 @@
 @extends('layout.app-dashboard')
 
-@section('title', 'Edit Investment')
+@section('title', 'Edit Payment Address')
 
 @section('content')
 
@@ -21,103 +21,48 @@
                                     {{ session()->get('message') }}
                                 </div>
                             @endif
-                            <form action="{{ route('admin.update-investment', $investment) }}" method="POST">
+                            <form action="{{ route('admin.payment-address.update', $paymentAddress) }}" method="POST">
                                 @csrf
                                 @method('PUT')
-                                <div class="form-group">
-                                    <label>Name</label>
-                                    <input type="text" value="{{ $investment->name }}" placeholder="Investment Name"
-                                        class="form-control @error('name') is-invalid @enderror" name="name">
-                                    @error('name')
-                                        <div class="invalid-feedback d-block">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
+
 
                                 <div class="form-group ">
                                     <label class="mr-sm-2">Assets</label>
-                                    <select class="form-control @error('type') is-invalid @enderror" id="selected_type"
-                                        required name="assetId">
+                                    <select class="form-control @error('asset_id') is-invalid @enderror" id="selected_type"
+                                        required name="asset_id">
                                         <option value="select">Select</option>
-                                        <option value="{{ $asset ?? '' }}"> {{ $investment->asset->name }} </option>
-                                        {{-- @forelse ($asset ?? ''s as $asset ?? '')
-                                        @empty
-                                        @endforelse --}}
+                                        <option value="{{ $paymentAddress->asset->id }}">
+                                            {{ $paymentAddress->asset->name }} </option>
+
 
 
                                     </select>
-                                    @error('type')
+                                    @error('asset_id')
                                         <div class="invalid-feedback d-block">
                                             {{ $message }}
                                         </div>
                                     @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label class="mr-sm-2">Category</label>
-                                    <select class="form-control @error('type') is-invalid @enderror" id="selected_type"
-                                        required name="categoryId">
-                                        <option value="select">Select</option>
-                                        <option value="{{ $category ?? '' }}"> {{ $investment->category->name }}
-                                        </option>
-                                        {{-- @forelse ($categories as $category)
-                                        @empty
-                                        @endforelse --}}
+                                </div><br>
 
 
-                                    </select>
-                                    @error('type')
-                                        <div class="invalid-feedback d-block">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
                                 <div class="form-group">
-                                    <label class="mr-sm-2">Duration</label>
-                                    <select class="form-control @error('type') is-invalid @enderror" id="selected_type"
-                                        required name="durationId">
-                                        <option value="select">Select</option>
-                                        <option value="{{ $duration ?? '' }}"> {{ $investment->duration->name }}
-                                        </option>
-                                        {{-- @forelse ($durations as $duration)
-                                        @empty
-                                        @endforelse --}}
-
-
-                                    </select>
-                                    @error('type')
-                                        <div class="invalid-feedback d-block">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label>Rate</label>
-                                    <input type="text" value="{{ $investment->rate }}" placeholder="Type your rate"
-                                        class="form-control @error('rate') is-invalid @enderror" name="rate">
-                                    @error('rate')
-                                        <div class="invalid-feedback d-block">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label>Amount</label>
-                                    <input type="text" value="{{ $investment->amount }}" placeholder="Type your amount"
-                                        class="form-control @error('amount') is-invalid @enderror" name="amount">
-                                    @error('amount')
+                                    <label>payment Address</label>
+                                    <input type="text" value="{{ $paymentAddress->address }}"
+                                        placeholder="Type your payment address"
+                                        class="form-control @error('address') is-invalid @enderror" name="address">
+                                    @error('payment_address')
                                         <div class="invalid-feedback d-block">
                                             {{ $message }}
                                         </div>
                                     @enderror
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-success btn-block">Save</button>
+                                    <button type="submit" class="btn btn-success btn-block">SAve</button>
                                 </div>
                             </form>
                             <div class="new-account mt-3">
                                 {{-- <p class="mb-1">Don't Received? </p> --}}
-                                <a class="text-primary" href="{{ route('admin.investment.index') }}">Go back </a>
+                                <a class="text-primary" href="{{ route('admin.payment-address.index') }}">Go back </a>
                             </div>
                         </div>
                     </div>
