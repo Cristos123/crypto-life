@@ -68,7 +68,7 @@ class PaymentAddressController extends Controller
 
         $paymentAddress->asset()->associate($asset);
         $paymentAddress->save();
-        // dd($paymentAddress);
+
         return redirect()
             ->back()
             ->with('success', 'payment address created  successfully!');
