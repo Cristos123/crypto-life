@@ -62,7 +62,7 @@ class PaymentAddressController extends Controller
         }
 
         $paymentAddress = PaymentAddress::create([
-            'address' => $request['payment_address'],
+            'address' => strtolower($request['payment_address']),
             'default' => true,
         ]);
 
@@ -107,7 +107,18 @@ class PaymentAddressController extends Controller
         $request->validate([
             'address' => ['required', 'string', 'max:255'],
         ]);
-
+        return $request->all();
+        if ($request->default) {
+            if ($paymentAddress->default == false) {
+                $paymentAddress->default = true;
+                $paymentAddress->save();
+                dd($paymentAddress->default);
+            } else {
+                $paymentAddress->default = false;
+                $paymentAddress->save();
+                dd($paymentAddress->default);
+            }
+        }
         $paymentAddress->update($request->all());
         // dd($paymentAddress);
         return redirect()

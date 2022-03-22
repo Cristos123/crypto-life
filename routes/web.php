@@ -76,12 +76,18 @@ Route::group(['prefix' => 'admin'], function () {
         // 'destroy' => 'admin.delete-category',
     ]);
     //Asset routes
+    Route::put('asset/{id}', [
+        AssetController::class,
+        'changeDefaultAddress',
+    ])->name('admin.asset.changeDefaultAddress');
+
     Route::resource('asset', AssetController::class)->names([
         'index' => 'admin.asset.index',
         'edit' => 'admin.edit-asset',
         'update' => 'admin.update-asset',
         'store' => 'admin.store-asset',
         'show' => 'admin.asset.show',
+        'changeDefaultAddress' => 'admin.asset.changeDefaultAddress',
         'create' => 'admin.create-asset',
         'destroy' => 'admin.delete-asset',
     ]);

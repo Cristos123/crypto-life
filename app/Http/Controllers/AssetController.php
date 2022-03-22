@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Asset;
 use Illuminate\Http\Request;
+use App\Models\PaymentAddress;
 use Illuminate\Validation\Rule;
 
 class AssetController extends Controller
@@ -27,6 +28,35 @@ class AssetController extends Controller
     public function create()
     {
         return view('asset.create');
+    }
+
+    public function changeDefaultAddress(Request $request, $id)
+    {
+        $paymentAddress = PaymentAddress::where('default', true)
+            ->where('asset_id', $request->asset_id)
+            ->get();
+        // return $paymentAddress;
+        foreach ($paymentAddress as $defaultAddress) {
+            if ($defaultAddress->default == true) {
+                $defaultAddress->default = false;
+                $defaultAddress->save();
+            }
+        }
+        $paymentAddress = PaymentAddress::find($id);
+        // return $paymentAddress;
+        // return $request->all();
+        if ($request->default) {
+            if ($paymentAddress->default == false) {
+                $paymentAddress->default = true;
+                $paymentAddress->save();
+                // dd($paymentAddress->default);
+            } else {
+                $paymentAddress->default = false;
+                $paymentAddress->save();
+                // dd($paymentAddress->default);
+            }
+        }
+        return redirect()->back();
     }
 
     /**

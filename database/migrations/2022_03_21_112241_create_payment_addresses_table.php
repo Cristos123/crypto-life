@@ -21,7 +21,7 @@ class CreatePaymentAddressesTable extends Migration
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('set null');
-            $table->string('address');
+            $table->string('address')->unique();
             $table->boolean('default')->default(false);
             $table->timestamps();
         });

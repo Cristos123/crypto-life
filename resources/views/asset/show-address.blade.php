@@ -1,6 +1,6 @@
 @extends('layout.app-dashboard')
 
-@section('title', 'show Investment')
+@section('title', 'show Address')
 
 @section('content')
 
@@ -28,7 +28,7 @@
                                                 <th>Payment address </th>
                                                 <th>Default Address </th>
                                                 <th>Created Date </th>
-                                                <th colspan="">Action </th>
+                                                <th colspan="2">Action </th>
 
                                             </tr>
                                         </thead>
@@ -44,10 +44,29 @@
                                                     <td> {{ $paymentAddress->address }}</td>
                                                     <td> {{ $paymentAddress->default == true ? 'True' : 'False' }}</td>
                                                     <td> {{ $paymentAddress->created_at }}</td>
-
+                                                    {{ $paymentAddress->asset->id }}
                                                     <td>
                                                         <a href="{{ route('admin.payment-address.edit', $paymentAddress) }}"
                                                             class="btn btn-warning">Edit</a>
+                                                    </td>
+                                                    <td>
+                                                        @if ($paymentAddress->default == false)
+                                                            <form method="post"
+                                                                action="{{ route('admin.asset.changeDefaultAddress', $paymentAddress) }}">
+                                                                @csrf
+                                                                @method('PUT')
+                                                                <input type="hidden" value="default" name="default">
+                                                                <input type="hidden"
+                                                                    value="{{ $paymentAddress->asset_id }}"
+                                                                    name="asset_id">
+                                                                <button type="submit" class="btn btn-info">Change to
+                                                                    Default</button>
+                                                            </form>
+                                                        @else
+                                                        @endif
+
+
+
                                                     </td>
 
                                                     <td>
