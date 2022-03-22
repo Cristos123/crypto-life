@@ -62,7 +62,7 @@ class PaymentAddressController extends Controller
         }
 
         $paymentAddress = PaymentAddress::create([
-            'address' => strtolower($request['payment_address']),
+            'address' => $request['payment_address'],
             'default' => true,
         ]);
 
