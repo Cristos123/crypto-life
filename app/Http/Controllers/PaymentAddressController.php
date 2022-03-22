@@ -44,12 +44,31 @@ class PaymentAddressController extends Controller
         ]);
 
         $asset = Asset::find($request->asset_id);
+        $paymentAddress = PaymentAddress::where('asset_id', $asset->id)->get();
+
+        foreach ($paymentAddress as $defaultAddress) {
+            if ($defaultAddress->default == true) {
+                $defaultAddress->default = false;
+                $defaultAddress->save();
+            } elseif (
+                $defaultAddress->address == $request['payment_address'] &&
+                $defaultAddress->asset_id == $request->asset_id
+            ) {
+                return back()->with(
+                    'error',
+                    'Sorry this address is already in use with this asset chage it to another one!'
+                );
+            }
+        }
+
         $paymentAddress = PaymentAddress::create([
             'address' => $request['payment_address'],
+            'default' => true,
         ]);
 
         $paymentAddress->asset()->associate($asset);
         $paymentAddress->save();
+        // dd($paymentAddress);
         return redirect()
             ->back()
             ->with('success', 'payment address created  successfully!');

@@ -43,7 +43,7 @@
                                                     </td>
                                                     <td>
                                                         <a href="{{ route('admin.asset.show', $asset) }}"
-                                                            class="btn btn-primary">View</a>
+                                                            class="btn btn-primary">View Address</a>
                                                     </td>
                                                     <td>
                                                         <form method="post"

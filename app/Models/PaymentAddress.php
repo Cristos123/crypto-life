@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class PaymentAddress extends Model
 {
     use HasFactory;
-    protected $fillable = ['address'];
+    protected $fillable = ['address', 'default'];
     /**
      * Get all of the duration for the Investment
      *
