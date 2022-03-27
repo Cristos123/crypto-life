@@ -4,13 +4,10 @@
 
 @section('content')
 
-    <div class="authincation section-padding">
-        <div class="container h-100">
-            <div class="row justify-content-center h-100 align-items-center">
+    <div class="authincation">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
                 <div class="col-xl-5 col-md-6">
-                    <div class="mini-logo text-center my-5">
-                        <a href="index.html"><img src="./images/logo.png" alt=""></a>
-                    </div>
                     <div class="auth-form card">
                         <div class="card-header justify-content-center">
                             <h4 class="card-title">Sign in</h4>
