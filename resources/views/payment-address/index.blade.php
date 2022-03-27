@@ -1,9 +1,9 @@
 @extends('layout.app-dashboard')
 
-@section('title', ' Asset')
+@section('title', ' Payment Address')
 @section('content')
 
-    </div>
+
 
     <div class="content-body">
         <div class="container">
@@ -11,8 +11,9 @@
                 <div class="col-xl-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Assets History</h4>
-                            <a href="{{ route('admin.create-asset') }}" class="btn btn-primary">Create New Asset</a>
+                            <h4 class="card-title">Payment Address</h4>
+                            <a href="{{ route('admin.payment-address.create') }}" class="btn btn-primary">Create New
+                                Payment Address</a>
                         </div>
                         <div class="card-body">
                             <div class="transaction-table">
@@ -20,46 +21,48 @@
                                     <table class="table table-striped mb-0 table-responsive-sm">
                                         <thead>
                                             <tr>
-                                                <th> Name </th>
-                                                <th>Currency </th>
+
+                                                <th>Asset </th>
+                                                <th>Payment address </th>
+                                                <th>Default Address </th>
                                                 <th>Created Date </th>
-                                                <th class="colSpan2">Action </th>
+                                                <th colspan="">Action </th>
 
                                             </tr>
                                         </thead>
                                         <tbody>
 
-                                            @forelse ($assets as $asset)
+                                            @forelse ($paymentAddresses as $paymentAddress)
                                                 <tr>
 
 
-                                                    <td> {{ $asset->name }} </td>
-                                                    <td> {{ $asset->currency }}</td>
-                                                    <td> {{ $asset->created_at }}</td>
+
+                                                    <td> {{ $paymentAddress->asset->name }}</td>
+                                                    <td> {{ $paymentAddress->address }}</td>
+                                                    <td> {{ $paymentAddress->default == true ? 'True' : 'False' }}</td>
+                                                    <td> {{ $paymentAddress->created_at }}</td>
 
                                                     <td>
-                                                        <a href="{{ route('admin.edit-asset', $asset) }}"
+                                                        <a href="{{ route('admin.payment-address.edit', $paymentAddress) }}"
                                                             class="btn btn-warning">Edit</a>
                                                     </td>
-                                                    <td>
-                                                        <a href="{{ route('admin.asset.show', $asset) }}"
-                                                            class="btn btn-primary">View Address</a>
-                                                    </td>
+
                                                     <td>
                                                         <form method="post"
-                                                            action="{{ route('admin.delete-asset', $asset) }}">
+                                                            action="{{ route('admin.payment-address.show', $paymentAddress) }}">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit" class="btn btn-danger">Delete</button>
                                                         </form>
 
-
                                                     </td>
+
 
                                                 </tr>
                                             @empty
                                                 <tr>
-                                                    <td colspan="5" class="text-center">NO Assets created yet</td>
+                                                    <td colspan="9" class="text-center">NO payment address created yet
+                                                    </td>
                                                 </tr>
                                             @endforelse
 

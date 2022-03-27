@@ -73,7 +73,7 @@ class InvestmentController extends Controller
         $investment->save();
         return redirect()
             ->back()
-            ->with('message', 'Investment  created  successfully!');
+            ->with('success', 'Investment  created  successfully!');
     }
 
     /**
@@ -131,27 +131,16 @@ class InvestmentController extends Controller
                 $investment->save();
             }
         } else {
-            //  $duration = Duration::find($request->durationId);
-            // $asset = Asset::find($request->assetId);
-            // $category = Category::find($request->categoryId);
-
             $request->validate([
                 'rate' => ['required', 'string', 'max:255'],
                 'amount' => ['required', 'string', 'max:255'],
-                // 'categoryId' => ['required', 'string', 'max:255'],
-                // 'assetId' => ['required', 'string'],
-                // 'durationId' => ['required', 'string'],
             ]);
-            // return $request->all();
-            $investment = Investment::create([
-                'name' => $request['name'],
-                'rate' => $request['rate'],
-                'amount' => $request['amount'],
-            ]);
+
+            $investment->update($request->all());
 
             return redirect()
                 ->back()
-                ->with('message', 'Investment  updated  successfully!');
+                ->with('success', 'Investment  updated  successfully!');
         }
         return redirect()->back();
     }

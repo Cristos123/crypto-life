@@ -20,11 +20,7 @@
                             <form action="{{ route('admin.update-asset', $asset) }}" method="POST">
                                 @csrf
                                 @method('PUT')
-                                @if (session()->has('message'))
-                                    <div class="alert alert-success">
-                                        {{ session()->get('message') }}
-                                    </div>
-                                @endif
+                                @include('layout.partials.errors')
                                 <div class="form-group">
                                     <label>Name</label>
                                     <input type="text" value="{{ $asset->name }}" placeholder="Asset Name"

@@ -16,11 +16,7 @@
                             <h4 class="card-title">Edit Investment</h4>
                         </div>
                         <div class="card-body">
-                            @if (session()->has('message'))
-                                <div class="alert alert-success">
-                                    {{ session()->get('message') }}
-                                </div>
-                            @endif
+                            @include('layout.partials.errors')
                             <form action="{{ route('admin.update-investment', $investment) }}" method="POST">
                                 @csrf
                                 @method('PUT')

@@ -10,6 +10,7 @@ use App\Http\Controllers\DurationController;
 use App\Http\Controllers\InvestmentController;
 use App\Http\Controllers\WithdrawalController;
 use App\Http\Controllers\AdminWithdrawalController;
+use App\Http\Controllers\PaymentAddressController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -75,12 +76,34 @@ Route::group(['prefix' => 'admin'], function () {
         // 'destroy' => 'admin.delete-category',
     ]);
     //Asset routes
+    Route::put('asset/{id}', [
+        AssetController::class,
+        'changeDefaultAddress',
+    ])->name('admin.asset.changeDefaultAddress');
+
     Route::resource('asset', AssetController::class)->names([
         'index' => 'admin.asset.index',
         'edit' => 'admin.edit-asset',
         'update' => 'admin.update-asset',
         'store' => 'admin.store-asset',
+        'show' => 'admin.asset.show',
+        'changeDefaultAddress' => 'admin.asset.changeDefaultAddress',
         'create' => 'admin.create-asset',
+        'destroy' => 'admin.delete-asset',
+    ]);
+    //payment address route
+
+    // Route::put('/payment-address.update/{paymentAddress}', [
+    //     PaymentAddressController::class,
+    //     'update',
+    // ])->name('admin.payment-address.update');
+    Route::resource('payment-address', PaymentAddressController::class)->names([
+        'index' => 'admin.payment-address.index',
+        'edit' => 'admin.payment-address.edit',
+        'show' => 'admin.payment-address.show',
+        'update' => 'admin.payment-address.update',
+        'store' => 'admin.payment-address.store',
+        'create' => 'admin.payment-address.create',
         'destroy' => 'admin.delete-asset',
     ]);
 

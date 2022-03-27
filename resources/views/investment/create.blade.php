@@ -16,11 +16,7 @@
                             <h4 class="card-title">Create Investment</h4>
                         </div>
                         <div class="card-body">
-                            @if (session()->has('message'))
-                                <div class="alert alert-success">
-                                    {{ session()->get('message') }}
-                                </div>
-                            @endif
+                            @include('layout.partials.errors')
                             <form action="{{ route('admin.store-investment') }}" method="POST">
                                 @csrf
 
@@ -33,7 +29,7 @@
                                             {{ $message }}
                                         </div>
                                     @enderror
-                                </div> <br>
+                                </div>
 
                                 <div class="form-group ">
                                     <label class="mr-sm-2">Assets</label>
@@ -52,7 +48,8 @@
                                             {{ $message }}
                                         </div>
                                     @enderror
-                                </div><br>
+                                </div>
+                                <br>
                                 <div class="form-group">
                                     <label class="mr-sm-2">Category</label>
                                     <select class="form-control @error('type') is-invalid @enderror" id="selected_type"
@@ -70,7 +67,8 @@
                                             {{ $message }}
                                         </div>
                                     @enderror
-                                </div><br>
+                                </div>
+                                <br>
                                 <div class="form-group">
                                     <label class="mr-sm-2">Duration</label>
                                     <select class="form-control @error('type') is-invalid @enderror" id="selected_type"
@@ -89,6 +87,7 @@
                                         </div>
                                     @enderror
                                 </div>
+                                <br>
                                 <div class="form-group">
                                     <label>Rate</label>
                                     <input type="text" value="{{ old('rate') }}" placeholder="Type your rate"
