@@ -44,101 +44,37 @@
                         </div>
                         <div class="card-body" id="deposits">
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                @foreach ($assets as $asset)
                                 <li class="nav-item">
-                                    <a class="nav-link active" data-toggle="tab" href="#tab1">TUSD</a>
+                                    <a class="nav-link @if($loop->first) active @endif" data-toggle="tab" href="#asset_tab_{{ $asset->id }}">{{ $asset->name }}</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#tab2">USDC</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#tab3">FIAT</a>
-                                </li>
+                                @endforeach
                             </ul>
                             <div class="tab-content">
-                                <div class="tab-pane fade show active" id="tab1">
-                                    <div class="qrcode">
-                                        <img src="{{ asset('assets/images/qr.svg') }}" alt="" width="150">
-                                    </div>
-                                    <form action="">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control"
-                                                value="0xceb1b174085b0058201be4f2cd0da6a21bff85d4">
-                                            <div class="input-group-append">
-                                                <span class="input-group-text bg-primary text-white">Copy</span>
+                                @foreach ($assets as $asset)
+                                    <div class="tab-pane fade show @if($loop->first) active @endif" id="asset_tab_{{ $asset->id }}">
+                                        {{-- <div class="qrcode">
+                                            <img src="{{ asset('assets/images/qr.svg') }}" alt="" width="150">
+                                        </div> --}}
+                                        <form action="">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control"
+                                                    value="{{ $asset->default_address->address }}">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text bg-primary text-white">Copy</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </form>
+                                        </form>
 
-                                    <ul>
-                                        <li>
-                                            <i class="mdi mdi-checkbox-blank-circle"></i>
-                                            TUSD network transfers will be credited to your Tradio account after
-                                            25 network confirmations.
-                                        </li>
-                                        <li>
-                                            <i class="mdi mdi-checkbox-blank-circle"></i>
-                                            TUSD deposits to this address are unlimited. Note that you may not
-                                            be able to withdraw all of your funds at once if you deposit more
-                                            than your daily withdrawal limit.
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="tab-pane fade" id="tab2">
-                                    <div class="qrcode">
-                                        <img src="{{ asset('assets/images/qr.svg') }}" alt="" width="150">
+                                        <ul>
+                                            <li>
+                                                <i class="mdi mdi-checkbox-blank-circle"></i>
+                                                {{ $asset->name }} network transfers will be credited to your account after
+                                                5 network confirmations.
+                                            </li>
+                                        </ul>
                                     </div>
-                                    <form action="">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control"
-                                                value="0xceb1b174085b0058201be4f2cd0da6a21bff85d4">
-                                            <div class="input-group-append">
-                                                <span class="input-group-text bg-primary text-white">Copy</span>
-                                            </div>
-                                        </div>
-                                    </form>
-
-                                    <ul>
-                                        <li>
-                                            <i class="mdi mdi-checkbox-blank-circle"></i>
-                                            USDC network transfers will be credited to your Tradio account after
-                                            25 network confirmations.
-                                        </li>
-                                        <li>
-                                            <i class="mdi mdi-checkbox-blank-circle"></i>
-                                            USDC deposits to this address are unlimited. Note that you may not
-                                            be able to withdraw all of your funds at once if you deposit more
-                                            than your daily withdrawal limit.
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="tab-pane fade" id="tab3">
-                                    <div class="qrcode">
-                                        <img src="{{ asset('assets/images/qr.svg') }}" alt="" width="150">
-                                    </div>
-                                    <form action="">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control"
-                                                value="0xceb1b174085b0058201be4f2cd0da6a21bff85d4">
-                                            <div class="input-group-append">
-                                                <span class="input-group-text bg-primary text-white">Copy</span>
-                                            </div>
-                                        </div>
-                                    </form>
-
-                                    <ul>
-                                        <li>
-                                            <i class="mdi mdi-checkbox-blank-circle"></i>
-                                            USDC network transfers will be credited to your Tradio account after
-                                            25 network confirmations.
-                                        </li>
-                                        <li>
-                                            <i class="mdi mdi-checkbox-blank-circle"></i>
-                                            USDC deposits to this address are unlimited. Note that you may not
-                                            be able to withdraw all of your funds at once if you deposit more
-                                            than your daily withdrawal limit.
-                                        </li>
-                                    </ul>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -153,12 +89,12 @@
                                 <div class="col-xl-8">
                                     @include('layout.partials.errors')
 
-                                    <form action="{{ route('withdrawals.store') }}" method="POST"
-                                        class="py-5">
+                                    <form action="{{ route('withdrawals.store') }}" method="POST" class="py-5">
                                         @csrf
                                         <div class="form-group row align-items-center">
                                             <div class="col-sm-4">
-                                                <label for="asset_id" class="mr-sm-2">Currency</label>
+                                                <label for="asset_id" class="mr-sm-2">Currency</label><br />
+                                                <small>Select the specific wallet currency you made payment to.</small>
                                             </div>
                                             <div class="col-sm-8">
                                                 <select class="form-control @error('asset_id') is-invalid @enderror"

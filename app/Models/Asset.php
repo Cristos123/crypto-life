@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Asset extends Model
 {
@@ -24,8 +25,14 @@ class Asset extends Model
     {
         return $this->hasMany(Withdrawal::class);
     }
+
     public function payment_address(): HasMany
     {
         return $this->hasMany(PaymentAddress::class);
+    }
+
+    public function default_address(): HasOne
+    {
+        return $this->hasOne(PaymentAddress::class)->where('default', true);
     }
 }

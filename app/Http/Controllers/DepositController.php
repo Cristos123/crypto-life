@@ -28,8 +28,8 @@ class DepositController extends Controller
      */
     public function create()
     {
-        $assets = Asset::has('payment_address')->get();
-        return Asset::all();
+        $assets = Asset::has('payment_address')->with(['default_address'])->get();
+        // return $assets;
         return view('user.deposit.create', compact('assets'));
     }
 
