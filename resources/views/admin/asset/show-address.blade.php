@@ -4,10 +4,10 @@
 
 @section('content')
 
-
     <div class="content-body">
         <div class="container">
             <div class="row">
+                @include('layout.partials.admin.page-title')
                 <div class="col-xl-12">
                     <div class="card">
                         <div class="card-header">
@@ -22,29 +22,23 @@
                                     <table class="table table-striped mb-0 table-responsive-sm">
                                         <thead>
                                             <tr>
-
                                                 <th>Asset Name </th>
                                                 <th>Asset Currency </th>
                                                 <th>Payment address </th>
                                                 <th>Default Address </th>
                                                 <th>Created Date </th>
                                                 <th colspan="2">Action </th>
-
                                             </tr>
                                         </thead>
                                         <tbody>
 
                                             @forelse ($assetWithAdress as $paymentAddress)
                                                 <tr>
-
-
-
                                                     <td> {{ $paymentAddress->asset->name }}</td>
                                                     <td> {{ $paymentAddress->asset->currency }}</td>
                                                     <td> {{ $paymentAddress->address }}</td>
                                                     <td> {{ $paymentAddress->default == true ? 'True' : 'False' }}</td>
                                                     <td> {{ $paymentAddress->created_at }}</td>
-                                                    {{ $paymentAddress->asset->id }}
                                                     <td>
                                                         <a href="{{ route('admin.payment-address.edit', $paymentAddress) }}"
                                                             class="btn btn-warning">Edit</a>
@@ -64,9 +58,6 @@
                                                             </form>
                                                         @else
                                                         @endif
-
-
-
                                                     </td>
 
                                                     <td>
