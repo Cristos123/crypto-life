@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UniversalController;
@@ -51,9 +52,8 @@ Route::get('deposit-funds', [DepositController::class, 'create'])->name('deposit
 Route::post('deposit-funds', [DepositController::class, 'store'])->name('deposits.store');
 Route::delete('deposit-funds/{deposit:reference}/cancel', [DepositController::class, 'destroy'])->name('deposits.cancel');
 
-// Route::get('/account-deposits', function () {
-//     return view('account-deposite');
-// });
+// Account Settings
+Route::get('account-settings', AccountController::class);
 
 // KYC
 Route::get('/kyc-verification', [KYCController::class, 'create'])->name(

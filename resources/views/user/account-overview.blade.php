@@ -3,50 +3,12 @@
 @section('title', 'Account Overview')
 
 @section('content')
-
-
-
     @include('layout.partials.page-title')
     <div class="content-body">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
-                    <div class="card sub-menu">
-                        <div class="card-body">
-                            <ul class="d-flex">
-                                <li class="nav-item">
-                                    <a href="./account-overview.html" class="nav-link">
-                                        <i class="mdi mdi-bullseye"></i>
-                                        <span>Overview</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="./account-deposit.html" class="nav-link">
-                                        <i class="mdi mdi-heart"></i>
-                                        <span>Deposit</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="./account-withdraw.html" class="nav-link">
-                                        <i class="mdi mdi-pentagon"></i>
-                                        <span>Withdraw</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="./account-api.html" class="nav-link">
-                                        <i class="mdi mdi-database"></i>
-                                        <span>API</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="./account-affiliate.html" class="nav-link">
-                                        <i class="mdi mdi-diamond"></i>
-                                        <span>Affiliate</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    @include('layout.partials.dashboard.header')
                 </div>
 
                 <div class="col-xl-6 col-lg-6 col-md-6">
