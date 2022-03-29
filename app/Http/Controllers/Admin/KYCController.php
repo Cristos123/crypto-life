@@ -16,7 +16,7 @@ class KYCController extends Controller
     public function index()
     {
         $kycs = KYC::paginate(25);
-        return view('kyc.admin-dashboard', compact('kycs'));
+        return view('admin.kyc.index', compact('kycs'));
     }
 
     /**
@@ -27,7 +27,7 @@ class KYCController extends Controller
      */
     public function show(KYC $kyc)
     {
-        return view('kyc.show', compact('kyc'));
+        return view('admin.kyc.show', compact('kyc'));
     }
 
     /**
