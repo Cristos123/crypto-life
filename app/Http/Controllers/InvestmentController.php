@@ -18,7 +18,7 @@ class InvestmentController extends Controller
     public function index()
     {
         $investments = Investment::paginate(25);
-        return view('investment.index', compact('investments'));
+        return view('admin.investment.index', compact('investments'));
     }
 
     /**
@@ -32,7 +32,7 @@ class InvestmentController extends Controller
         $assets = Asset::all();
         $categories = Category::all();
         return view(
-            'investment.create',
+            'admin.investment.create',
             compact(['durations', 'assets', 'categories'])
         );
     }
@@ -90,7 +90,7 @@ class InvestmentController extends Controller
 
         // dd($duration, $asset, $category);
         return view(
-            'investment.show',
+            'admin.investment.show',
             compact(['investment', 'duration', 'asset', 'category'])
         );
     }
@@ -103,7 +103,7 @@ class InvestmentController extends Controller
      */
     public function edit(Investment $investment)
     {
-        return view('investment.edit', compact('investment'));
+        return view('admin.investment.edit', compact('investment'));
     }
 
     /**

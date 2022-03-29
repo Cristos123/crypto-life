@@ -17,7 +17,7 @@ class AssetController extends Controller
     public function index()
     {
         $assets = Asset::paginate(25);
-        return view('asset.index', compact('assets'));
+        return view('admin.asset.index', compact('assets'));
     }
 
     /**
@@ -27,7 +27,7 @@ class AssetController extends Controller
      */
     public function create()
     {
-        return view('asset.create');
+        return view('admin.asset.create');
     }
 
     public function changeDefaultAddress(Request $request, $id)
@@ -95,7 +95,7 @@ class AssetController extends Controller
         // payment_address
         $assetWithAdress = $asset->payment_address;
         // return $assetWithAdress;
-        return view('asset.show-address', compact('assetWithAdress'));
+        return view('admin.asset.show-address', compact('assetWithAdress'));
     }
 
     /**
@@ -106,7 +106,7 @@ class AssetController extends Controller
      */
     public function edit(Asset $asset)
     {
-        return view('asset.edit', compact('asset'));
+        return view('admin.asset.edit', compact('asset'));
     }
 
     /**

@@ -16,7 +16,7 @@ class PaymentAddressController extends Controller
     public function index()
     {
         $paymentAddresses = paymentAddress::paginate(25);
-        return view('payment-address.index', compact('paymentAddresses'));
+        return view('admin.payment-address.index', compact('paymentAddresses'));
     }
 
     /**
@@ -27,7 +27,7 @@ class PaymentAddressController extends Controller
     public function create()
     {
         $assets = Asset::all();
-        return view('payment-address.create', compact(['assets']));
+        return view('admin.payment-address.create', compact(['assets']));
     }
 
     /**
@@ -96,7 +96,7 @@ class PaymentAddressController extends Controller
      */
     public function edit(PaymentAddress $paymentAddress)
     {
-        return view('payment-address.edit', compact('paymentAddress'));
+        return view('admin.payment-address.edit', compact('paymentAddress'));
     }
 
     /**

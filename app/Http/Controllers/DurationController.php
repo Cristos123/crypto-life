@@ -16,7 +16,7 @@ class DurationController extends Controller
     public function index()
     {
         $durations = Duration::paginate(25);
-        return view('duration.index', compact('durations'));
+        return view('admin.duration.index', compact('durations'));
     }
 
     /**
@@ -26,7 +26,7 @@ class DurationController extends Controller
      */
     public function create()
     {
-        return view('duration.create');
+        return view('admin.duration.create');
     }
 
     /**
@@ -76,7 +76,7 @@ class DurationController extends Controller
      */
     public function edit(Duration $duration)
     {
-        return view('duration.edit', compact('duration'));
+        return view('admin.duration.edit', compact('duration'));
     }
 
     /**
