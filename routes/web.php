@@ -10,6 +10,7 @@ use App\Http\Controllers\DurationController;
 use App\Http\Controllers\InvestmentController;
 use App\Http\Controllers\WithdrawalController;
 use App\Http\Controllers\AdminWithdrawalController;
+use App\Http\Controllers\DepositController;
 use App\Http\Controllers\PaymentAddressController;
 
 /*
@@ -45,9 +46,13 @@ Route::get('withdraw-funds', [WithdrawalController::class, 'create'])->name('wit
 Route::post('withdraw-funds', [WithdrawalController::class, 'store'])->name('withdrawals.store');
 
 // Deposit
-Route::get('/account-deposits', function () {
-    return view('account-deposite');
-});
+Route::get('deposits', [DepositController::class, 'index'])->name('deposits.index');
+Route::get('deposit-funds', [DepositController::class, 'create'])->name('deposits.create');
+Route::post('deposit-funds', [DepositController::class, 'store'])->name('deposits.store');
+
+// Route::get('/account-deposits', function () {
+//     return view('account-deposite');
+// });
 
 // KYC
 Route::get('/kyc-verification', [KYCController::class, 'create'])->name(
