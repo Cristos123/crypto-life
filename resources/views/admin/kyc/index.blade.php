@@ -13,7 +13,7 @@
                 <div class="col-xl-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Transactions History</h4>
+                            <h4 class="card-title">KYC Submissions</h4>
                         </div>
                         <div class="card-body">
                             <div class="transaction-table">
@@ -47,11 +47,11 @@
                                                     <td> {{ $kyc->user_id }} </td>
                                                     <td> {{ $kyc->created_at }}</td>
                                                     <td>
-                                                        <div class="text-success">{{ $kyc->status }}</div>
+                                                        <div class="text-success text-capitalize">{{ $kyc->status }}</div>
                                                     </td>
                                                     <td>
-                                                        <a href="{{ route('admin.show', $kyc) }}"
-                                                            class="text-warning">Edit</a>
+                                                        <a href="{{ route('admin.kyc.show', $kyc) }}"
+                                                            class="text-warning">View</a>
                                                     </td>
                                                 </tr>
                                             @empty

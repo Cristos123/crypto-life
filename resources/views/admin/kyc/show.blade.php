@@ -8,6 +8,7 @@
     <div class="content-body">
         <div class="container">
             <div class="row">
+                @include('layout.partials.admin.page-title')
                 <div class="col-xl-6 col-lg-6 col-md-6">
                     <div class="card profile_card">
                         <div class="card-body">

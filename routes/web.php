@@ -139,9 +139,9 @@ Route::group(['prefix' => 'admin'], function () {
     ]);
 
     // KYC Management
-    Route::get('/kyc-submissions', [AdminKYCController::class, 'index'])->name('admin.index');
-    Route::get('/kyc-submissions/{kyc}', [AdminKYCController::class, 'show'])->name('admin.show');
-    Route::post('/kyc-submissions/{kyc}', [AdminKYCController::class, 'update'])->name('admin-dashboard');
+    Route::get('/kyc-submissions', [AdminKYCController::class, 'index'])->name('admin.kyc.index');
+    Route::get('/kyc-submissions/{kyc}', [AdminKYCController::class, 'show'])->name('admin.kyc.show');
+    Route::post('/kyc-submissions/{kyc}', [AdminKYCController::class, 'update'])->name('admin.kyc.store');
 });
 
 

@@ -10,13 +10,13 @@
                  </li>
                  <li class="nav-item">
                      <a href="{{ route('admin.category.index') }}" class="nav-link">
-                         {{-- <i class="mdi mdi-heart"></i> --}}
+                         <i class="mdi mdi-heart"></i>
                          <span>Category</span>
                      </a>
                  </li>
                  <li class="nav-item">
                      <a href="{{ route('admin.asset.index') }}" class="nav-link">
-                         {{-- <i class="mdi mdi-pentagon"></i> --}}
+                         <i class="mdi mdi-pentagon"></i>
                          <span>Assets</span>
                      </a>
                  </li>
@@ -32,6 +32,12 @@
                          <span>Investment</span>
                      </a>
                  </li>
+                 <li class="nav-item">
+                    <a href="{{ route('admin.kyc.index') }}" class="nav-link">
+                        <i class="mdi mdi-bullseye"></i>
+                        <span>KYC Submissions</span>
+                    </a>
+                </li>
              </ul>
          </div>
      </div>

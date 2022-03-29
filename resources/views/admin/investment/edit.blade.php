@@ -4,13 +4,11 @@
 
 @section('content')
 
-    <div class="authincation section-padding">
-        <div class="container h-100">
-            <div class="row justify-content-center h-100 align-items-center">
+    <div class="content-body">
+        <div class="container">
+            <div class="row justify-content-center  align-items-center">
+                @include('layout.partials.admin.page-title')
                 <div class="col-xl-5 col-md-6">
-                    <div class="mini-logo text-center my-5">
-                        <a href="index.html"><img src="./images/logo.png" alt=""></a>
-                    </div>
                     <div class="auth-form card">
                         <div class="card-header justify-content-center">
                             <h4 class="card-title">Edit Investment</h4>
@@ -38,8 +36,8 @@
                                         <option value="select">Select</option>
                                         <option value="{{ $asset ?? '' }}"> {{ $investment->asset->name }} </option>
                                         {{-- @forelse ($asset ?? ''s as $asset ?? '')
-                                        @empty
-                                        @endforelse --}}
+                        @empty
+                        @endforelse --}}
 
 
                                     </select>
@@ -57,8 +55,8 @@
                                         <option value="{{ $category ?? '' }}"> {{ $investment->category->name }}
                                         </option>
                                         {{-- @forelse ($categories as $category)
-                                        @empty
-                                        @endforelse --}}
+                        @empty
+                        @endforelse --}}
 
 
                                     </select>
@@ -76,8 +74,8 @@
                                         <option value="{{ $duration ?? '' }}"> {{ $investment->duration->name }}
                                         </option>
                                         {{-- @forelse ($durations as $duration)
-                                        @empty
-                                        @endforelse --}}
+                        @empty
+                        @endforelse --}}
 
 
                                     </select>
