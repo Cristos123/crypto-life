@@ -68,11 +68,16 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function withdrawals(): HasMany
     {
-        return $this->hasMany(Withdrawal::class);
+        return $this->hasMany(Withdrawal::class)->desc();
     }
 
     public function deposits(): HasMany
     {
-        return $this->hasMany(Deposit::class);
+        return $this->hasMany(Deposit::class)->desc();
+    }
+
+    public function payouts(): HasMany
+    {
+        return $this->hasMany(Payout::class)->desc();
     }
 }

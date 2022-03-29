@@ -8,11 +8,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use App\Models\Category;
 use App\Models\Asset;
 use App\Models\Duration;
+use App\Traits\FormatDate;
 use App\Traits\OrderByDate;
 
 class Investment extends Model
 {
-    use HasFactory, OrderByDate;
+    use HasFactory, OrderByDate, FormatDate;
 
     protected $fillable = ['name', 'amount', 'rate'];
     /**

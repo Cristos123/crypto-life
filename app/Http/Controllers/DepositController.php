@@ -17,7 +17,7 @@ class DepositController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $deposits = $user->deposits;
+        $deposits = $user->deposits()->take(25)->get();
 
         return view('user.deposit.index', compact('deposits'));
     }
@@ -43,6 +43,7 @@ class DepositController extends Controller
 
         $deposit = Deposit::create([
             ...$inputs,
+            'amount' => intval($request->amount) * 100,
             'reference' => Str::random(10),
         ]);
         $deposit->user_id = auth()->id();
