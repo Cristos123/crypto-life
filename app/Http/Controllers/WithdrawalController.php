@@ -18,7 +18,7 @@ class WithdrawalController extends Controller
     {
         $withdrawals = auth()->user()->withdrawals()->take(25)->get();
 
-        return view('withdrawal.index', compact('withdrawals'));
+        return view('user.withdrawal.index', compact('withdrawals'));
     }
 
     /**
@@ -32,7 +32,7 @@ class WithdrawalController extends Controller
         $wallet = auth()->user()->wallet;
         // dd($wallets);
         return view(
-            'withdrawal.create',
+            'user.withdrawal.create',
             compact(['assets', 'wallet'])
         );
     }
