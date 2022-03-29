@@ -21,6 +21,12 @@
                       <span><i class="mdi mdi-account"></i></span>
                   </a>
               </li>
+
+              <li>
+                <a href="{{ route('admin.dashboard') }}" data-toggle="tooltip" data-placement="right" title="Admin Dashboard">
+                    <span><i class="mdi mdi-account-multiple"></i></span>
+                </a>
+            </li>
           </ul>
       </div>
   </div>

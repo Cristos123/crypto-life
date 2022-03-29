@@ -72,6 +72,8 @@ Route::get('/admin-dashboard', [KYCController::class, 'index'])->name(
 
 //assets route
 Route::group(['prefix' => 'admin'], function () {
+    Route::get('/dashboard', [CategoryController::class, 'index'])->name('admin.dashboard');
+
     //category routes
     Route::resource('category', CategoryController::class)->names([
         'index' => 'admin.category.index',

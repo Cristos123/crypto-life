@@ -12,7 +12,8 @@
                 <div class="col-xl-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Categories History</h4>
+                            <h4 class="card-title">Welcome to the Admin Dashboard.</h4>
+                            <h5 class="card-title">Explore Investment Categories.</h5>
                             <a href="{{ route('admin.create-category') }}" class="btn btn-primary">Create New Category</a>
                         </div>
                         <div class="card-body">

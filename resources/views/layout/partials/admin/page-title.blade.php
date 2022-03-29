@@ -33,6 +33,12 @@
                      </a>
                  </li>
                  <li class="nav-item">
+                    <a href="{{ route('admin.payment-address.index') }}" class="nav-link">
+                        <i class="mdi mdi-shape-square-plus"></i>
+                        <span>Payment Address</span>
+                    </a>
+                </li>
+                 <li class="nav-item">
                     <a href="{{ route('admin.kyc.index') }}" class="nav-link">
                         <i class="mdi mdi-bullseye"></i>
                         <span>KYC Submissions</span>
