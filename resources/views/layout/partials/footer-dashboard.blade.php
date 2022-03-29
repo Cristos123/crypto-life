@@ -3,11 +3,11 @@
            <div class="row">
                <div class="col-sm-8 col-12">
                    <div class="copyright">
-                       <p>© Copyright 2020 <a href="https://themeforest.net/user/quixlab/portfolio">Quixlab</a> I
+                       <p>© Copyright {{ Date('Y') }} <a href="{{ url('/') }}">BullishExperts</a> I
                            All Rights Reserved</p>
                    </div>
                </div>
-               <div class="col-sm-4 col-12">
+               {{-- <div class="col-sm-4 col-12">
                    <div class="footer-social">
                        <ul>
                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -16,7 +16,7 @@
                            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
                        </ul>
                    </div>
-               </div>
+               </div> --}}
            </div>
        </div>
    </div>
