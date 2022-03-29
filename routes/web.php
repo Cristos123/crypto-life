@@ -76,7 +76,7 @@ Route::group(['prefix' => 'admin'], function () {
     ]);
 
     //admin withdrawal route
-    Route::resource('withdrawal', AdminWithdrawalController::class)->names([
+    Route::resource('withdrawals', AdminWithdrawalController::class)->names([
         'index' => 'admin.withdrawal.index',
         'show' => 'admin.withdrawal.show',
         'update' => 'admin.withdrawal.update',
