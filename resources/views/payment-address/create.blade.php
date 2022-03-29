@@ -23,7 +23,7 @@
 
 
                                 <div class="form-group ">
-                                    <label class="mr-sm-2">Assets</label>
+                                    <label class="mr-sm-2">Currency</label>
                                     <select class="form-control @error('asset_id') is-invalid @enderror" id="selected_type"
                                         required name="asset_id">
                                         <option value="select">Select</option>
@@ -43,9 +43,9 @@
 
 
                                 <div class="form-group">
-                                    <label>payment Address</label>
+                                    <label>Wallet Address</label>
                                     <input type="text" value="{{ old('payment_address') }}"
-                                        placeholder="Type your payment address"
+                                        placeholder="Paste your payment address"
                                         class="form-control @error('payment_address') is-invalid @enderror"
                                         name="payment_address">
                                     @error('payment_address')

@@ -41,22 +41,24 @@ class PaymentAddressController extends Controller
         $request->validate([
             'payment_address' => ['required', 'string', 'max:255'],
             'asset_id' => ['required', 'string'],
+        ], [
+            'asset_id.required' => 'You must select a currency.'
         ]);
 
-        $asset = Asset::find($request->asset_id);
-        $paymentAddress = PaymentAddress::where('asset_id', $asset->id)->get();
+        $asset = Asset::findOrFail($request->asset_id);
+        $paymentAddresses = $asset->payment_address;
 
-        foreach ($paymentAddress as $defaultAddress) {
-            if ($defaultAddress->default == true) {
-                $defaultAddress->default = false;
-                $defaultAddress->save();
+        foreach ($paymentAddresses as $paymentAddress) {
+            if ($paymentAddress->default == true) {
+                $paymentAddress->default = false;
+                $paymentAddress->save();
             } elseif (
-                $defaultAddress->address == $request['payment_address'] &&
-                $defaultAddress->asset_id == $request->asset_id
+                $paymentAddress->address == $request['payment_address'] &&
+                $paymentAddress->asset_id == $request->asset_id
             ) {
                 return back()->with(
                     'error',
-                    'Sorry this address is already in use with this asset chage it to another one!'
+                    'You already have this specific wallet address!'
                 );
             }
         }
