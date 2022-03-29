@@ -52,7 +52,9 @@ class PaymentAddressController extends Controller
             if ($paymentAddress->default == true) {
                 $paymentAddress->default = false;
                 $paymentAddress->save();
-            } elseif (
+            }
+
+            if (
                 $paymentAddress->address == $request['payment_address'] &&
                 $paymentAddress->asset_id == $request->asset_id
             ) {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Asset;
 use App\Models\Deposit;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,8 @@ class DepositController extends Controller
      */
     public function create()
     {
-        $assets = [];
+        $assets = Asset::has('payment_address')->get();
+        return Asset::all();
         return view('user.deposit.create', compact('assets'));
     }
 
