@@ -11,6 +11,7 @@ use App\Http\Controllers\InvestmentController;
 use App\Http\Controllers\WithdrawalController;
 use App\Http\Controllers\AdminWithdrawalController;
 use App\Http\Controllers\PaymentAddressController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,27 +33,35 @@ Route::get('home', function () {
     ->name('home')
     ->middleware(['auth', 'verified', 'kyc']);
 
+Route::get('dashboard', function () {
+    return view('dashboard');
+})
+    ->name('home')
+    ->middleware(['auth', 'verified', 'kyc']);
+
+// Withdraw
+Route::get('withdrawals', [WithdrawalController::class, 'index'])->name('withdrawals.index');
+Route::get('withdraw-funds', [WithdrawalController::class, 'create'])->name('withdrawals.create');
+Route::post('withdraw-funds', [WithdrawalController::class, 'store'])->name('withdrawals.store');
+
+// Deposit
+Route::get('/account-deposits', function () {
+    return view('account-deposite');
+});
+
+// KYC
+Route::get('/kyc-verification', [KYCController::class, 'create'])->name(
+    'kyc-verification'
+);
+Route::post('/kyc-verification', [KYCController::class, 'store'])->name(
+    'kyc-verification'
+);
+
+
+// Admin Pages
 Route::get('/admin-dashboard', [KYCController::class, 'index'])->name(
     'admin.dashboard'
 );
-
-// Route::get('withdrawal', [WithdrawalController::class, 'create'])->name(
-//     'withdrawal'
-// );
-// Route::get('withdrawal', [WithdrawalController::class, 'create'])->name(
-//     'withdrawal'
-// );
-
-Route::resource('withdrawal', WithdrawalController::class)
-    ->names([
-        'index' => 'admin.withdrawal.index',
-        'create' => 'admin.withdrawal.create',
-        'store' => 'admin.withdrawal.store',
-        'update' => 'admin.withdrawal.update',
-        'edit' => 'admin.withdrawal.edit',
-        'destroy' => 'admin.withdrawal.delete',
-    ])
-    ->middleware(['auth']);
 
 //assets route
 Route::group(['prefix' => 'admin'], function () {
@@ -70,11 +79,9 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('withdrawal', AdminWithdrawalController::class)->names([
         'index' => 'admin.withdrawal.index',
         'show' => 'admin.withdrawal.show',
-        // 'store' => 'admin.store-category',
         'update' => 'admin.withdrawal.update',
-        // 'edit' => 'admin.edit-category',
-        // 'destroy' => 'admin.delete-category',
     ]);
+
     //Asset routes
     Route::put('asset/{id}', [
         AssetController::class,
@@ -127,37 +134,28 @@ Route::group(['prefix' => 'admin'], function () {
         'store' => 'admin.store-investment',
         // 'destroy' => 'admin.delete',
     ]);
+
+
+    Route::get('/admin.show/{kyc}', [KYCController::class, 'show'])->name(
+        'admin.show'
+    );
+
+    Route::post('/admin-dashboard/{kyc}', [KYCController::class, 'update'])->name(
+        'admin-dashboard'
+    );
 });
 
-Route::get('/admin.show/{kyc}', [KYCController::class, 'show'])->name(
-    'admin.show'
-);
 
-Route::post('/admin-dashboard/{kyc}', [KYCController::class, 'update'])->name(
-    'admin-dashboard'
-);
 
-//Acount route
-Route::get('/kyc-verification', [KYCController::class, 'create'])->name(
-    'kyc-verification'
-);
-Route::post('/kyc-verification', [KYCController::class, 'store'])->name(
-    'kyc-verification'
-);
 Route::get('/account-affiliate', function () {
     return view('account-affiliate');
 });
 Route::get('/exchange', function () {
     return view('exchange');
 });
-Route::get('/account-deposite', function () {
-    return view('account-deposite');
-});
+
 Route::get('/account-overview', function () {
     return view('account-overview');
-});
-Route::get('/account-withdraw', function () {
-    return view('account-withdraw');
 });
 Route::get('/account-api', function () {
     return view('account-api');

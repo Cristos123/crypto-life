@@ -16,14 +16,11 @@ class WithdrawalController extends Controller
      */
     public function index()
     {
-        // $withdrawals = auth()->user()->withdrawals;
-        // $withdrawals = Withdrawal::find(auth()->user()->id);
         $withdrawals = Withdrawal::where(
             'user_id',
             auth()->user()->id
         )->paginate(25);
-        // dd($withdrawals);
-        // $withdrawals = Withdrawal::paginate(25);
+
         return view('withdrawal.index', compact('withdrawals'));
     }
 
@@ -38,7 +35,7 @@ class WithdrawalController extends Controller
         $wallet = auth()->user()->wallet;
         // dd($wallets);
         return view(
-            'withdrawal.account-withdraw',
+            'withdrawal.create',
             compact(['assets', 'wallet'])
         );
     }
@@ -52,11 +49,13 @@ class WithdrawalController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'balance' => ['required', 'max:255'],
             'amount' => ['required', 'string', 'max:255'],
             'withdrawal_address' => ['required', 'string', 'max:255'],
             'asset_id' => ['required', 'string'],
+        ], [
+            'asset_id.required' => "You have to select the currency you want to withdraw to."
         ]);
+
         $amount = $request->amount;
         $asset_id = $request->asset_id;
         $user = auth()->user();
@@ -88,50 +87,5 @@ class WithdrawalController extends Controller
             'success',
             'You withdrawal request has been processed succesfully'
         );
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Withdrawal  $withdrawal
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Withdrawal $withdrawal)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Withdrawal  $withdrawal
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Withdrawal $withdrawal)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Withdrawal  $withdrawal
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Withdrawal $withdrawal)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Withdrawal  $withdrawal
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Withdrawal $withdrawal)
-    {
-        //
     }
 }

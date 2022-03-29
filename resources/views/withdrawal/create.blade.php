@@ -21,27 +21,15 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./account-deposit.html" class="nav-link">
+                                    <a href="{{ route('withdrawal.create') }}" class="nav-link">
                                         <i class="mdi mdi-heart"></i>
                                         <span>Deposit</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./account-withdraw.html" class="nav-link">
+                                    <a href="{{ route('withdrawal.create') }}" class="nav-link">
                                         <i class="mdi mdi-pentagon"></i>
                                         <span>Withdraw</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="./account-api.html" class="nav-link">
-                                        <i class="mdi mdi-database"></i>
-                                        <span>API</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="./account-affiliate.html" class="nav-link">
-                                        <i class="mdi mdi-diamond"></i>
-                                        <span>Affiliate</span>
                                     </a>
                                 </li>
                             </ul>
@@ -58,14 +46,14 @@
                                 <div class="col-xl-8">
                                     @include('layout.partials.errors')
 
-                                    <form action="{{ route('admin.withdrawal.store') }}" method="POST"
+                                    <form action="{{ route('withdrawals.store') }}" method="POST"
                                         class="py-5">
                                         @csrf
                                         <div class="form-group row align-items-center">
                                             <div class="col-sm-4">
-                                                <label for="inputEmail3" class="col-form-label">Wallet Address
+                                                <label for="withdrawal_address" class="col-form-label">Wallet Address
                                                     <br />
-                                                    <small>Please double check this withdrawal_address</small>
+                                                    <small>Please double check this Wallet Address</small>
                                                 </label>
                                             </div>
                                             <div class="col-sm-8">
@@ -75,7 +63,7 @@
                                                                 class="mdi mdi-currency-usd fs-18 text-white"></i></label>
                                                     </div>
                                                     <input value="{{ old('withdrawal_address') }}"
-                                                        name="withdrawal_address" type="text"
+                                                        name="withdrawal_address" type="text" id="withdrawal_address"
                                                         class="form-control @error('withdrawal_address') is-invalid @enderror text-right"
                                                         placeholder="5000 USD">
                                                     @error('withdrawal_address')
@@ -89,12 +77,12 @@
                                         <br>
                                         <div class="form-group row align-items-center">
                                             <div class="col-sm-4">
-                                                <label class="mr-sm-2">Assets</label>
+                                                <label for="asset_id" class="mr-sm-2">Currency</label>
                                             </div>
                                             <div class="col-sm-8">
-                                                <select class="form-control @error('assetId') is-invalid @enderror"
-                                                    id="selected_type" required name="asset_id">
-                                                    <option value="select">Select</option>
+                                                <select class="form-control @error('asset_id') is-invalid @enderror"
+                                                    id="asset_id" name="asset_id">
+                                                    <option value="">Select</option>
                                                     @forelse ($assets as $asset)
                                                         <option value="{{ $asset->id }}"> {{ $asset->name }} </option>
                                                     @empty
@@ -102,7 +90,7 @@
 
 
                                                 </select>
-                                                @error('assetId')
+                                                @error('asset_id')
                                                     <div class="invalid-feedback d-block">
                                                         {{ $message }}
                                                     </div>
@@ -114,7 +102,7 @@
                                             <div class="col-sm-4">
                                                 <label for="inputEmail3" class="col-form-label">Amount
                                                     <br />
-                                                    <small>Maximum amount withdrawable: 0 </small>
+                                                    <small>Minimum amount withdrawable: 0 </small>
                                                 </label>
                                             </div>
                                             <div class="col-sm-8">
@@ -125,51 +113,13 @@
                                                     </div>
                                                     <input type="text" value="{{ old('amount') }}"
                                                         class="form-control text-black @error('amount') is-invalid @enderror text-right"
-                                                        name="amount" placeholder="5000 USD">
+                                                        name="amount" placeholder="5000 USD" min="0">
                                                     @error('amount')
                                                         <div class="invalid-feedback d-block">
                                                             {{ $message }}
                                                         </div>
                                                     @enderror
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row align-items-center">
-                                            <div class="col-sm-4">
-                                                <label for="inputEmail3" class="col-form-label"> Available Balance
-                                                    <br />
-                                                    {{-- <small>Maximum amount withdrawable: 0 BTC</small> --}}
-                                                </label>
-                                            </div>
-                                            <div class="col-sm-8">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <label class="input-group-text bg-primary"><i
-                                                                class="cc BTC-alt text-white"></i></label>
-                                                    </div>
-                                                    <input type="text" name="balance"
-                                                        value=" {{ toMoney(auth()->user()->balance()) }}" readonly
-                                                        class="form-control text-right" placeholder="5000 USD">
-                                                    @error('balance')
-                                                        <div class="invalid-feedback d-block">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row align-items-center">
-                                            <div class="col-sm-6">
-                                                <label for="inputEmail3" class="col-form-label">Bitcoin Network Fee
-                                                    (BTC)
-                                                    <br />
-                                                    <small>Transactions on the Bitcoin network are priorirized by
-                                                        fees</small>
-                                                </label>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <h4 class="text-right">0.005</h4>
                                             </div>
                                         </div>
 

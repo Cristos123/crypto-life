@@ -2,9 +2,6 @@
 
 @section('title', ' Withdrawal')
 @section('content')
-
-    </div>
-
     <div class="content-body">
         <div class="container">
             <div class="row">
@@ -12,8 +9,8 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title"> Withdrawal History</h4>
-                            <a href="{{ route('admin.withdrawal.create') }}" class="btn btn-primary">
-                                Withdrawal </a>
+                            <a href="{{ route('withdrawals.create') }}" class="btn btn-primary">
+                                Withdrawal Funds </a>
                         </div>
                         <div class="card-body">
                             <div class="transaction-table">
