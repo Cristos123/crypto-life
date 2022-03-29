@@ -1,18 +1,19 @@
 <?php
 
-use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\AccountController;
+use App\Http\Controllers\Admin\AssetController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\DurationController;
+use App\Http\Controllers\Admin\InvestmentController;
+use App\Http\Controllers\Admin\KYCController as AdminKYCController;
+use App\Http\Controllers\Admin\PaymentAddressController;
+use App\Http\Controllers\Admin\WithdrawalController as AdminWithdrawalController;
 use App\Http\Controllers\UniversalController;
 use App\Http\Controllers\KYCController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\AssetController;
-use App\Http\Controllers\DurationController;
-use App\Http\Controllers\InvestmentController;
 use App\Http\Controllers\WithdrawalController;
-use App\Http\Controllers\AdminWithdrawalController;
 use App\Http\Controllers\DepositController;
-use App\Http\Controllers\PaymentAddressController;
 
 /*
 |--------------------------------------------------------------------------
@@ -104,12 +105,8 @@ Route::group(['prefix' => 'admin'], function () {
         'create' => 'admin.create-asset',
         'destroy' => 'admin.delete-asset',
     ]);
-    //payment address route
 
-    // Route::put('/payment-address.update/{paymentAddress}', [
-    //     PaymentAddressController::class,
-    //     'update',
-    // ])->name('admin.payment-address.update');
+    //payment address route
     Route::resource('payment-address', PaymentAddressController::class)->names([
         'index' => 'admin.payment-address.index',
         'edit' => 'admin.payment-address.edit',
@@ -141,14 +138,9 @@ Route::group(['prefix' => 'admin'], function () {
         // 'destroy' => 'admin.delete',
     ]);
 
-
-    Route::get('/admin.show/{kyc}', [KYCController::class, 'show'])->name(
-        'admin.show'
-    );
-
-    Route::post('/admin-dashboard/{kyc}', [KYCController::class, 'update'])->name(
-        'admin-dashboard'
-    );
+    // KYC Management
+    Route::get('/admin.show/{kyc}', [AdminKYCController::class, 'show'])->name('admin.show');
+    Route::post('/admin-dashboard/{kyc}', [AdminKYCController::class, 'update'])->name('admin-dashboard');
 });
 
 

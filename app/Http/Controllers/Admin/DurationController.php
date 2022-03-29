@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Category;
+use App\Http\Controllers\Controller;
+use App\Models\Duration;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
-class CategoryController extends Controller
+class DurationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::paginate(25);
-        return view('admin.category.index', compact('categories'));
+        $durations = Duration::paginate(25);
+        return view('admin.duration.index', compact('durations'));
     }
 
     /**
@@ -26,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
+        return view('admin.duration.create');
     }
 
     /**
@@ -40,73 +41,76 @@ class CategoryController extends Controller
         $request->validate([
             'name' => [
                 'required',
-                Rule::unique(Category::class),
+                Rule::unique(Duration::class),
 
                 'string',
                 'max:255',
             ],
+            'duration' => ['required', 'string', 'max:255'],
         ]);
-        Category::create([
+        Duration::create([
             'name' => $request['name'],
-            'description' => $request['description'],
+            'duration' => $request['duration'],
         ]);
 
         return redirect()
             ->back()
-            ->with('success', 'Category created  successfully!');
+            ->with('success', 'Duration created  successfully!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Duration  $duration
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(Duration $duration)
     {
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Duration  $duration
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(Duration $duration)
     {
-        return view('admin.category.edit', compact('category'));
+        return view('admin.duration.edit', compact('duration'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Duration  $duration
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Duration $duration)
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'duration' => ['required', 'string', 'max:255'],
         ]);
 
-        $category->name = $request->name;
-        $category->description = $request->description;
-        $category->save();
+        $duration->name = $request->name;
+        $duration->duration = $request->duration;
+        $duration->save();
         return redirect()
             ->back()
-            ->with('success', 'Category   updated successfully!');
+            ->with('success', 'Duration   updated succesfully!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Duration  $duration
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Duration $duration)
     {
-        $category->delete();
+        $duration->delete();
         return redirect()->back();
     }
 }
