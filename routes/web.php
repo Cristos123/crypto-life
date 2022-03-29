@@ -39,7 +39,7 @@ Route::get('dashboard', function () {
     ->name('home')
     ->middleware(['auth', 'verified', 'kyc']);
 
-// Withdraw
+// Withdraw  ✅
 Route::get('withdrawals', [WithdrawalController::class, 'index'])->name('withdrawals.index');
 Route::get('withdraw-funds', [WithdrawalController::class, 'create'])->name('withdrawals.create');
 Route::post('withdraw-funds', [WithdrawalController::class, 'store'])->name('withdrawals.store');

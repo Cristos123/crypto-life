@@ -15,7 +15,7 @@ class AdminWithdrawalController extends Controller
     public function index()
     {
         $withdrawals = Withdrawal::paginate(25)->sortByDesc('created_at');
-        return view('withdrawal.admin.index', compact('withdrawals'));
+        return view('admin.withdrawals.index', compact('withdrawals'));
     }
 
     /**
@@ -45,7 +45,7 @@ class AdminWithdrawalController extends Controller
      */
     public function show(Withdrawal $withdrawal)
     {
-        return view('withdrawal.admin.show', compact(['withdrawal']));
+        return view('admin.withdrawals.show', compact(['withdrawal']));
     }
 
     /**
