@@ -2,13 +2,15 @@
 
 namespace App\Models;
 
+use App\Traits\OrderByDate;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Withdrawal extends Model
 {
-    use HasFactory;
+    use HasFactory, OrderByDate;
+
     protected $fillable = [
         'asset_id',
         'amount',

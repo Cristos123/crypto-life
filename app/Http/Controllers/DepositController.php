@@ -46,6 +46,7 @@ class DepositController extends Controller
             'reference' => Str::random(10),
         ]);
         $deposit->user_id = auth()->id();
+        $deposit->save();
 
         return back()->with('success', 'You account balance will be updated once your deposit is verified.');
     }

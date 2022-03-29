@@ -8,10 +8,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use App\Models\Category;
 use App\Models\Asset;
 use App\Models\Duration;
+use App\Traits\OrderByDate;
 
 class Investment extends Model
 {
-    use HasFactory;
+    use HasFactory, OrderByDate;
+
     protected $fillable = ['name', 'amount', 'rate'];
     /**
      * Get all of the duration for the Investment
