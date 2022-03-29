@@ -39,8 +39,9 @@
 
                 <div class="col-xl-12">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header flex-column align-items-start">
                             <h4 class="card-title">Wallet Deposit Address</h4>
+                            <p class="text-danger">Select your preferred wallet and make transfer of the amount you want pay.</p>
                         </div>
                         <div class="card-body" id="deposits">
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -89,7 +90,7 @@
                                 <div class="col-xl-8">
                                     @include('layout.partials.errors')
 
-                                    <form action="{{ route('withdrawals.store') }}" method="POST" class="py-5">
+                                    <form action="{{ route('deposits.store') }}" method="POST" class="py-5">
                                         @csrf
                                         <div class="form-group row align-items-center">
                                             <div class="col-sm-4">
@@ -97,17 +98,17 @@
                                                 <small>Select the specific wallet currency you made payment to.</small>
                                             </div>
                                             <div class="col-sm-8">
-                                                <select class="form-control @error('asset_id') is-invalid @enderror"
-                                                    id="asset_id" name="asset_id">
+                                                <select class="form-control @error('currency') is-invalid @enderror"
+                                                    id="currency" name="currency">
                                                     <option value="">Select</option>
                                                     @forelse ($assets as $asset)
-                                                        <option value="{{ $asset->id }}"> {{ $asset->name }} </option>
+                                                        <option value="{{ $asset->name }}"> {{ $asset->name }} </option>
                                                     @empty
                                                     @endforelse
 
 
                                                 </select>
-                                                @error('asset_id')
+                                                @error('currency')
                                                     <div class="invalid-feedback d-block">
                                                         {{ $message }}
                                                     </div>
@@ -118,9 +119,9 @@
 
                                         <div class="form-group row align-items-center">
                                             <div class="col-sm-4">
-                                                <label for="inputEmail3" class="col-form-label">Amount
+                                                <label for="amount" class="col-form-label">Amount
                                                     <br />
-                                                    <small>Enter the amount to deposit here</small>
+                                                    <small>Enter the amount you transferred in USD</small>
                                                 </label>
                                             </div>
                                             <div class="col-sm-8">
@@ -129,7 +130,7 @@
                                                         <label class="input-group-text bg-primary"><i
                                                                 class="cc DOLLAR-alt text-white">$</i></label>
                                                     </div>
-                                                    <input type="text" value="{{ old('amount') }}"
+                                                    <input type="text" value="{{ old('amount') }}" id="amount"
                                                         class="form-control text-black @error('amount') is-invalid @enderror text-right"
                                                         name="amount" placeholder="5000 USD" min="0">
                                                     @error('amount')

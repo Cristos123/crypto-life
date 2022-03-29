@@ -27,9 +27,11 @@ if (!function_exists('status')) {
             case 'pending':
                 $status = 'Pending ...';
                 break;
-            case 'failed':
-            case 'rejected':
             case 'cancelled':
+                $status = 'Cancelled';
+                break;
+            case 'rejected':
+            case 'failed':
             case 'closed':
                 $status = 'Unsuccessful';
                 break;

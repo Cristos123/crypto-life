@@ -66,13 +66,13 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne(KYC::class);
     }
 
-    /**
-     * Get the withdrawal associated with the User
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
     public function withdrawals(): HasMany
     {
         return $this->hasMany(Withdrawal::class);
+    }
+
+    public function deposits(): HasMany
+    {
+        return $this->hasMany(Deposit::class);
     }
 }

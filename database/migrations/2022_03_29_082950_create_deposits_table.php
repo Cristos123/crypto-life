@@ -21,8 +21,9 @@ class CreateDepositsTable extends Migration
                 ->constrained()
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
+            $table->string('currency');
             $table->unsignedBigInteger('amount');
-            $table->enum('status', ['pending', 'cancelled', 'rejected', 'approved']);
+            $table->enum('status', ['pending', 'cancelled', 'rejected', 'approved'])->default('pending');
             $table->timestamps();
         });
     }

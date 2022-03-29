@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Asset;
 use App\Models\Deposit;
 use Illuminate\Http\Request;
+use Str;
 
 class DepositController extends Controller
 {
@@ -31,6 +32,22 @@ class DepositController extends Controller
         $assets = Asset::has('payment_address')->with(['default_address'])->get();
         // return $assets;
         return view('user.deposit.create', compact('assets'));
+    }
+
+    public function store(Request $request)
+    {
+        $inputs = $request->validate([
+            'currency' => ['required', 'string'],
+            'amount' => ['required', 'numeric', 'min:1']
+        ]);
+
+        $deposit = Deposit::create([
+            ...$inputs,
+            'reference' => Str::random(10),
+        ]);
+        $deposit->user_id = auth()->id();
+
+        return back()->with('success', 'You account balance will be updated once your deposit is verified.');
     }
 
     public function destroy(Deposit $deposit)

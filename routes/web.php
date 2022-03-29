@@ -49,6 +49,7 @@ Route::post('withdraw-funds', [WithdrawalController::class, 'store'])->name('wit
 Route::get('deposits', [DepositController::class, 'index'])->name('deposits.index');
 Route::get('deposit-funds', [DepositController::class, 'create'])->name('deposits.create');
 Route::post('deposit-funds', [DepositController::class, 'store'])->name('deposits.store');
+Route::delete('deposit-funds/{deposit:reference}/cancel', [DepositController::class, 'destroy'])->name('deposits.cancel');
 
 // Route::get('/account-deposits', function () {
 //     return view('account-deposite');
