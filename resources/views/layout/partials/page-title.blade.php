@@ -4,14 +4,13 @@
             <div class="col-6">
                 <div class="page-title-content">
                     <p>Welcome Back,
-                        <span> Saiful Islam</span>
+                        <span>{{ auth()->user()->fullname }}</span>
                     </p>
                 </div>
             </div>
             <div class="col-6">
                 <ul class="text-right breadcrumbs list-unstyle">
-                    <li><a href="./settings.html">Settings </a></li>
-                    <li class="active"><a href="#">Security</a></li>
+                    <li><a href="{{ route('account-settings') }}">Account Settings </a></li>
                 </ul>
             </div>
         </div>

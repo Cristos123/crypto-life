@@ -2,9 +2,9 @@
     <div class="card-body">
         <ul class="d-flex">
             <li class="nav-item">
-                <a href="{{ route('deposits.index') }}" class="nav-link">
+                <a href="{{ route('account-settings') }}" class="nav-link">
                     <i class="mdi mdi-bullseye"></i>
-                    <span>Overview</span>
+                    <span>Account Overview</span>
                 </a>
             </li>
             <li class="nav-item">

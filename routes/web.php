@@ -53,7 +53,7 @@ Route::post('deposit-funds', [DepositController::class, 'store'])->name('deposit
 Route::delete('deposit-funds/{deposit:reference}/cancel', [DepositController::class, 'destroy'])->name('deposits.cancel');
 
 // Account Settings
-Route::get('account-settings', AccountController::class);
+Route::get('account-settings', AccountController::class)->name('account-settings');
 
 // KYC
 Route::get('/kyc-verification', [KYCController::class, 'create'])->name(
