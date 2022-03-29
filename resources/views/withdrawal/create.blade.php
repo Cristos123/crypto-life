@@ -27,7 +27,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('withdrawal.create') }}" class="nav-link">
+                                    <a href="{{ route('withdrawals.create') }}" class="nav-link">
                                         <i class="mdi mdi-pentagon"></i>
                                         <span>Withdraw</span>
                                     </a>
