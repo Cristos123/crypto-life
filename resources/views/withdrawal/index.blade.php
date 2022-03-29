@@ -6,30 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
-                    <div class="card sub-menu">
-                        <div class="card-body">
-                            <ul class="d-flex">
-                                <li class="nav-item">
-                                    <a href="./account-overview.html" class="nav-link">
-                                        <i class="mdi mdi-bullseye"></i>
-                                        <span>Overview</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('withdrawal.create') }}" class="nav-link">
-                                        <i class="mdi mdi-heart"></i>
-                                        <span>Deposit</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('withdrawals.create') }}" class="nav-link">
-                                        <i class="mdi mdi-pentagon"></i>
-                                        <span>Withdraw</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    @include('layout.partials.dashboard.header')
                 </div>
                 <div class="col-xl-12">
                     <div class="card">
@@ -44,34 +21,23 @@
                                     <table class="table table-striped mb-0 table-responsive-sm">
                                         <thead>
                                             <tr>
-                                                <th> Status </th>
-                                                <th> Amount </th>
-                                                <th>Balance </th>
-                                                <th>Asset </th>
                                                 <th>Reference </th>
-                                                <th> User Name </th>
+                                                <th>Amount </th>
+                                                <th>Wallet Currency</th>
                                                 <th>Created Date </th>
-
-
+                                                <th>Status </th>
                                             </tr>
                                         </thead>
                                         <tbody>
 
                                             @forelse ($withdrawals as $withdrawal)
                                                 <tr>
-
-
+                                                    <th> {{ $withdrawal->reference }}</th>
+                                                    <td> {{ toMoney($withdrawal->amount) }} </td>
+                                                    <td> {{ $withdrawal->asset->name }}</td>
+                                                    <td> {{ $withdrawal->created_at() }}</td>
                                                     <td class="{{ statusColor($withdrawal->status) }}">
                                                         {{ status($withdrawal->status) }} </td>
-                                                    <td> {{ toMoney($withdrawal->amount) }} </td>
-                                                    <td> {{ toMoney($withdrawal->balance) }}</td>
-
-                                                    <td> {{ $withdrawal->asset->name }}</td>
-                                                    <td> {{ $withdrawal->reference }}</td>
-                                                    <td> {{ $withdrawal->user->fullname }}</td>
-                                                    <td> {{ $withdrawal->created_at }}</td>
-
-
 
                                                 </tr>
                                             @empty
