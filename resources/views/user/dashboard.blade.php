@@ -24,6 +24,7 @@
                                         <tr>
                                             <th>Type</th>
                                             <th>Size</th>
+                                            <th>Current</th>
                                             <th>Duration (Days)</th>
                                         </tr>
                                     </thead>
@@ -32,14 +33,16 @@
                                             <tr>
                                                 <td>
                                                     {{ $portfolio->category->name }} <br>
+                                                    <br>
                                                     <small>{{ $portfolio->asset->name }}</small>
                                                 </td>
+                                                <td>{{ toMoney($portfolio->amount) }}</td>
                                                 <td>{{ toMoney($portfolio->amount) }}</td>
                                                 <td>{{ $portfolio->duration->duration }}</td>
                                             </tr>
                                         @empty
                                             <tr>
-                                                <th colspan="3">
+                                                <th colspan="4">
                                                     <h5 class="text-center my-3">Empy Portfolio!</h5>
                                                 </th>
                                             </tr>
@@ -116,42 +119,11 @@
 
                             <form action="{{ route('admin.store-investment') }}" method="POST">
                                 @csrf
-
                                 <div class="form-group">
-                                    <label>Name</label>
-                                    <input type="text" value="{{ old('name') }}" placeholder="Investment Name"
-                                        class="form-control @error('name') is-invalid @enderror" name="name">
-                                    @error('name')
-                                        <div class="invalid-feedback d-block">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group ">
-                                    <label class="mr-sm-2">Assets</label>
-                                    <select class="form-control @error('type') is-invalid @enderror" id="selected_type"
-                                        required name="assetId">
-                                        <option value="select">Select</option>
-                                        @forelse ($assets as $asset)
-                                            <option value="{{ $asset->id }}"> {{ $asset->name }} </option>
-                                        @empty
-                                        @endforelse
-
-
-                                    </select>
-                                    @error('type')
-                                        <div class="invalid-feedback d-block">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                                <br>
-                                <div class="form-group">
-                                    <label class="mr-sm-2">Category</label>
+                                    <label class="mr-sm-2">Choose Asset Category</label>
                                     <select class="form-control @error('type') is-invalid @enderror" id="selected_type"
                                         required name="categoryId">
-                                        <option value="select">Select</option>
+                                        <option value="">Select</option>
                                         @forelse ($categories as $category)
                                             <option value="{{ $category->id }}"> {{ $category->name }} </option>
                                         @empty
@@ -166,11 +138,34 @@
                                     @enderror
                                 </div>
                                 <br>
+                                <br>
+
+                                <div class="form-group ">
+                                    <label class="mr-sm-2">Choose an Asset</label>
+                                    <select class="form-control @error('type') is-invalid @enderror" id="selected_type"
+                                        required name="assetId">
+                                        <option value="">Select</option>
+                                        @forelse ($assets as $asset)
+                                            <option value="{{ $asset->id }}"> {{ $asset->name }} </option>
+                                        @empty
+                                        @endforelse
+
+
+                                    </select>
+                                    @error('type')
+                                        <div class="invalid-feedback d-block">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                                <br>
+                                <br>
+
                                 <div class="form-group">
-                                    <label class="mr-sm-2">Duration</label>
+                                    <label class="mr-sm-2">Trade Expiry</label>
                                     <select class="form-control @error('type') is-invalid @enderror" id="selected_type"
                                         required name="durationId">
-                                        <option value="select">Select</option>
+                                        <option value="">Select</option>
                                         @forelse ($durations as $duration)
                                             <option value="{{ $duration->id }}"> {{ $duration->name }} </option>
                                         @empty
@@ -185,19 +180,10 @@
                                     @enderror
                                 </div>
                                 <br>
+                                <br>
                                 <div class="form-group">
-                                    <label>Rate</label>
-                                    <input type="text" value="{{ old('rate') }}" placeholder="Type your rate"
-                                        class="form-control @error('rate') is-invalid @enderror" name="rate">
-                                    @error('rate')
-                                        <div class="invalid-feedback d-block">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label>Amount</label>
-                                    <input type="text" value="{{ old('amount') }}" placeholder="Type your amount"
+                                    <label>Amount (USD)</label>
+                                    <input type="text" value="{{ old('amount') }}" placeholder="Enter amount"
                                         class="form-control @error('amount') is-invalid @enderror" name="amount">
                                     @error('amount')
                                         <div class="invalid-feedback d-block">
@@ -206,7 +192,7 @@
                                     @enderror
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-success btn-block">Create</button>
+                                    <button type="submit" class="btn btn-success btn-block">Invest Now</button>
                                 </div>
                             </form>
 

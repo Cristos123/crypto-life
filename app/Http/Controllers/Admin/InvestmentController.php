@@ -30,22 +30,18 @@ class InvestmentController extends Controller
      */
     public function store(Request $request)
     {
-        $duration = Duration::find($request->durationId);
-        $asset = Asset::find($request->assetId);
-        $category = Category::find($request->categoryId);
+        $duration = Duration::findOrFail($request->durationId);
+        $asset = Asset::findOrFail($request->assetId);
+        $category = Category::findOrFail($request->categoryId);
 
         $request->validate([
             'rate' => ['required', 'string', 'max:255'],
             'amount' => ['required', 'string', 'max:255'],
-            'categoryId' => ['required', 'string', 'max:255'],
-            'assetId' => ['required', 'string'],
-            'durationId' => ['required', 'string'],
         ]);
-        // return $request->all();
+
         $investment = Investment::create([
-            'name' => $request['name'],
-            'rate' => $request['rate'],
-            'amount' => $request['amount'],
+            'rate' => random_int(5, 50),
+            'amount' => intval($request['amount']) * 100,
             'status' => 'pending',
         ]);
 
@@ -56,6 +52,7 @@ class InvestmentController extends Controller
         $investment->duration()->associate($duration);
 
         $investment->save();
+
         return redirect()
             ->back()
             ->with('success', 'Investment  created  successfully!');
