@@ -85,14 +85,14 @@
                                         "colorTheme": "dark",
                                         "dateRange": "12M",
                                         "exchange": "NYSE",
-                                        "showChart": true,
+                                        "showChart": false,
                                         "locale": "en",
                                         "largeChartUrl": "",
                                         "isTransparent": false,
                                         "showSymbolLogo": false,
                                         "showFloatingTooltip": false,
                                         "width": "100%",
-                                        "height": "600",
+                                        "height": "480",
                                         "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
                                         "plotLineColorFalling": "rgba(41, 98, 255, 1)",
                                         "gridLineColor": "rgba(240, 243, 250, 0)",
@@ -167,7 +167,7 @@
                                         required name="durationId">
                                         <option value="">Select</option>
                                         @forelse ($durations as $duration)
-                                            <option value="{{ $duration->id }}"> {{ $duration->name }} </option>
+                                            <option value="{{ $duration->id }}"> {{ $duration->duration }} Days</option>
                                         @empty
                                         @endforelse
 

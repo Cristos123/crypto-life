@@ -35,8 +35,7 @@ class InvestmentController extends Controller
         $category = Category::findOrFail($request->categoryId);
 
         $request->validate([
-            'rate' => ['required', 'string', 'max:255'],
-            'amount' => ['required', 'string', 'max:255'],
+            'amount' => ['required', 'numeric', 'min:1'],
         ]);
 
         $investment = Investment::create([

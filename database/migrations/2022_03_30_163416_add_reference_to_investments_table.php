@@ -15,6 +15,7 @@ class AddReferenceToInvestmentsTable extends Migration
     {
         Schema::table('investments', function (Blueprint $table) {
             $table->string('reference');
+            $table->unsignedBigInteger('last_total');
         });
     }
 
@@ -26,7 +27,7 @@ class AddReferenceToInvestmentsTable extends Migration
     public function down()
     {
         Schema::table('investments', function (Blueprint $table) {
-            $table->dropColumn(['reference']);
+            $table->dropColumn(['reference', 'last_total']);
         });
     }
 }
