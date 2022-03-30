@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Asset;
+use App\Models\Category;
+use App\Models\Duration;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -19,6 +22,10 @@ class DashboardController extends Controller
         $investments = $user->investments()->with(['category', 'asset', 'duration'])->active()->get();
         $allInvestments = $user->investments()->with(['category', 'asset', 'duration'])->take(15)->get();
 
-        return  view('user.dashboard', compact('investments', 'allInvestments', 'user'));
+        $durations = Duration::all();
+        $assets = Asset::all();
+        $categories = Category::all();
+
+        return  view('user.dashboard', compact('investments', 'allInvestments', 'user', 'durations', 'assets', 'categories'));
     }
 }

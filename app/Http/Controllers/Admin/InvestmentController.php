@@ -23,22 +23,6 @@ class InvestmentController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        $durations = Duration::all();
-        $assets = Asset::all();
-        $categories = Category::all();
-        return view(
-            'admin.investment.create',
-            compact(['durations', 'assets', 'categories'])
-        );
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

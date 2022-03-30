@@ -33,7 +33,7 @@ Route::get('/', function () {
 });
 //
 
-Route::group(['auth', 'verified', 'kyc'], function () {
+Route::group(['middleware' => ['auth', 'verified', 'kyc']], function () {
     Route::get('dashboard', DashboardController::class)->name('home');
     // Withdraw  ✅
     Route::get('withdrawals', [WithdrawalController::class, 'index'])->name('withdrawals.index');
