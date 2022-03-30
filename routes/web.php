@@ -1,21 +1,20 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\KYCController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\DepositController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\WithdrawalController;
+use App\Http\Controllers\InvestmentController;
+
 use App\Http\Controllers\Admin\AssetController;
 use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\DurationController;
-use App\Http\Controllers\Admin\InvestmentController;
-use App\Http\Controllers\Admin\KYCController as AdminKYCController;
 use App\Http\Controllers\Admin\PaymentAddressController;
+use App\Http\Controllers\Admin\KYCController as AdminKYCController;
+use App\Http\Controllers\Admin\InvestmentController as AdminInvestmentController;
 use App\Http\Controllers\Admin\WithdrawalController as AdminWithdrawalController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\UniversalController;
-use App\Http\Controllers\KYCController;
-use App\Http\Controllers\WithdrawalController;
-use App\Http\Controllers\DepositController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +33,10 @@ Route::get('/', function () {
 //
 
 Route::group(['middleware' => ['auth', 'verified', 'kyc']], function () {
+
     Route::get('dashboard', DashboardController::class)->name('home');
+    Route::post('invest', [InvestmentController::class, 'store'])->name('invest');
+
     // Withdraw  ✅
     Route::get('withdrawals', [WithdrawalController::class, 'index'])->name('withdrawals.index');
     Route::get('withdraw-funds', [WithdrawalController::class, 'create'])->name('withdrawals.create');
@@ -118,7 +120,7 @@ Route::group(['middleware' => ['auth', 'verified', 'kyc']], function () {
         ]);
 
         //Investment routes
-        Route::resource('investment', InvestmentController::class)->names([
+        Route::resource('investment', AdminInvestmentController::class)->names([
             'index' => 'admin.investment.index',
             'show' => 'admin.show-investment',
             'edit' => 'admin.edit-investment',
