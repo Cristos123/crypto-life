@@ -14,60 +14,36 @@
                         </div>
                         <div class="card-body">
                             <div class="total-balance">
-                                <h3>$ 63411.00</h3>
+                                <h3>$ {{ toMoney($user->balance()) }}</h3>
                                 <h6>Total Balance</h6>
                             </div>
-
+                            <hr>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
                                         <tr>
                                             <th>Type</th>
                                             <th>Size</th>
-                                            <th>USD</th>
+                                            <th>Duration (Days)</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @forelse ($investments as $portfolio)
                                         <tr>
-                                            <td>BTC</td>
-                                            <td>0.000242</td>
-                                            <td>0.125 USD</td>
+                                            <td>
+                                                {{ $portfolio->category->name }} <br>
+                                                <small>{{ $portfolio->asset->name }}</small>
+                                            </td>
+                                            <td>{{ toMoney($portfolio->amount) }}</td>
+                                            <td>{{ $portfolio->duration->duration }}</td>
                                         </tr>
+                                        @empty
                                         <tr>
-                                            <td>LTC</td>
-                                            <td>0.000242 </td>
-                                            <td>0.125 USD</td>
+                                            <th colspan="3">
+                                                <h5 class="text-center my-3">Empy Portfolio!</h5>
+                                            </th>
                                         </tr>
-                                        <tr>
-                                            <td>XRP</td>
-                                            <td>0.000242 </td>
-                                            <td>0.125 USD</td>
-                                        </tr>
-                                        <tr>
-                                            <td>ETH</td>
-                                            <td>0.000242 </td>
-                                            <td>0.125 USD</td>
-                                        </tr>
-                                        <tr>
-                                            <td>XTZ</td>
-                                            <td>0.000242 </td>
-                                            <td>0.125 USD</td>
-                                        </tr>
-                                        <tr>
-                                            <td>EOS</td>
-                                            <td>0.000242 </td>
-                                            <td>0.125 USD</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Dash</td>
-                                            <td>0.000242 </td>
-                                            <td>0.125 USD</td>
-                                        </tr>
-                                        <tr>
-                                            <td>USDT</td>
-                                            <td>0.000242 </td>
-                                            <td>0.125 USD</td>
-                                        </tr>
+                                        @endforelse
                                     </tbody>
                                 </table>
                             </div>

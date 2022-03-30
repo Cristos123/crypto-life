@@ -14,6 +14,11 @@ class DashboardController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return  view('unused.dashboard');
+        $user = auth()->user();
+
+        $investments = $user->investments()->with(['category', 'asset', 'duration'])->active()->get();
+        $allInvestments = $user->investments()->with(['category', 'asset', 'duration'])->take(15)->get();
+
+        return  view('user.dashboard', compact('investments', 'allInvestments', 'user'));
     }
 }

@@ -10,6 +10,7 @@ use App\Models\Asset;
 use App\Models\Duration;
 use App\Traits\FormatDate;
 use App\Traits\OrderByDate;
+use Illuminate\Database\Eloquent\Builder;
 
 class Investment extends Model
 {
@@ -44,5 +45,10 @@ class Investment extends Model
     public function category(): BelongsTo
     {
         return $this->belongsTo(category::class);
+    }
+
+    public function scopeActive(Builder $query)
+    {
+        return $query->where('status', 'pending');
     }
 }
