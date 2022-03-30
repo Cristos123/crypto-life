@@ -5,11 +5,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Admin\AssetController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\DurationController;
 use App\Http\Controllers\Admin\InvestmentController;
 use App\Http\Controllers\Admin\KYCController as AdminKYCController;
 use App\Http\Controllers\Admin\PaymentAddressController;
 use App\Http\Controllers\Admin\WithdrawalController as AdminWithdrawalController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UniversalController;
 use App\Http\Controllers\KYCController;
 use App\Http\Controllers\WithdrawalController;
@@ -29,118 +31,109 @@ use App\Http\Controllers\DepositController;
 Route::get('/', function () {
     return view('welcome');
 });
+//
 
-Route::get('home', function () {
-    return view('dashboard');
-})
-    ->name('home')
-    ->middleware(['auth', 'verified', 'kyc']);
+Route::group(['auth', 'verified', 'kyc'], function () {
+    Route::get('dashboard', DashboardController::class)->name('home');
+    // Withdraw  ✅
+    Route::get('withdrawals', [WithdrawalController::class, 'index'])->name('withdrawals.index');
+    Route::get('withdraw-funds', [WithdrawalController::class, 'create'])->name('withdrawals.create');
+    Route::post('withdraw-funds', [WithdrawalController::class, 'store'])->name('withdrawals.store');
 
-Route::get('dashboard', function () {
-    return view('dashboard');
-})
-    ->name('home')
-    ->middleware(['auth', 'verified', 'kyc']);
+    // Deposit
+    Route::get('deposits', [DepositController::class, 'index'])->name('deposits.index');
+    Route::get('deposit-funds', [DepositController::class, 'create'])->name('deposits.create');
+    Route::post('deposit-funds', [DepositController::class, 'store'])->name('deposits.store');
+    Route::delete('deposit-funds/{deposit:reference}/cancel', [DepositController::class, 'destroy'])->name('deposits.cancel');
 
-// Withdraw  ✅
-Route::get('withdrawals', [WithdrawalController::class, 'index'])->name('withdrawals.index');
-Route::get('withdraw-funds', [WithdrawalController::class, 'create'])->name('withdrawals.create');
-Route::post('withdraw-funds', [WithdrawalController::class, 'store'])->name('withdrawals.store');
+    // Account Settings
+    Route::get('account-settings', AccountController::class)->name('account-settings');
 
-// Deposit
-Route::get('deposits', [DepositController::class, 'index'])->name('deposits.index');
-Route::get('deposit-funds', [DepositController::class, 'create'])->name('deposits.create');
-Route::post('deposit-funds', [DepositController::class, 'store'])->name('deposits.store');
-Route::delete('deposit-funds/{deposit:reference}/cancel', [DepositController::class, 'destroy'])->name('deposits.cancel');
-
-// Account Settings
-Route::get('account-settings', AccountController::class)->name('account-settings');
-
-// KYC
-Route::get('/kyc-verification', [KYCController::class, 'create'])->name(
-    'kyc-verification'
-);
-Route::post('/kyc-verification', [KYCController::class, 'store'])->name(
-    'kyc-verification'
-);
+    // KYC
+    Route::get('/kyc-verification', [KYCController::class, 'create'])->name(
+        'kyc-verification'
+    );
+    Route::post('/kyc-verification', [KYCController::class, 'store'])->name(
+        'kyc-verification'
+    );
 
 
-//assets route
-Route::group(['prefix' => 'admin'], function () {
-    Route::get('/dashboard', [CategoryController::class, 'index'])->name('admin.dashboard');
+    //assets route
+    Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function () {
+        Route::get('/dashboard', [CategoryController::class, 'index'])->name('admin.dashboard');
 
-    //category routes
-    Route::resource('category', CategoryController::class)->names([
-        'index' => 'admin.category.index',
-        'create' => 'admin.create-category',
-        'store' => 'admin.store-category',
-        'update' => 'admin.update-category',
-        'edit' => 'admin.edit-category',
-        'destroy' => 'admin.delete-category',
-    ]);
+        //category routes
+        Route::resource('category', CategoryController::class)->names([
+            'index' => 'admin.category.index',
+            'create' => 'admin.create-category',
+            'store' => 'admin.store-category',
+            'update' => 'admin.update-category',
+            'edit' => 'admin.edit-category',
+            'destroy' => 'admin.delete-category',
+        ]);
 
-    //admin withdrawal route
-    Route::resource('users-withdrawals', AdminWithdrawalController::class)->names([
-        'index' => 'admin.withdrawal.index',
-        'show' => 'admin.withdrawal.show',
-        'update' => 'admin.withdrawal.update',
-    ]);
+        //admin withdrawal route
+        Route::resource('users-withdrawals', AdminWithdrawalController::class)->names([
+            'index' => 'admin.withdrawal.index',
+            'show' => 'admin.withdrawal.show',
+            'update' => 'admin.withdrawal.update',
+        ]);
 
-    //Asset routes
-    Route::put('asset/{id}', [
-        AssetController::class,
-        'changeDefaultAddress',
-    ])->name('admin.asset.changeDefaultAddress');
+        //Asset routes
+        Route::put('asset/{id}', [
+            AssetController::class,
+            'changeDefaultAddress',
+        ])->name('admin.asset.changeDefaultAddress');
 
-    Route::resource('asset', AssetController::class)->names([
-        'index' => 'admin.asset.index',
-        'edit' => 'admin.edit-asset',
-        'update' => 'admin.update-asset',
-        'store' => 'admin.store-asset',
-        'show' => 'admin.asset.show',
-        'changeDefaultAddress' => 'admin.asset.changeDefaultAddress',
-        'create' => 'admin.create-asset',
-        'destroy' => 'admin.delete-asset',
-    ]);
+        Route::resource('asset', AssetController::class)->names([
+            'index' => 'admin.asset.index',
+            'edit' => 'admin.edit-asset',
+            'update' => 'admin.update-asset',
+            'store' => 'admin.store-asset',
+            'show' => 'admin.asset.show',
+            'changeDefaultAddress' => 'admin.asset.changeDefaultAddress',
+            'create' => 'admin.create-asset',
+            'destroy' => 'admin.delete-asset',
+        ]);
 
-    //payment address route
-    Route::resource('payment-address', PaymentAddressController::class)->names([
-        'index' => 'admin.payment-address.index',
-        'edit' => 'admin.payment-address.edit',
-        'show' => 'admin.payment-address.show',
-        'update' => 'admin.payment-address.update',
-        'store' => 'admin.payment-address.store',
-        'create' => 'admin.payment-address.create',
-        'destroy' => 'admin.delete-asset',
-    ]);
+        //payment address route
+        Route::resource('payment-address', PaymentAddressController::class)->names([
+            'index' => 'admin.payment-address.index',
+            'edit' => 'admin.payment-address.edit',
+            'show' => 'admin.payment-address.show',
+            'update' => 'admin.payment-address.update',
+            'store' => 'admin.payment-address.store',
+            'create' => 'admin.payment-address.create',
+            'destroy' => 'admin.delete-asset',
+        ]);
 
-    //Duration routes
-    Route::resource('duration', DurationController::class)->names([
-        'index' => 'admin.duration.index',
-        'edit' => 'admin.edit-duration',
-        'update' => 'admin.update-duration',
-        'create' => 'admin.create-duration',
-        'store' => 'admin.store-duration',
-        'destroy' => 'admin.delete-duration',
-    ]);
+        //Duration routes
+        Route::resource('duration', DurationController::class)->names([
+            'index' => 'admin.duration.index',
+            'edit' => 'admin.edit-duration',
+            'update' => 'admin.update-duration',
+            'create' => 'admin.create-duration',
+            'store' => 'admin.store-duration',
+            'destroy' => 'admin.delete-duration',
+        ]);
 
-    //Investment routes
-    Route::resource('investment', InvestmentController::class)->names([
-        'index' => 'admin.investment.index',
-        'show' => 'admin.show-investment',
-        'edit' => 'admin.edit-investment',
-        'update' => 'admin.update-investment',
-        'create' => 'admin.create-investment',
-        'store' => 'admin.store-investment',
-        // 'destroy' => 'admin.delete',
-    ]);
+        //Investment routes
+        Route::resource('investment', InvestmentController::class)->names([
+            'index' => 'admin.investment.index',
+            'show' => 'admin.show-investment',
+            'edit' => 'admin.edit-investment',
+            'update' => 'admin.update-investment',
+            'create' => 'admin.create-investment',
+            'store' => 'admin.store-investment',
+            // 'destroy' => 'admin.delete',
+        ]);
 
-    // KYC Management
-    Route::get('/kyc-submissions', [AdminKYCController::class, 'index'])->name('admin.kyc.index');
-    Route::get('/kyc-submissions/{kyc}', [AdminKYCController::class, 'show'])->name('admin.kyc.show');
-    Route::post('/kyc-submissions/{kyc}', [AdminKYCController::class, 'update'])->name('admin.kyc.store');
+        // KYC Management
+        Route::get('/kyc-submissions', [AdminKYCController::class, 'index'])->name('admin.kyc.index');
+        Route::get('/kyc-submissions/{kyc}', [AdminKYCController::class, 'show'])->name('admin.kyc.show');
+        Route::post('/kyc-submissions/{kyc}', [AdminKYCController::class, 'update'])->name('admin.kyc.store');
+    });
 });
-
 
 
 // Route::get('/account-affiliate', function () {

@@ -17,7 +17,7 @@
                   </a>
               </li>
               <li>
-                  <a href="{{ route('settings-account') }}" data-toggle="tooltip" data-placement="right" title="Setting">
+                  <a href="{{ route('account-settings') }}" data-toggle="tooltip" data-placement="right" title="Setting">
                       <span><i class="mdi mdi-account"></i></span>
                   </a>
               </li>
