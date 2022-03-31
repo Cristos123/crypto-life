@@ -15,37 +15,15 @@ class WithdrawalController extends Controller
      */
     public function index()
     {
-        $withdrawals = Withdrawal::paginate(25)->sortByDesc('created_at');
+        $withdrawals = Withdrawal::with(['user'])->paginate(25)->sortByDesc('created_at');
+
         return view('admin.withdrawals.index', compact('withdrawals'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function show(Withdrawal $users_withdrawal)
     {
-    }
+        $withdrawal = $withdrawal = $users_withdrawal;;
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  Withdrawal $withdrawal
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Withdrawal $withdrawal)
-    {
         return view('admin.withdrawals.show', compact(['withdrawal']));
     }
 
@@ -67,15 +45,16 @@ class WithdrawalController extends Controller
      * @param Withdrawal $withdrawal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Withdrawal $withdrawal)
+    public function update(Request $request, Withdrawal $users_withdrawal)
     {
-        if ($request->approved) {
+        $withdrawal = $users_withdrawal;
+        if ($request->has('approve')) {
             if ($withdrawal->status == 'pending') {
                 $withdrawal->status = 'succeed';
 
                 $withdrawal->save();
             }
-        } elseif ($request->cancel) {
+        } elseif ($request->has('cancel')) {
             if ($withdrawal->status == 'pending') {
                 $withdrawal->status = 'closed';
 

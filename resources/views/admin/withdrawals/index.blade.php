@@ -8,6 +8,7 @@
     <div class="content-body">
         <div class="container">
             <div class="row">
+                @include('layout.partials.admin.page-title')
                 <div class="col-xl-12">
                     <div class="card">
                         <div class="card-header">
@@ -20,14 +21,13 @@
                                     <table class="table table-striped mb-0 table-responsive-sm">
                                         <thead>
                                             <tr>
+                                                <th>Reference </th>
                                                 <th> Status </th>
                                                 <th> Amount </th>
-                                                <th>Balance </th>
-                                                <th>Amount </th>
-                                                <th>Asset </th>
-                                                <th>Reference </th>
+                                                <th> Balance </th>
+                                                <th> Wallet Type </th>
                                                 <th> User Name </th>
-                                                <th>Created Date </th>
+                                                <th> Created Date </th>
                                                 <th>Action </th>
 
                                             </tr>
@@ -37,14 +37,13 @@
                                             @forelse ($withdrawals as $withdrawal)
                                                 <tr>
 
-
+                                                    <td> {{ $withdrawal->reference }}</td>
                                                     <td class="{{ statusColor($withdrawal->status) }}">
-                                                        {{ status($withdrawal->status) }} </td>
+                                                        <span class="badge badge-{{ state($withdrawal->status) }} text-uppercase">{{ ($withdrawal->status) }}</span>
+                                                    </td>
                                                     <td> {{ toMoney($withdrawal->amount) }} </td>
                                                     <td> {{ toMoney($withdrawal->balance) }}</td>
-                                                    <td> {{ $withdrawal->amount }}</td>
                                                     <td> {{ $withdrawal->asset->name }}</td>
-                                                    <td> {{ $withdrawal->reference }}</td>
                                                     <td> {{ $withdrawal->user->fullname }}</td>
                                                     <td> {{ $withdrawal->created_at }}</td>
 

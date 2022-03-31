@@ -19,21 +19,12 @@ class Withdrawal extends Model
         'withdrawal_address',
         'reference',
     ];
-    /**
-     * Get the user that owns the Withdrawal
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    /**
-     * Get the asset that owns the Withdrawal
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
     public function asset(): BelongsTo
     {
         return $this->belongsTo(Asset::class);

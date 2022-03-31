@@ -8,6 +8,7 @@
     <div class="content-body">
         <div class="container">
             <div class="row">
+                @include('layout.partials.admin.page-title')
                 <div class="col-xl-6 col-lg-6 col-md-6">
                     <div class="card profile_card">
                         <div class="card-body">
@@ -49,11 +50,11 @@
                                     <span class="text-secondary">{{ $withdrawal->created_at }}</span>
                                 </li>
                             </ul>
-                            @if ($withdrawal->status !== 'succeed')
+                            @if ($withdrawal->status == 'pending')
                                 <form method="post" action="{{ route('admin.withdrawal.update', $withdrawal) }}">
                                     @csrf @method('PUT')
-                                    <input type="hidden" value="approved" name="approved">
-                                    <button type="submit" class="btn btn-warning">Approved</button>
+                                    <input type="hidden" value="approve" name="approve">
+                                    <button type="submit" class="btn btn-success" onclick="return confirm('Are you sure to approve withdrawal>')">Approve Withdrawal</button>
 
                                 </form>
 
@@ -61,7 +62,7 @@
                                     @csrf @method('PUT')
 
                                     <input type="hidden" value="cancel" name="cancel">
-                                    <button type="submit" class="btn btn-danger">Closed</button>
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure to cancel withdrawal>')">Cancel Request</button>
                                 </form>
                             @else
                             @endif

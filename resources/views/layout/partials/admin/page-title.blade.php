@@ -9,6 +9,12 @@
                      </a>
                  </li>
                  <li class="nav-item">
+                    <a href="{{ route('admin.withdrawal.index') }}" class="nav-link">
+                        <i class="mdi mdi-widgets"></i>
+                        <span>Withdrawals</span>
+                    </a>
+                </li>
+                 <li class="nav-item">
                      <a href="{{ route('admin.category.index') }}" class="nav-link">
                          <i class="mdi mdi-heart"></i>
                          <span>Category</span>
