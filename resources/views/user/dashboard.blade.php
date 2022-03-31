@@ -211,6 +211,8 @@
                                 </div>
                             </form>
 
+
+
                         </div>
                     </div>
                 </div>
@@ -293,13 +295,9 @@
 
 
 @push('styles')
-    <link rel="stylesheet" href="{{ asset('assets/vendor/nice-select/css/nice-select.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/vendor/waves/waves.min.css') }}">
-    {{-- <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"> --}}
 @endpush
 
 @push('scripts')
-    <script src="{{ asset('assets/js/dashboard.js') }}"></script>
         {{-- Charts --}}
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
     <script type="text/javascript">
