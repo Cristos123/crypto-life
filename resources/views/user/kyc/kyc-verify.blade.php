@@ -24,6 +24,10 @@
                                 <div class="upload-loading text-center mb-3">
                                     <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
                                 </div>
+
+                                <div class="d-flex justify-content-center">
+                                    <a class="text-center" href="{{ route('home') }}">Go to Dashboard</a>
+                                </div>
                             </form>
                         </div>
                     </div>
