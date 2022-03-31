@@ -76,6 +76,9 @@ class Investment extends Model
 
     public function accrueDays()
     {
-        return Carbon::today()->diffInDays(Carbon::parse($this->created_at));
+        $today = Carbon::today()->startOfDay();
+        $startDate = Carbon::parse($this->created_at)->startOfDay();
+
+        return ($today->diffInDays($startDate));
     }
 }

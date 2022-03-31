@@ -56,7 +56,7 @@
     <script src="{{ asset('assets/vendor/scrollit/scrollIt.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/scrollit-init.js') }}"></script>
 
-    {{-- <script src="{{ asset('assets/js/scripts.js') }}"></script> --}}
+    <script src="{{ asset('assets/js/scripts.js') }}"></script>
 
 
     <script src="{{ asset('assets/vendor/toastr/toastr.min.js') }}"></script>

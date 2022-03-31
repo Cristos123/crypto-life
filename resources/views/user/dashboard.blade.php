@@ -7,6 +7,10 @@
     <div class="content-body">
         <div class="container-fluid">
             <div class="row">
+                <div class="col-xl-12">
+                    @include('layout.partials.dashboard.header')
+                </div>
+
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-header">
