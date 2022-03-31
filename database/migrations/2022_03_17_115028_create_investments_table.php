@@ -15,6 +15,13 @@ class CreateInvestmentsTable extends Migration
     {
         Schema::create('investments', function (Blueprint $table) {
             $table->id();
+            $table->string('reference');
+            $table
+                ->foreignId('user_id')
+                ->nullable()
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('set null');
             $table
                 ->foreignId('asset_id')
                 ->nullable()
@@ -34,9 +41,9 @@ class CreateInvestmentsTable extends Migration
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('set null');
-            $table->string('name')->nullable();
             $table->unsignedInteger('rate');
             $table->unsignedBigInteger('amount');
+            $table->unsignedBigInteger('last_total');
             $table->enum('status', ['pending', 'completed', 'cancelled']);
 
             $table->timestamps();
