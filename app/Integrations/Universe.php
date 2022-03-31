@@ -3,6 +3,7 @@
 namespace App\Integrations;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 
 class Universe
@@ -11,6 +12,8 @@ class Universe
     protected $baseUrl;
     protected $authToken;
     protected $userEmail;
+
+    protected $tokenKey = 'authToken';
 
     public function __construct()
     {
@@ -59,7 +62,11 @@ class Universe
     protected function authenticate()
     {
         // Get the auth token from cache
-        // $authToken = Cache::get('authToken');
+        if (Cache::has($this->tokenKey)) {
+            $authToken = Cache::get($this->tokenKey);
+
+            return $authToken;
+        }
 
         $url = $this->baseUrl . '/getaccesstoken';
 
@@ -71,6 +78,11 @@ class Universe
             ->get($url)
             ->json();
 
-        return $response['auth_token'];
+        $authToken = $response['auth_token'];
+
+        // Save in cache for 23 hours
+        Cache::put($this->tokenKey, $authToken, now()->addHours(23));
+
+        return $authToken;
     }
 }
