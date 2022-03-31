@@ -17,6 +17,11 @@ class KYCVerification
     public function handle(Request $request, Closure $next)
     {
         $kyc = auth()->user()->kyc;
+        $user = auth()->user();
+
+        // Admin BYPASS
+        if ($user->hasRole('admin')) return $next($request);
+
         if (is_null($kyc) || $kyc->status == 'pending') {
             // dd($kyc);
 
