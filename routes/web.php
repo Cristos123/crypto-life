@@ -32,8 +32,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['middleware' => ['auth', 'verified', 'kyc']], function () {
 
+Route::get('/get-state/{country}', [UniversalController::class, 'getState'])->name('state');
+
+Route::group(['middleware' => ['auth', 'verified', 'kyc']], function () {
     Route::get('dashboard', DashboardController::class)->name('home');
     Route::post('invest', [InvestmentController::class, 'store'])->name('invest');
 
@@ -228,10 +230,6 @@ Route::group(['middleware' => ['auth', 'verified', 'kyc']], function () {
 //     return view('reset');
 // })->name('reset');
 
-// Route::get('/get-state/{country}', [
-//     UniversalController::class,
-//     'getState',
-// ])->name('state');
 
 // // Route::get('/signup', function () {
 // //     return view('signup');
