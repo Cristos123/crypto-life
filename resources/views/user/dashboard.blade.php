@@ -207,7 +207,7 @@
                                     @enderror
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-success btn-block">Invest Now</button>
+                                    <button type="submit" class="btn btn-primary btn-block">Invest Now</button>
                                 </div>
                             </form>
 
