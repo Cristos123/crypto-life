@@ -42,7 +42,7 @@
                                                     <input value="{{ old('withdrawal_address') }}"
                                                         name="withdrawal_address" type="text" id="withdrawal_address"
                                                         class="form-control @error('withdrawal_address') is-invalid @enderror text-right"
-                                                        placeholder="5000 USD">
+                                                        placeholder="Wallet Address">
                                                     @error('withdrawal_address')
                                                         <div class="invalid-feedback d-block">
                                                             {{ $message }}
@@ -51,7 +51,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <br>
                                         <div class="form-group row align-items-center">
                                             <div class="col-sm-4">
                                                 <label for="asset_id" class="mr-sm-2">Currency</label>

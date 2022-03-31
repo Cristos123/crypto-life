@@ -295,20 +295,12 @@
 @push('styles')
     <link rel="stylesheet" href="{{ asset('assets/vendor/nice-select/css/nice-select.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/waves/waves.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/vendor/toastr/toastr.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 @endpush
 
 @push('scripts')
     <script src="{{ asset('assets/js/dashboard.js') }}"></script>
-    <script src="{{ asset('assets/js/scripts.js') }}"></script>
-
-
-    <script src="{{ asset('assets/js/settings.js') }}"></script>
-    <script src="{{ asset('assets/js/quixnav-init.js') }}"></script>
-    <script src="{{ asset('assets/js/styleSwitcher.js') }}"></script>
-
-    {{-- Charts --}}
+        {{-- Charts --}}
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
     <script type="text/javascript">
         new TradingView.widget({

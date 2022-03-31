@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="{{ asset('assets/vendor/nice-select/css/nice-select.css') }}">
     {{-- <link rel="stylesheet" href="{{asset('assets/vendor/owl-carousel/css/owl.theme.default.css')}}">
     <link rel="stylesheet" href="{{asset('assets/vendor/owl-carousel/css/owl.carousel.min.css')}}"> --}}
-    <link rel="stylesheet" href="./vendor/waves/waves.min.css">
-    <link rel="stylesheet" href="./vendor/toastr/toastr.min.css">
+    <link rel="stylesheet" href="{{ asset('asset/vendor/waves/waves.min.css') }}">
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
     @stack('styles')
 </head>
@@ -40,11 +40,6 @@
 
     </div>
 
-
-
-
-
-
     <script src="{{ asset('assets/js/global.js') }}"></script>
 
 
@@ -56,10 +51,11 @@
     <script src="{{ asset('assets/vendor/scrollit/scrollIt.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/scrollit-init.js') }}"></script>
 
-    <script src="{{ asset('assets/js/scripts.js') }}"></script>
+    <script src="{{ asset('assets/js/scripts.js?1') }}"></script>
 
 
-    <script src="{{ asset('assets/vendor/toastr/toastr.min.js') }}"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
 
     <!--  flot-chart js -->
     {{-- <script src="{{ asset('assets/vendor/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script> --}}
@@ -88,7 +84,6 @@
             "hideEasing": "linear",
             "showMethod": "fadeIn",
             "hideMethod": "fadeOut",
-            "closeHtml": '<i class="la la-close"></i>'
         };
 
         $(window).on('load', function() {
@@ -98,6 +93,7 @@
                 @endforeach
             @endif
             @if (session()->has('error'))
+                console.log('error');
                 toastr.error('{{ session('error') }}');
             @elseif (session()->has('success'))
                 toastr.success('{{ session('success') }}');
@@ -108,6 +104,7 @@
             @elseif (session()->has('status'))
                 toastr.info('{{ session('status') }}');
             @endif
+
         });
     </script>
 
