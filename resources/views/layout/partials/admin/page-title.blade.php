@@ -3,9 +3,9 @@
          <div class="card-body">
              <ul class="d-flex">
                  <li class="nav-item">
-                     <a href="{{ route('admin.dashboard') }}" class="nav-link">
+                     <a href="{{ route('admin.deposits.index') }}" class="nav-link">
                          <i class="mdi mdi-bullseye"></i>
-                         <span>Dashboard</span>
+                         <span>Deposits</span>
                      </a>
                  </li>
                  <li class="nav-item">

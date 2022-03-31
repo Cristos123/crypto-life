@@ -10,6 +10,7 @@ use App\Http\Controllers\InvestmentController;
 
 use App\Http\Controllers\Admin\AssetController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\DepositController as AdminDepositController;
 use App\Http\Controllers\Admin\DurationController;
 use App\Http\Controllers\Admin\PaymentAddressController;
 use App\Http\Controllers\Admin\KYCController as AdminKYCController;
@@ -78,6 +79,12 @@ Route::group(['middleware' => ['auth', 'verified', 'kyc']], function () {
             'index' => 'admin.withdrawal.index',
             'show' => 'admin.withdrawal.show',
             'update' => 'admin.withdrawal.update',
+        ]);
+
+        // Deposits
+        Route::resource('users-deposits', AdminDepositController::class)->names([
+            'index' => 'admin.deposits.index',
+            'update' => 'admin.deposits.update',
         ]);
 
         //Asset routes

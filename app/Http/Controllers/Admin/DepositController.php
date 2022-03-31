@@ -17,7 +17,8 @@ class DepositController extends Controller
      */
     public function index()
     {
-        $deposits = Deposit::paginate(25)->sortByDesc('created_at');
+        $deposits = Deposit::with(['user'])->paginate(25)->sortByDesc('created_at');
+        // return $deposits;
         return view('admin.deposits.index', compact('deposits'));
     }
 
