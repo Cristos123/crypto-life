@@ -10,6 +10,7 @@ use App\Models\Asset;
 use App\Models\Duration;
 use App\Traits\FormatDate;
 use App\Traits\OrderByDate;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 
 class Investment extends Model
@@ -50,5 +51,25 @@ class Investment extends Model
     public function scopeActive(Builder $query)
     {
         return $query->where('status', 'pending');
+    }
+
+
+    // Helpers
+    public function updateCompleted()
+    {
+        $days = $this->duration->duration;
+
+        $lastUpdate = Carbon::parse($this->updated_at)->startOfDay();
+        $expectedLastDay = Carbon::parse($this->created_at)->addDays($days)->startOfDay();
+
+        return $lastUpdate->gte($expectedLastDay);
+    }
+
+    public function dailyInvestmentCalculated()
+    {
+        $lastUpdate = Carbon::parse($this->updated_at)->startOfDay();
+        $today = Carbon::today()->startOfDay();
+
+        return $today->isSameDay($lastUpdate);
     }
 }

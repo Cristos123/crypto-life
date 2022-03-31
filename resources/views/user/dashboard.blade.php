@@ -22,22 +22,31 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Type</th>
+                                            <th></th>
                                             <th>Size</th>
-                                            <th>Current</th>
                                             <th>Duration (Days)</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @forelse ($investments as $portfolio)
                                             <tr>
-                                                <td>
-                                                    {{ $portfolio->category->name }} <br>
-                                                    <br>
+                                                <td class="text-nowrap">
+                                                    <h6 class="mb-0">{{ $portfolio->category->name }}</h6>
                                                     <small>{{ $portfolio->asset->name }}</small>
                                                 </td>
-                                                <td>{{ toMoney($portfolio->amount) }}</td>
-                                                <td>{{ toMoney($portfolio->amount) }}</td>
+                                                <td>
+                                                    @php
+                                                        $isGt = $portfolio->amount < $portfolio->last_total;
+                                                        $isEq = $portfolio->amount == $portfolio->last_total;
+                                                    @endphp
+                                                    <small>{{ toMoney($portfolio->amount) }}</small>
+                                                    <h6 class="text-{{ $isGt ? 'success' : ($isEq ? '' : 'danger') }} text-nowrap">
+                                                        {{ toMoney($portfolio->last_total) }}
+                                                        @if(!$isEq)
+                                                        <i class="la la-arrow-{{ $isGt ? 'up' : 'down' }}"></i>
+                                                        @endif
+                                                    </h6>
+                                                </td>
                                                 <td>{{ $portfolio->duration->duration }}</td>
                                             </tr>
                                         @empty
@@ -117,7 +126,7 @@
                         </div>
                         <div class="card-body">
 
-                            <form action="{{ route('admin.store-investment') }}" method="POST">
+                            <form action="{{ route('invest') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <label class="mr-sm-2">Choose Asset Category</label>

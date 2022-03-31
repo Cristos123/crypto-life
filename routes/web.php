@@ -30,7 +30,6 @@ use App\Http\Controllers\Admin\WithdrawalController as AdminWithdrawalController
 Route::get('/', function () {
     return view('welcome');
 });
-//
 
 Route::group(['middleware' => ['auth', 'verified', 'kyc']], function () {
 

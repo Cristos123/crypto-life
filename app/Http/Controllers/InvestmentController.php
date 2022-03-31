@@ -24,6 +24,7 @@ class InvestmentController extends Controller
             'rate' => random_int(5, 50),
             'amount' => intval($request['amount']) * 100,
             'status' => 'pending',
+            'user_id' => auth()->id()
         ]);
 
         $investment->asset()->associate($asset);
