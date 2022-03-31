@@ -18,6 +18,7 @@ class Investment extends Model
     use HasFactory, OrderByDate, FormatDate;
 
     protected $guarded = ['id'];
+
     /**
      * Get all of the duration for the Investment
      *
