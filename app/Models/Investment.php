@@ -17,7 +17,7 @@ class Investment extends Model
 {
     use HasFactory, OrderByDate, FormatDate;
 
-    protected $fillable = ['name', 'amount', 'rate'];
+    protected $guarded = ['id'];
     /**
      * Get all of the duration for the Investment
      *

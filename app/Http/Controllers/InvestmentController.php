@@ -7,6 +7,8 @@ use App\Models\Duration;
 use App\Models\Category;
 use App\Models\Asset;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class InvestmentController extends Controller
 {
@@ -29,20 +31,37 @@ class InvestmentController extends Controller
             );
         }
 
-        $investment = Investment::create([
-            'rate' => random_int(5, 50),
-            'amount' => $amount,
-            'status' => 'pending',
-            'user_id' => auth()->id()
-        ]);
+        DB::beginTransaction();
 
-        $investment->asset()->associate($asset);
+        try {
+            // Debit the user
+            $user->debit($amount);
 
-        $investment->category()->associate($category);
+            $investment = Investment::create([
+                'rate' => random_int(5, 50),
+                'amount' => $amount,
+                'status' => 'pending',
+                'user_id' => auth()->id(),
+                'reference' => 'INV-'.Str::random(10),
+            ]);
 
-        $investment->duration()->associate($duration);
+            $investment->asset()->associate($asset);
 
-        $investment->save();
+            $investment->category()->associate($category);
+
+            $investment->duration()->associate($duration);
+
+            $investment->save();
+
+        } catch(\Throwable $ex) {
+            DB::rollBack();
+            report($ex);
+
+            return back()
+            ->with('error', 'Investment Failed. An error occured, try again in some minutes!');
+        }
+
+        DB::commit();
 
         return redirect()
             ->back()

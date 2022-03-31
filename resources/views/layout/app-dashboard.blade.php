@@ -56,30 +56,13 @@
     <script src="{{ asset('assets/vendor/scrollit/scrollIt.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/scrollit-init.js') }}"></script>
 
-    <script src="{{ asset('assets/vendor/apexchart/apexcharts.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/apexchart/apexchart-init.js') }}"></script>
+    {{-- <script src="{{ asset('assets/js/scripts.js') }}"></script> --}}
 
-    <script src="{{ asset('assets/js/scripts.js') }}"></script>
-
-
-
-
-    <script src="{{ asset('assets/vendor/amchart/amcharts.js') }}"></script>
-    <script src="{{ asset('assets/vendor/amchart/serial.js') }}"></script>
-    <script src="{{ asset('assets/vendor/amchart/dataloader.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/amchart/dark.js') }}"></script>
-    <script src="{{ asset('assets/js/plugins/amchart-init.js') }}"></script>
 
     <script src="{{ asset('assets/vendor/toastr/toastr.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/toastr/toastr-init.js') }}"></script>
-
-    <script src="{{ asset('assets/vendor/circle-progress/circle-progress.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/circle-progress/circle-progress-init.js') }}"></script>
-
 
     <!--  flot-chart js -->
-    <script src="{{ asset('assets/vendor/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/apexchart/apexchart-init.js') }}"></script>
+    {{-- <script src="{{ asset('assets/vendor/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script> --}}
 
 
     <!-- <script src="./js/dashboard.js')}}"></script> -->
@@ -87,6 +70,46 @@
     {{-- Page Custom Javascript(used by the current page) --}}
     @stack('scripts')
 
+    <script>
+        // {{-- Notifications Pop Up --}}
+        toastr.options = {
+            "closeButton": true,
+            "debug": true,
+            "newestOnTop": true,
+            "progressBar": true,
+            "positionClass": "toastr-top-right",
+            "preventDuplicates": true,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut",
+            "closeHtml": '<i class="la la-close"></i>'
+        };
+
+        $(window).on('load', function() {
+            @if ($errors)
+                @foreach ($errors->all() as $error)
+                    toastr.error('{{ $error }}');
+                @endforeach
+            @endif
+            @if (session()->has('error'))
+                toastr.error('{{ session('error') }}');
+            @elseif (session()->has('success'))
+                toastr.success('{{ session('success') }}');
+            @elseif (session()->has('info'))
+                toastr.info('{{ session('info') }}');
+            @elseif (session()->has('warning'))
+                toastr.warning('{{ session('warning') }}');
+            @elseif (session()->has('status'))
+                toastr.info('{{ session('status') }}');
+            @endif
+        });
+    </script>
 
 </body>
 
