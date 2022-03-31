@@ -4,8 +4,9 @@
                 <div class="col-xl-12">
                     <div class="navigation">
                         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                            <a class="navbar-brand" href="index.html"><img
-                                    src="{{ asset('assets/images/logo.png') }}" alt=""></a>
+                            <a class="navbar-brand" href="{{ url('/') }}">
+                                <strong class="text-light">BULLISH EXPERTS</strong>
+                            </a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                                 aria-label="Toggle navigation">
@@ -15,37 +16,26 @@
                                 <ul class="navbar-nav">
 
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#" data-scroll-nav="0">Home</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#" data-scroll-nav="1">Price</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#" data-scroll-nav="2">Portfolio </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#" data-scroll-nav="3">Testimonial</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#" data-scroll-nav="4">App</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#" data-scroll-nav="5">Blog</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#" data-scroll-nav="6">Support</a>
+                                        <a class="nav-link" href="{{ url('/') }}" data-scroll-nav="0">Home</a>
                                     </li>
 
+                                    @auth
                                     <li class="nav-item">
-                                        <a class="nav-link" href="./dashboard.html">Dashboard</a>
+                                        <a class="nav-link" href="{{ url('home') }}" data-scroll-nav="0">Dashboard</a>
                                     </li>
-
+                                    @endauth
                                 </ul>
                             </div>
 
-                            <div class="signin-btn">
-                                <a class="btn btn-primary" href="{{ route('login') }}">Sign in</a>
-                            </div>
+                            @guest
+                                <div class="signin-btn">
+                                    <a class="btn btn-primary" href="{{ route('login') }}">Sign in</a>
+                                </div>
+
+                                <div class="signin-btn ml-2">
+                                    <a class="btn btn-primary" href="{{ route('register') }}">Create Account</a>
+                                </div>
+                            @endguest
                         </nav>
                     </div>
                 </div>

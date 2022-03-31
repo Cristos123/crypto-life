@@ -11,7 +11,7 @@
 
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/waves/waves.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css?v=') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css?v=1') }}">
     @stack('styles')
 </head>
 

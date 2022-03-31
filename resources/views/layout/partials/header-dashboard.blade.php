@@ -3,8 +3,9 @@
          <div class="row">
              <div class="col-xl-12">
                  <nav class="navbar navbar-expand-lg navbar-light px-0 justify-content-between">
-                     <a class="navbar-brand" href="dashboard.html"><img src="{{ asset('assets/images/logo.png') }}"
-                             alt=""></a>
+                     <a class="navbar-brand" href="{{ route('home') }}">
+                         <strong class="text-light">BULLISH EXPERTS</strong>
+                     </a>
 
                      <div class="header-right d-flex my-2 align-items-center">
 
