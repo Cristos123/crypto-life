@@ -57,7 +57,7 @@ class WithdrawalController extends Controller
         $asset_id = $request->asset_id;
         $user = auth()->user();
 
-        $reference = Str::random(20);
+        $reference = 'WTH-'.Str::random(10);
 
         if (!$user->isSufficient($request->amount * 100)) {
             return back()->with(
