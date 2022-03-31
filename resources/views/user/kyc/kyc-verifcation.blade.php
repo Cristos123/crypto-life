@@ -14,8 +14,10 @@
 
                         <div class="col-xl-12">
                             <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title">Personal Information</h4>
+                                <div class="card-header flex-column">
+                                    <span class="icon"><i class="fa fa-shield fa-3x text-primary"></i></span>
+                                    <h4 class="card-title">KYC Verification</h4>
+                                    <h6 class="text-">Please verify your identity.</h6>
                                 </div>
                                 <div class="card-body">
                                     <form method="post" action="{{ route('kyc-verification') }}"
@@ -28,7 +30,7 @@
                                                 <label class="mr-sm-2">Fullname</label>
                                                 <input type="text"
                                                     class="form-control @error('fullname') is-invalid @enderror"
-                                                    placeholder="Saiful Islam" required name="fullname">
+                                                    placeholder="Enter your full name" required name="fullname">
                                                 @error('fullname')
                                                     <div class="invalid-feedback d-block">
                                                         {{ $message }}
@@ -47,12 +49,12 @@
                                             </div>
                                             <div class="form-group col-xl-6 col-md-6">
                                                 <label class="mr-sm-2">Date of birth</label>
-                                                {{-- <input type="text" class="form-control @error('dob') is-invalid @enderror"
+                                                <input type="text" class="form-control @error('dob') is-invalid @enderror"
                                                     placeholder="10-10-2020" required id="datepicker" autocomplete="off"
-                                                    name="dob"> --}}
-                                                <input type="text" class="form-control @error('ssn') is-invalid @enderror"
-                                                    placeholder="Enter your SSN" name="date_of_birth">
-                                                @error('date_of_birth')
+                                                    name="dob">
+                                                {{-- <input type="text" class="form-control @error('ssn') is-invalid @enderror"
+                                                    placeholder="Enter your SSN" name="date_of_birth"> --}}
+                                                @error('dob')
                                                     <div class="invalid-feedback d-block">
                                                         {{ $message }}
                                                     </div>

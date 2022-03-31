@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\PaymentAddressController;
 use App\Http\Controllers\Admin\KYCController as AdminKYCController;
 use App\Http\Controllers\Admin\InvestmentController as AdminInvestmentController;
 use App\Http\Controllers\Admin\WithdrawalController as AdminWithdrawalController;
+use App\Http\Controllers\UniversalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,8 +33,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::get('/get-state/{country}', [UniversalController::class, 'getState'])->name('state');
+
+
+// KYC Verification
+Route::group(['middleware' => ['auth', 'verified']], function() {
+    // KYC
+    Route::get('/kyc-verification', [KYCController::class, 'create'])->name(
+        'kyc-verification'
+    );
+    Route::post('/kyc-verification', [KYCController::class, 'store'])->name(
+        'kyc-verification'
+    );
+});
 
 Route::group(['middleware' => ['auth', 'verified', 'kyc']], function () {
     Route::get('dashboard', DashboardController::class)->name('home');
@@ -52,14 +64,6 @@ Route::group(['middleware' => ['auth', 'verified', 'kyc']], function () {
 
     // Account Settings
     Route::get('account-settings', AccountController::class)->name('account-settings');
-
-    // KYC
-    Route::get('/kyc-verification', [KYCController::class, 'create'])->name(
-        'kyc-verification'
-    );
-    Route::post('/kyc-verification', [KYCController::class, 'store'])->name(
-        'kyc-verification'
-    );
 
 
     //assets route

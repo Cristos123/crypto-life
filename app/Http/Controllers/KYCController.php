@@ -31,8 +31,9 @@ class KYCController extends Controller
             ],
             'ssn' => ['required', 'alpha_num'],
             'identificationType' => ['required', 'string'],
-            'date_of_birth' => ['date_format:d/m/Y'],
+            'dob' => ['date_format:d-m-Y'],
         ]);
+
         // Uploading the identification
 
         $identificationFile = $request->file('identification');
@@ -64,7 +65,7 @@ class KYCController extends Controller
             'ssn' => $request['ssn'],
             'date_of_birth' => date(
                 'Y-m-d',
-                strtotime($request['date_of_birth'])
+                strtotime($request['dob'])
             ),
             'type' => $request['identificationType'],
             'user_id' => Auth::user()->id,
