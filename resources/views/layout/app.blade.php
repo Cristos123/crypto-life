@@ -4,7 +4,7 @@
 <head>
 
     @include('layout.partials.head-meta')
-    <title> @yield('title') Tradio</title>
+    <title> @yield('title', 'Bullish Experts')</title>
     <link rel="stylesheet" href="{{asset('assets/vendor/nice-select/css/nice-select.css')}}">
     <link rel="stylesheet" href="{{asset('assets/vendor/owl-carousel/css/owl.theme.default.css')}}">
     <link rel="stylesheet" href="{{asset('assets/vendor/owl-carousel/css/owl.carousel.min.css')}}">

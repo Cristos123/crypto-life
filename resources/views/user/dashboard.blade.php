@@ -295,7 +295,7 @@
 @push('styles')
     <link rel="stylesheet" href="{{ asset('assets/vendor/nice-select/css/nice-select.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/waves/waves.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"> --}}
 @endpush
 
 @push('scripts')

@@ -4,7 +4,6 @@
 
 @section('content')
 
-
     @include('layout.partials.page-title')
 
     <div class="content-body">
@@ -114,8 +113,6 @@
         </div>
     </div>
 @endsection()
-
-
 
 @push('styles')
 @endpush

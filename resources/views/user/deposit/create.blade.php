@@ -19,6 +19,7 @@
                         <div class="card-header flex-column align-items-start">
                             <h4 class="card-title">Wallet Deposit Address</h4>
                             <p class="text-danger">Select your preferred wallet and make transfer of the amount you want pay.</p>
+                            <a href="{{ route('deposits.index') }}">View Deposit History</a>
                         </div>
                         <div class="card-body" id="deposits">
                             <ul class="nav nav-tabs" id="myTab" role="tablist">

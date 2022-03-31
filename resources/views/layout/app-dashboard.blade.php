@@ -4,13 +4,13 @@
 <head>
 
     @include('layout.partials.head-meta')
-    <title> @yield('title') Tradio</title>
+    <title> @yield('title', 'Bullish Experts')</title>
     <link rel="stylesheet" href="{{ asset('assets/vendor/nice-select/css/nice-select.css') }}">
     {{-- <link rel="stylesheet" href="{{asset('assets/vendor/owl-carousel/css/owl.theme.default.css')}}">
     <link rel="stylesheet" href="{{asset('assets/vendor/owl-carousel/css/owl.carousel.min.css')}}"> --}}
     <link rel="stylesheet" href="{{ asset('asset/vendor/waves/waves.min.css') }}">
     <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css?v=') }}">
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
