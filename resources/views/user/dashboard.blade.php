@@ -40,10 +40,11 @@
                                                         $isEq = $portfolio->amount == $portfolio->last_total;
                                                     @endphp
                                                     <small>{{ toMoney($portfolio->amount) }}</small>
-                                                    <h6 class="text-{{ $isGt ? 'success' : ($isEq ? '' : 'danger') }} text-nowrap">
+                                                    <h6
+                                                        class="text-{{ $isGt ? 'success' : ($isEq ? '' : 'danger') }} text-nowrap">
                                                         {{ toMoney($portfolio->last_total) }}
-                                                        @if(!$isEq)
-                                                        <i class="la la-arrow-{{ $isGt ? 'up' : 'down' }}"></i>
+                                                        @if (!$isEq)
+                                                            <i class="la la-arrow-{{ $isGt ? 'up' : 'down' }}"></i>
                                                         @endif
                                                     </h6>
                                                 </td>
@@ -176,7 +177,8 @@
                                         required name="durationId">
                                         <option value="">Select</option>
                                         @forelse ($durations as $duration)
-                                            <option value="{{ $duration->id }}"> {{ $duration->duration }} Days</option>
+                                            <option value="{{ $duration->id }}"> {{ $duration->duration }} Days
+                                            </option>
                                         @empty
                                         @endforelse
 
@@ -218,90 +220,55 @@
                                 </div>
                                 <div class="card-body trade-history">
                                     <div class="table-responsive">
-                                        <table class="table table-borderless">
+                                        <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">Price</th>
-                                                    <th scope="col">Size</th>
-                                                    <th scope="col">Time</th>
+                                                    <th>Asset</th>
+                                                    <th>Amount</th>
+                                                    <th>Cummulative Total</th>
+                                                    <th>Accrue Days</th>
+                                                    <th>Duration (Days)</th>
+                                                    <th>Status</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td class="text-danger">10393.50</td>
-                                                    <td>0.010</td>
-                                                    <td>14.109</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-danger">10393.50</td>
-                                                    <td>0.010</td>
-                                                    <td>14.109</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-danger">10393.50</td>
-                                                    <td>0.010</td>
-                                                    <td>14.109</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-danger">10393.50</td>
-                                                    <td>0.010</td>
-                                                    <td>14.109</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-danger">10393.50</td>
-                                                    <td>0.010</td>
-                                                    <td>14.109</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-danger">10393.50</td>
-                                                    <td>0.010</td>
-                                                    <td>14.109</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-danger">10393.50</td>
-                                                    <td>0.010</td>
-                                                    <td>14.109</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-danger">10393.50</td>
-                                                    <td>0.010</td>
-                                                    <td>14.109</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-danger">10393.50</td>
-                                                    <td>0.010</td>
-                                                    <td>14.109</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-danger">10393.50</td>
-                                                    <td>0.010</td>
-                                                    <td>14.109</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-danger">10393.50</td>
-                                                    <td>0.010</td>
-                                                    <td>14.109</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-danger">10393.50</td>
-                                                    <td>0.010</td>
-                                                    <td>14.109</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-danger">10393.50</td>
-                                                    <td>0.010</td>
-                                                    <td>14.109</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-danger">10393.50</td>
-                                                    <td>0.010</td>
-                                                    <td>14.109</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-danger">10393.50</td>
-                                                    <td>0.010</td>
-                                                    <td>14.109</td>
-                                                </tr>
+                                                @forelse ($investments as $portfolio)
+                                                    <tr>
+                                                        <td class="text-nowrap">
+                                                            <h6 class="mb-0">{{ $portfolio->category->name }}
+                                                            </h6>
+                                                            <small>{{ $portfolio->asset->name }}</small>
+                                                        </td>
+                                                        <td>
+                                                            {{ toMoney($portfolio->amount) }}
+                                                        </td>
+                                                        <td>
+                                                            @php
+                                                                $isGt = $portfolio->amount < $portfolio->last_total;
+                                                                $isEq = $portfolio->amount == $portfolio->last_total;
+                                                            @endphp
+                                                            <h6
+                                                                class="text-{{ $isGt ? 'success' : ($isEq ? '' : 'danger') }} text-nowrap">
+                                                                {{ toMoney($portfolio->last_total) }}
+                                                                @if (!$isEq)
+                                                                    <i
+                                                                        class="la la-arrow-{{ $isGt ? 'up' : 'down' }}"></i>
+                                                                @endif
+                                                            </h6>
+                                                        </td>
+                                                        <td>{{ $portfolio->accrueDays() }}</td>
+                                                        <td>{{ $portfolio->duration->duration }}</td>
+                                                        <td>
+                                                            <span class="badge badge-{{ state($portfolio->status) }} text-uppercase">{{ $portfolio->status }}</span>
+                                                        </td>
+                                                    </tr>
+                                                @empty
+                                                    <tr>
+                                                        <th colspan="4">
+                                                            <h5 class="text-center my-3">Empy Portfolio!</h5>
+                                                        </th>
+                                                    </tr>
+                                                @endforelse
                                             </tbody>
                                         </table>
                                     </div>

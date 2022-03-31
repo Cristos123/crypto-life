@@ -8,6 +8,7 @@ use App\Models\Duration;
 use App\Models\Payout;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
 class DashboardController extends Controller
@@ -30,6 +31,8 @@ class DashboardController extends Controller
             $startDate = Carbon::parse($investment->created_at);
             $today = Carbon::today();
             $rate = $investment->rate;
+            $accrueDays = $investment->accrueDays();
+
 
             // Update should only happen if:
                 // it has not been updated for the day OR
@@ -37,12 +40,7 @@ class DashboardController extends Controller
             if (!$investment->updateCompleted() and !$investment->dailyInvestmentCalculated()) {
                 // return "All Hell";
                 // If $investment is the last day
-                if ($today->diffInDays($startDate) >= ($investment->duration->duration - 5)) {
-
-                    // Generate a random rate from the (5%) to rate.
-                    $validRate = (100 + random_int(5, $rate)) / 100;
-
-                } elseif ($today->diffInDays($startDate) >= ($investment->duration->duration)) {
+                if ($accrueDays >= ($investment->duration->duration)) {
 
                     // Use the actual rate
                     $validRate = (100 + $rate) / 100;
@@ -52,6 +50,11 @@ class DashboardController extends Controller
                         // And making payout
                     $investment->status = 'completed';
                     $makePayout = true;
+
+                } else if ($accrueDays >= ($investment->duration->duration - 5)) {
+
+                    // Generate a random rate from the (5%) to rate.
+                    $validRate = (100 + random_int(5, $rate)) / 100;
 
                 } else {
 

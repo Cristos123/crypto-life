@@ -72,4 +72,9 @@ class Investment extends Model
 
         return $today->isSameDay($lastUpdate);
     }
+
+    public function accrueDays()
+    {
+        return Carbon::today()->diffInDays(Carbon::parse($this->created_at));
+    }
 }

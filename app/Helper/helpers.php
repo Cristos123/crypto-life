@@ -83,3 +83,29 @@ if (!function_exists('random_color')) {
         return $background[array_rand($background, 1)];
     }
 }
+
+if (!function_exists('state')) {
+    function state($dbStatus): string
+    {
+        $status = '...unrecognized';
+
+        switch ($dbStatus) {
+            case 'success':
+            case 'succeed':
+            case 'completed':
+                $status = 'success';
+                break;
+            case 'pending':
+                $status = 'warning';
+                break;
+            case 'cancelled':
+            case 'rejected':
+            case 'failed':
+            case 'closed':
+                $status = 'danger';
+                break;
+        }
+
+        return $status;
+    }
+}
