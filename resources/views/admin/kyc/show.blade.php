@@ -45,18 +45,22 @@
                                 </li>
                             </ul>
                             @if ($kyc->status !== 'succeed')
-                                <form method="post" action="{{ route('admin-dashboard', $kyc) }}">
+                                <form method="post" action="{{ route('admin.kyc.store', $kyc) }}">
                                     @csrf
                                     <input type="hidden" value="approved" name="approved">
-                                    <button type="submit" class="btn btn-warning">Approved</button>
+                                    <button
+                                        onclick="return confirm('Proceed to approve the KYC')"
+                                    type="submit" class="btn btn-warning">Approve</button>
 
                                 </form>
 
-                                <form method="post" action="{{ route('admin-dashboard', $kyc) }}">
+                                <form method="post" action="{{ route('admin.kyc.store', $kyc) }}">
                                     @csrf
 
                                     <input type="hidden" value="rejected" name="rejected">
-                                    <button type="submit" class="btn btn-danger">Rejected</button>
+                                    <button
+                                        onclick="return confirm('Proceed to rejecting the KYC')"
+                                    type="submit" class="btn btn-danger">Reject</button>
                                 </form>
                             @else
                             @endif

@@ -53,6 +53,6 @@ class KYCController extends Controller
             }
         }
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'KYC updated accordingly.');
     }
 }
