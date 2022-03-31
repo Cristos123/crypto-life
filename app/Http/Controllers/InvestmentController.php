@@ -20,9 +20,18 @@ class InvestmentController extends Controller
             'amount' => ['required', 'numeric', 'min:1'],
         ]);
 
+        $amount = intval($request['amount']) * 100;
+
+        if (!auth()->user()->isSufficient($amount)) {
+            return back()->with(
+                'error',
+                'Insufficient balance. Please make a deposit and try again.'
+            );
+        }
+
         $investment = Investment::create([
             'rate' => random_int(5, 50),
-            'amount' => intval($request['amount']) * 100,
+            'amount' => $amount,
             'status' => 'pending',
             'user_id' => auth()->id()
         ]);
