@@ -17,6 +17,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title">Withdraw</h4>
+                            <a href="{{ route('withdrawals.index') }}">View Withdrawal History</a>
                         </div>
                         <div class="card-body">
                             <div class="row justify-content-center">
@@ -108,29 +109,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Important Information</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="important-info">
-                                <ul>
-                                    <li>
-                                        <i class="mdi mdi-checkbox-blank-circle"></i>
-                                        For security reasons, Tradio process withdrawals by review once a day. For
-                                        more information in this policy. Please see our wallet security page.
-                                    </li>
-                                    <li>
-                                        <i class="mdi mdi-checkbox-blank-circle"></i>
-                                        Submit your withdrawals by 07:00 UTC +00 (about 11 hour) to be included in
-                                        the days batch
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>

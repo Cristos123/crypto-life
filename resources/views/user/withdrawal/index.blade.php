@@ -13,7 +13,7 @@
                         <div class="card-header">
                             <h4 class="card-title"> Withdrawal History</h4>
                             <a href="{{ route('withdrawals.create') }}" class="btn btn-primary">
-                                Withdrawal Funds </a>
+                                Withdraw Funds </a>
                         </div>
                         <div class="card-body">
                             <div class="transaction-table">

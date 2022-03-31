@@ -66,7 +66,7 @@ class WithdrawalController extends Controller
             );
         }
 
-        $amount = $amount * 100;
+        $amount = floatval($amount) * 100;
 
         $user->debit($amount);
         $user->refresh();
