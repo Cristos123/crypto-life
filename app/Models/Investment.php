@@ -39,6 +39,11 @@ class Investment extends Model
         return $this->belongsTo(Asset::class);
     }
 
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
     /**
      * Get all of the category for the Investment
      *

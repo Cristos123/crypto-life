@@ -6,8 +6,8 @@
     @include('layout.partials.head-meta')
     <title> @yield('title', 'Bullish Experts')</title>
     <link rel="stylesheet" href="{{ asset('assets/vendor/nice-select/css/nice-select.css') }}">
-    {{-- <link rel="stylesheet" href="{{asset('assets/vendor/owl-carousel/css/owl.theme.default.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/vendor/owl-carousel/css/owl.carousel.min.css')}}"> --}}
+    <link rel="stylesheet" href="{{asset('assets/vendor/owl-carousel/css/owl.theme.default.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/vendor/owl-carousel/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{ asset('asset/vendor/waves/waves.min.css') }}">
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css?v=') }}">
@@ -61,7 +61,7 @@
     {{-- <script src="{{ asset('assets/vendor/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script> --}}
 
 
-    <!-- <script src="./js/dashboard.js')}}"></script> -->
+    <script src="./js/dashboard.js')}}"></script>
 
     {{-- Page Custom Javascript(used by the current page) --}}
     @stack('scripts')

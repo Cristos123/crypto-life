@@ -13,8 +13,8 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title">Investment History</h4>
-                            <a href="{{ route('admin.create-investment') }}" class="btn btn-primary">Create New
-                                Investment</a>
+                            {{-- <a href="{{ route('admin.create-investment') }}" class="btn btn-primary">Create New
+                                Investment</a> --}}
                         </div>
                         <div class="card-body">
                             <div class="transaction-table">
@@ -22,15 +22,15 @@
                                     <table class="table table-striped mb-0 table-responsive-sm">
                                         <thead>
                                             <tr>
-                                                <th> Status </th>
-                                                <th> Name </th>
+                                                <th>Reference </th>
+                                                <th>User </th>
+                                                <th>Amount (USD)</th>
                                                 <th>Rate </th>
-                                                <th>Amount </th>
-                                                <th>AssetID </th>
-                                                <th>CategoryID </th>
-                                                <th>DurationID </th>
-                                                <th>Created Date </th>
-                                                <th colspan="">Action </th>
+                                                <th>Asset </th>
+                                                <th>Duration (Days) </th>
+                                                <th>Date</th>
+                                                <th>Status </th>
+                                                {{-- <th></th> --}}
 
                                             </tr>
                                         </thead>
@@ -40,24 +40,24 @@
                                                 <tr>
 
 
-                                                    <td class="{{ statusColor($investment->status) }}">
-                                                        {{ status($investment->status) }} </td>
-                                                    <td> {{ $investment->name }}</td>
-                                                    <td> {{ $investment->rate }}</td>
-                                                    <td> {{ $investment->amount }}</td>
-                                                    <td> {{ $investment->asset_id }}</td>
-                                                    <td> {{ $investment->category_id }}</td>
-                                                    <td> {{ $investment->duration_id }}</td>
-                                                    <td> {{ $investment->created_at }}</td>
-
-                                                    <td>
-                                                        <a href="{{ route('admin.edit-investment', $investment) }}"
-                                                            class="btn btn-warning">Edit</a>
+                                                    <td> #{{ $investment->reference }}</td>
+                                                    <td> {{ $investment->user->fullname }}</td>
+                                                    <td> {{ toMoney($investment->amount) }}</td>
+                                                    <td> {{ $investment->rate }}%</td>
+                                                    <td> {{ $investment->asset->currency }}</td>
+                                                    <td> {{ $investment->duration->duration }}
+                                                        @if($investment->status == 'pending')
+                                                        <small class="text-primary">({{ $investment->duration->duration - $investment->accrueDays() }} days left)</small>
+                                                        @endif
                                                     </td>
+                                                    <td> {{ $investment->created_at() }}</td>
                                                     <td>
+                                                        <span class="badge badge-{{ state($investment->status) }} text-uppercase">{{ $investment->status }}</span>
+                                                    </td>
+                                                    {{-- <td>
                                                         <a href="{{ route('admin.show-investment', $investment) }}"
                                                             class="btn btn-info">Show</a>
-                                                    </td>
+                                                    </td> --}}
 
 
                                                 </tr>
