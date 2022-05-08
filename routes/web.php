@@ -33,6 +33,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/mail', function () {
+    return new App\Mail\WithdrawalRequest();
+});
+
 Route::get('/get-state/{country}', [UniversalController::class, 'getState'])->name('state');
 
 
