@@ -17,10 +17,11 @@ if (!function_exists('status')) {
     function status($dbStatus): string
     {
         $status = '...unrecognized';
-
+        // dd($dbStatus);
         switch ($dbStatus) {
             case 'success':
             case 'succeed':
+            case 'approved':
             case 'completed':
                 $status = 'Approved';
                 break;
@@ -49,6 +50,7 @@ if (!function_exists('statusColor')) {
         switch ($dbStatus) {
             case 'success':
             case 'succeed':
+            case 'approved':
             case 'completed':
                 $status = 'text-success';
                 break;
@@ -92,6 +94,7 @@ if (!function_exists('state')) {
         switch ($dbStatus) {
             case 'success':
             case 'succeed':
+            case 'approved':
             case 'completed':
                 $status = 'success';
                 break;
