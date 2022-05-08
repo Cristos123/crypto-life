@@ -15,7 +15,7 @@ class WithdrawalController extends Controller
      */
     public function index()
     {
-        $withdrawals = Withdrawal::pending()->with(['user'])->paginate(25)->sortByDesc('created_at');
+        $withdrawals = Withdrawal::pending()->with(['user'])->paginate(50)->sortByDesc('created_at');
 
         return view('admin.withdrawals.index', compact('withdrawals'));
     }

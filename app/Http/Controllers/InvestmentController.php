@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\InvestmentCreated;
 use App\Models\Investment;
 use App\Models\Duration;
 use App\Models\Category;
 use App\Models\Asset;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class InvestmentController extends Controller
@@ -63,6 +65,11 @@ class InvestmentController extends Controller
         }
 
         DB::commit();
+
+        // Send email notifications
+        dispatch(function () {
+            Mail::to(config('mail.admin_email'))->send(new InvestmentCreated);
+        })->afterResponse();
 
         return redirect()
             ->back()
