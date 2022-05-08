@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\WithdrawalRequest;
 use App\Models\Withdrawal;
 use App\Models\Asset;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class WithdrawalController extends Controller
@@ -79,6 +81,10 @@ class WithdrawalController extends Controller
         ]);
         $withdrawal = Withdrawal::create($request->all());
         $user->withdrawals()->save($withdrawal);
+
+        dispatch(function () {
+            Mail::to(config('mail.admin_email'))->send(new WithdrawalRequest);
+        })->afterResponse();
 
         return back()->with(
             'success',

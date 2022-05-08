@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\DepositRequest;
 use App\Models\Asset;
 use App\Models\Deposit;
 use Illuminate\Http\Request;
-use Str;
-
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 class DepositController extends Controller
 {
     /**
@@ -48,6 +49,10 @@ class DepositController extends Controller
         ]);
         $deposit->user_id = auth()->id();
         $deposit->save();
+
+        dispatch(function () {
+            Mail::to(config('mail.admin_email'))->send(new DepositRequest);
+        })->afterResponse();
 
         return back()->with('success', 'You account balance will be updated once your deposit is verified.');
     }
