@@ -10,10 +10,11 @@
             <div class="row justify-content-between align-items-center">
                 <div class="col-xl-6 col-lg-6 col-12">
                     <div class="intro-content">
-                        <h1>Trade with <strong class="text-primary">Bullish Experts</strong>. <br> Buy and sell
-                            cryptocurrency
+                        <h1>Trade with <strong class="text-primary">Bullish Experts</strong>. <br>
+                         Forex trading <br>
+                         Crypto Trading 
                         </h1>
-                        <p>Fast and secure way to purchase or exchange 150+ cryptocurrencies</p>
+                        <p>Easy and secure way to invest in forex trading and crytpo currency trading.</p>
                     </div>
 
                     <div class="intro-btn">
@@ -21,7 +22,7 @@
                     </div>
                 </div>
                 <div class="col-xl-5 col-lg-6 col-12">
-                    <img class="img-fluid " src="{{ asset('assets/images/trader.png') }}" alt="Bullish Experts">
+                    <img class="img-fluid " src="{{ asset('assets/images/trader.jpg') }}" alt="Bullish Experts">
                 </div>
             </div>
         </div>
@@ -29,188 +30,231 @@
 
     <div class="price-grid section-padding" data-scroll-index="1">
         <div class="container">
+        
             <div class="row">
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="media">
-                                <span><i class="cc BTC"></i></span>
-                                <div class="media-body">
-                                    Bitcoin
-                                </div>
-                            </div>
-                            <p class="mb-0"> 24h</p>
-                        </div>
-                        <div class="card-body">
-                            <h3>USD 62,548.2254</h3>
-                            <span class="text-success">+2.05%</span>
-                            <div id="btcChart"></div>
-                        </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-3">
+                    <!-- TradingView Widget BEGIN -->
+                    <div class="tradingview-widget-container">
+                        <div class="tradingview-widget-container__widget"></div>
+                        
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                            {
+                                "symbol": "FX:EURUSD",
+                                "width": "100%",
+                                "height": "100%",
+                                "locale": "en",
+                                "dateRange": "12M",
+                                "colorTheme": "light",
+                                "trendLineColor": "rgba(41, 98, 255, 1)",
+                                "underLineColor": "rgba(41, 98, 255, 0.3)",
+                                "underLineBottomColor": "rgba(41, 98, 255, 0)",
+                                "isTransparent": false,
+                                "autosize": false,
+                                "largeChartUrl": ""
+                                }
+                        </script>
                     </div>
+                    <!-- TradingView Widget END -->
                 </div>
 
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="media">
-                                <span><i class="cc LTC"></i></span>
-                                <div class="media-body">
-                                    Litecoin
-                                </div>
-                            </div>
-                            <p class="mb-0"> 24h</p>
-                        </div>
-                        <div class="card-body">
-                            <h3>USD 62,548.2254</h3>
-                            <span class="text-success">+2.05%</span>
-                            <div id="ltcChart"></div>
-                        </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-3">
+                    <!-- TradingView Widget BEGIN -->
+                    <div class="tradingview-widget-container">
+                        <div class="tradingview-widget-container__widget"></div>
+                        
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                            {
+                                "symbol": "FX:USDJPY",
+                                "width": "100%",
+                                "height": "100%",
+                                "locale": "en",
+                                "dateRange": "12M",
+                                "colorTheme": "light",
+                                "trendLineColor": "rgba(41, 98, 255, 1)",
+                                "underLineColor": "rgba(41, 98, 255, 0.3)",
+                                "underLineBottomColor": "rgba(41, 98, 255, 0)",
+                                "isTransparent": false,
+                                "autosize": false,
+                                "largeChartUrl": ""
+                                }
+                        </script>
                     </div>
+                    <!-- TradingView Widget END -->
                 </div>
 
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="media">
-                                <span><i class="cc DASH"></i></span>
-                                <div class="media-body">
-                                    Dashcoin
-                                </div>
-                            </div>
-                            <p class="mb-0"> 24h</p>
-                        </div>
-                        <div class="card-body">
-                            <h3>USD 62,548.2254</h3>
-                            <span class="text-success">+2.05%</span>
-                            <div id="dashChart"></div>
-                        </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-3">
+                    <!-- TradingView Widget BEGIN -->
+                    <div class="tradingview-widget-container">
+                        <div class="tradingview-widget-container__widget"></div>
+                        
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                            {
+                                "symbol": "FX:GPBUSD",
+                                "width": "100%",
+                                "height": "100%",
+                                "locale": "en",
+                                "dateRange": "12M",
+                                "colorTheme": "light",
+                                "trendLineColor": "rgba(41, 98, 255, 1)",
+                                "underLineColor": "rgba(41, 98, 255, 0.3)",
+                                "underLineBottomColor": "rgba(41, 98, 255, 0)",
+                                "isTransparent": false,
+                                "autosize": false,
+                                "largeChartUrl": ""
+                                }
+                        </script>
                     </div>
+                    <!-- TradingView Widget END -->
                 </div>
 
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="media">
-                                <span><i class="cc XRP"></i></span>
-                                <div class="media-body">
-                                    Ripple
-                                </div>
-                            </div>
-                            <p class="mb-0"> 24h</p>
-                        </div>
-                        <div class="card-body">
-                            <h3>USD 62,548.2254</h3>
-                            <span class="text-success">+2.05%</span>
-                            <div id="xrpChart"></div>
-                        </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-3">
+                   <!-- TradingView Widget BEGIN -->
+                    <div class="tradingview-widget-container">
+                        <div class="tradingview-widget-container__widget"></div>
+                        
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                            {
+                                "symbol": "FX:AUDUSD",
+                                "width": "100%",
+                                "height": "100%",
+                                "locale": "en",
+                                "dateRange": "12M",
+                                "colorTheme": "light",
+                                "trendLineColor": "rgba(41, 98, 255, 1)",
+                                "underLineColor": "rgba(41, 98, 255, 0.3)",
+                                "underLineBottomColor": "rgba(41, 98, 255, 0)",
+                                "isTransparent": false,
+                                "autosize": false,
+                                "largeChartUrl": ""
+                                }
+                        </script>
                     </div>
+                    <!-- TradingView Widget END -->
                 </div>
 
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="media">
-                                <span><i class="cc ETH"></i></span>
-                                <div class="media-body">
-                                    Ethereum
-                                </div>
-                            </div>
-                            <p class="mb-0"> 24h</p>
-                        </div>
-                        <div class="card-body">
-                            <h3>USD 62,548.2254</h3>
-                            <span class="text-success">+2.05%</span>
-                            <div id="ethChart"></div>
-                        </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-3">
+                    <!-- TradingView Widget BEGIN -->
+                    <div class="tradingview-widget-container">
+                        <div class="tradingview-widget-container__widget"></div>
+                        
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                            {
+                                "symbol": "BINANCE:BTCUSDT",
+                                "width": "100%",
+                                "height": "100%",
+                                "locale": "en",
+                                "dateRange": "12M",
+                                "colorTheme": "light",
+                                "trendLineColor": "rgba(41, 98, 255, 1)",
+                                "underLineColor": "rgba(41, 98, 255, 0.3)",
+                                "underLineBottomColor": "rgba(41, 98, 255, 0)",
+                                "isTransparent": false,
+                                "autosize": false,
+                                "largeChartUrl": ""
+                                }
+                        </script>
                     </div>
+                    <!-- TradingView Widget END -->
                 </div>
 
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="media">
-                                <span><i class="cc USDT"></i></span>
-                                <div class="media-body">
-                                    Tether
-                                </div>
-                            </div>
-                            <p class="mb-0"> 24h</p>
-                        </div>
-                        <div class="card-body">
-                            <h3>USD 62,548.2254</h3>
-                            <span class="text-success">+2.05%</span>
-                            <div id="usdtChart"></div>
-                        </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-3">
+                   <!-- TradingView Widget BEGIN -->
+                    <div class="tradingview-widget-container">
+                        <div class="tradingview-widget-container__widget"></div>
+                        
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                            {
+                                "symbol": "BINANCE:ETHUSDT",
+                                "width": "100%",
+                                "height": "100%",
+                                "locale": "en",
+                                "dateRange": "12M",
+                                "colorTheme": "light",
+                                "trendLineColor": "rgba(41, 98, 255, 1)",
+                                "underLineColor": "rgba(41, 98, 255, 0.3)",
+                                "underLineBottomColor": "rgba(41, 98, 255, 0)",
+                                "isTransparent": false,
+                                "autosize": false,
+                                "largeChartUrl": ""
+                                }
+                        </script>
                     </div>
+                    <!-- TradingView Widget END -->
                 </div>
 
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="media">
-                                <span><i class="cc EOS"></i></span>
-                                <div class="media-body">
-                                    Eosio
-                                </div>
-                            </div>
-                            <p class="mb-0"> 24h</p>
-                        </div>
-                        <div class="card-body">
-                            <h3>USD 62,548.2254</h3>
-                            <span class="text-success">+2.05%</span>
-                            <div id="eosChart"></div>
-                        </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-3">
+                    <!-- TradingView Widget BEGIN -->
+                    <div class="tradingview-widget-container">
+                        <div class="tradingview-widget-container__widget"></div>
+                        
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                            {
+                                "symbol": "UNISWAP:FMTUSDT",
+                                "width": "100%",
+                                "height": "100%",
+                                "locale": "en",
+                                "dateRange": "12M",
+                                "colorTheme": "light",
+                                "trendLineColor": "rgba(41, 98, 255, 1)",
+                                "underLineColor": "rgba(41, 98, 255, 0.3)",
+                                "underLineBottomColor": "rgba(41, 98, 255, 0)",
+                                "isTransparent": false,
+                                "autosize": false,
+                                "largeChartUrl": ""
+                                }
+                        </script>
                     </div>
+                    <!-- TradingView Widget END -->
                 </div>
 
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="media">
-                                <span><i class="cc XTZ"></i></span>
-                                <div class="media-body">
-                                    Tezos
-                                </div>
-                            </div>
-                            <p class="mb-0"> 24h</p>
-                        </div>
-                        <div class="card-body">
-                            <h3>USD 62,548.2254</h3>
-                            <span class="text-success">+2.05%</span>
-                            <div id="xtzChart"></div>
-                        </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-3">
+                    <!-- TradingView Widget BEGIN -->
+                    <div class="tradingview-widget-container">
+                        <div class="tradingview-widget-container__widget"></div>
+                        
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                            {
+                                "symbol": "HUOBI:ARVUSDT",
+                                "width": "100%",
+                                "height": "100%",
+                                "locale": "en",
+                                "dateRange": "12M",
+                                "colorTheme": "light",
+                                "trendLineColor": "rgba(41, 98, 255, 1)",
+                                "underLineColor": "rgba(41, 98, 255, 0.3)",
+                                "underLineBottomColor": "rgba(41, 98, 255, 0)",
+                                "isTransparent": false,
+                                "autosize": false,
+                                "largeChartUrl": ""
+                                }
+                        </script>
                     </div>
+                    <!-- TradingView Widget END -->
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="getstart section-padding">
+    <div class="bg-light section-padding">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-8">
                     <div class="section-title">
-                        <h2>Get started in a few minutes</h2>
+                        <h2 class="text-dark">Get started in a few minutes</h2>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                     <div class="getstart-content">
                         <span><i class="la la-user-plus"></i></span>
-                        <h3>Create an account</h3>
+                        <h3 class="text-dark">Create an account</h3>
                     </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                     <div class="getstart-content">
                         <span><i class="la la-bank"></i></span>
-                        <h3>Link your bank account</h3>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
-                    <div class="getstart-content">
-                        <span><i class="la la-exchange"></i></span>
-                        <h3>Start buying & selling</h3>
+                        <h3 class="text-dark">Start Investment</h3>
                     </div>
                 </div>
             </div>
@@ -219,7 +263,7 @@
 
 
 
-    <div class="portfolio section-padding" data-scroll-index="2">
+    {{-- <div class="portfolio section-padding" data-scroll-index="2">
         <div class="container">
             <div class="row py-lg-5 justify-content-center">
                 <div class="col-xl-7">
@@ -289,11 +333,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div class="trade-app section-padding">
         <div class="container">
-            <div class="row justify-content-center">
+            {{-- <div class="row justify-content-center">
                 <div class="col-xl-6">
                     <div class="section-title text-center">
                         <h2>Trade. Anywhere</h2>
@@ -343,7 +387,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <div class="row pt-5">
                 <div class="col-xl-12">
                     <div class="trusted-business py-5 text-center">
@@ -351,28 +395,23 @@
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-auto">
-                            <div class="trusted-logo">
-                                <a href="#"><img class="img-fluid" src="{{asset('assets/images/brand/1.webp')}}" alt=""></a>
+                            <div class="">
+                                <a href="#"><img class="img-fluid" style="height: 32px; width: auto;" src="{{asset('assets/images/brand/forex.com.svg')}}" alt=""></a>
                             </div>
                         </div>
                         <div class="col-auto">
-                            <div class="trusted-logo">
-                                <a href="#"><img class="img-fluid" src="{{asset('assets/images/brand/2.webp')}}" alt=""></a>
+                            <div class="">
+                                <a href="#"><img class="img-fluid" style="height: 32px; width: auto;" src="{{asset('assets/images/brand/binance.png')}}" alt=""></a>
                             </div>
                         </div>
                         <div class="col-auto">
-                            <div class="trusted-logo">
-                                <a href="#"><img class="img-fluid" src="{{asset('assets/images/brand/3.webp')}}" alt=""></a>
+                            <div class="">
+                                <a href="#"><img class="img-fluid" style="height: 32px; width: auto;" src="{{asset('assets/images/brand/metatrader.png')}}" alt=""></a>
                             </div>
                         </div>
                         <div class="col-auto">
-                            <div class="trusted-logo">
-                                <a href="#"><img class="img-fluid" src="{{asset('assets/images/brand/4.webp')}}" alt=""></a>
-                            </div>
-                        </div>
-                        <div class="col-auto">
-                            <div class="trusted-logo">
-                                <a href="#"><img class="img-fluid" src="{{asset('assets/images/brand/5.webp')}}" alt=""></a>
+                            <div class="">
+                                <a href="#"><img class="img-fluid" style="height: 32px; width: auto;" src="{{asset('assets/images/brand/coinbase.svg')}}" alt=""></a>
                             </div>
                         </div>
                     </div>
@@ -383,12 +422,12 @@
 
 
 
-    <div class="testimonial section-padding" data-scroll-index="3">
+    <div class="testimonial section-padding bg-light" data-scroll-index="3">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-6">
                     <div class="section-title">
-                        <h2>What our customer says</h2>
+                        <h2 class="text-dark">What our customer says</h2>
                     </div>
                 </div>
             </div>
@@ -397,43 +436,133 @@
                     <div class="testimonial-content">
                         <div class="testimonial1 owl-carousel owl-theme">
                             <div class="row align-items-center">
-                                <div class="col-xl-6 col-lg-6">
-                                    <div class="customer-img">
-                                        <img class="img-fluid" src="{{asset('assets/images/testimonial/1.jpg')}}" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-6">
+                                <div class="col-xl-12 col-lg-12">
                                     <div class="customer-review">
-                                        <img class="img-fluid" src="{{asset('assets/images/brand/2.webp')}}" alt="">
-                                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi voluptas
-                                            dignissimos similique quas molestiae doloribus recusandae voluptatem et
-                                            repudiandae veritatis.</p>
-                                        <div class="customer-info">
-                                            <h6>Mr John Doe</h6>
-                                            <p>CEO, Example Company</p>
+                                        <p class="text-center">Investing with bullish experts is one of the best decisions I have made so far this year. I have made a mouth watering amount of profit out of my savings by investing it here. My bank has never given me 10% of the profit I have made here in 4 months on my savings with them in 2 years.</p>
+                                        <div class="customer-info text-center">
+                                            <h6>Jerry Ladder</h6>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row align-items-center">
-                                <div class="col-xl-6 col-lg-6">
-                                    <div class="customer-img">
-                                        <img class="img-fluid" src="{{asset('assets/images/testimonial/2.jpg')}}" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-6">
+                                <div class="col-xl-12 col-lg-12">
                                     <div class="customer-review">
-                                        <img class="img-fluid" src="{{asset('assets/images/brand/3.webp')}}" alt="">
-                                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi voluptas
-                                            dignissimos similique quas molestiae doloribus recusandae voluptatem et
-                                            repudiandae veritatis.</p>
-                                        <div class="customer-info">
-                                            <h6>Mr Abraham</h6>
-                                            <p>CEO, Example Company</p>
+                                        <p class="text-center">
+                                            I have tried trading Forex myself but it never worked. I gave up because I did not have enough skill to do it. You guys have made me realize that I don't necessarily need to trade to be into forex trading and make profits. Thank you for this amazing service. 
+                                        </p>
+                                        <div class="customer-info text-center">
+                                            <h6>Stephan McReynolds</h6>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="row align-items-center">
+                                <div class="col-xl-12 col-lg-12">
+                                    <div class="customer-review">
+                                        <p class="text-center">
+                                            I have never tried to invest because of fear but to my great surprise it took bullish experts just a month to change my mind. No service charge and I get to withdraw my money any time I want. Never ever thought I could invest a dollar  in anything crytpo talkless of ten thousand. 
+                                        </p>
+                                        <div class="customer-info text-center">
+                                            <h6>Amber Pabawena</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row align-items-center">
+                                <div class="col-xl-12 col-lg-12">
+                                    <div class="customer-review">
+                                        <p class="text-center">
+                                            I hardly write reviews for anything. I'm hard to impress but you guys have been incredible so far. You deserve every accolades you get. I have made a nice profit return on my crypto investments so far. 
+                                        </p>
+                                        <div class="customer-info text-center">
+                                            <h6>Ashley Pearson</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row align-items-center">
+                                <div class="col-xl-12 col-lg-12">
+                                    <div class="customer-review">
+                                        <p class="text-center">
+                                            I don't do online investments because most times online investments deals are too good to be true but you made me understand that I could make loses even though profit is 99% guaranteed. I have never come across an honest investment platform like this. You know it is real when your profit rate is not fixed but according to market progression. Kudos.
+                                        </p>
+                                        <div class="customer-info text-center">
+                                            <h6>Christopher Wesley</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             <div class="row align-items-center">
+                                <div class="col-xl-12 col-lg-12">
+                                    <div class="customer-review">
+                                        <p class="text-center">
+                                            I wish I started investing with you people earlier. I waited for 4 months to hear a bad news from my friend about her investments with you but I was disappointed. At first I thought it was the normal crypto that rises and fall with no warning but I later got to know that it is actually crypto trading by well trained skilled crypto traders. I got my 3rd month profit yesterday and I'm so happy I'm proud to me a member here. I trust this platform more and more everyday. Let's goooooooo
+                                        </p>
+                                        <div class="customer-info text-center">
+                                            <h6>Christiana Fernandez</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             <div class="row align-items-center">
+                                <div class="col-xl-12 col-lg-12">
+                                    <div class="customer-review">
+                                        <p class="text-center">
+                                            I wanna say a big thank you to you guys for paying my rent every month for the past 5 months. Haha, all I had to do was to invest and pay my rent with my profit. I wish I knew about bullish experts earlier. Maybe you will buy me a new car if I increase my investment to grab more profits. Let's see lol.
+                                        </p>
+                                        <div class="customer-info text-center">
+                                            <h6>Frank Oliver</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             <div class="row align-items-center">
+                                <div class="col-xl-12 col-lg-12">
+                                    <div class="customer-review">
+                                        <p class="text-center">
+                                            Nice doing business with you. See you at the end of the month for another profit withdrawal. You guys are actually making me lazy. I stopped my third job because you got me covered. Don't fuck me up. 
+                                        </p>
+                                        <div class="customer-info text-center">
+                                            <h6>Anna Pratt</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row align-items-center">
+                                <div class="col-xl-12 col-lg-12">
+                                    <div class="customer-review">
+                                        <p class="text-center">
+                                            This is my second month and so far so good everything is going on fine. I hope I won't regret my actions at the end. Thank you for your service. 
+                                        </p>
+                                        <div class="customer-info text-center">
+                                            <h6>Rebecca Ferber </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row align-items-center">
+                                <div class="col-xl-12 col-lg-12">
+                                    <div class="customer-review">
+                                        <p class="text-center">
+                                            I'm here to commend the great service if your support. I encountered a problem that almost gave me an heart attack but the response I got was swift and my issue was resolved almost immediately. You have completely won me. Thank you.
+                                        </p>
+                                        <div class="customer-info text-center">
+                                            {{-- <h6>Ashley Pearson</h6> --}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -452,8 +581,8 @@
                     </div>
                 </div>
             </div>
-            <div class="row align-items-center py-5">
-                <div class="col-xl-4 col-lg-4 col-md-4">
+            <div class="row align-items-center justify-content-center py-5">
+                {{-- <div class="col-xl-4 col-lg-4 col-md-4">
                     <div class="promo-content">
                         <div class="promo-content-img">
                             <img class="img-fluid" src="{{asset('assets/images/svg/protect.svg')}}" alt="">
@@ -461,60 +590,30 @@
                         <h3>Secure storage </h3>
                         <p>We store the vast majority of the digital assets in secure offline storage.</p>
                     </div>
-                </div>
+                </div> --}}
                 <div class="col-xl-4 col-lg-4 col-md-4">
                     <div class="promo-content">
                         <div class="promo-content-img">
                             <img class="img-fluid" src="{{asset('assets/images/svg/cyber.svg')}}" alt="">
                         </div>
                         <h3>Protected by insurance</h3>
-                        <p>Cryptocurrency stored on our servers is covered by our insurance policy.</p>
+                        {{-- <p>Cryptocurrency stored on our servers is covered by our insurance policy.</p> --}}
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-4">
                     <div class="promo-content">
                         <div class="promo-content-img">
-                            <img class="img-fluid" src="{{asset('assets/images/svg/finance.svg')}}" alt="">
+                            <img class="img-fluid" src="{{asset('assets/images/svg/protect.svg')}}" alt="">
                         </div>
-                        <h3>Industry best practices</h3>
-                        <p>Bullish Experts supports a variety of the most popular digital currencies.</p>
+                        <h3>Backed up by bank of investment and development of Vietnam</h3>
+                        {{-- <p>Bullish Experts supports a variety of the most popular digital currencies.</p> --}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="appss section-padding" data-scroll-index="4">
-        <div class="container">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-xl-7 col-lg-6 col-md-6">
-                    <div class="appss-content">
-                        <h2>The secure app to store crypto yourself</h2>
-                        <ul>
-                            <li><i class="la la-check"></i> All your digital assets in one place</li>
-                            <li><i class="la la-check"></i> Use Decentralized Apps</li>
-                            <li><i class="la la-check"></i> Pay friends, not addresses</li>
-                        </ul>
-                        <div class="mt-4">
-                            <a href="#" class="btn btn-primary my-1 waves-effect">
-                                <img src="{{asset('assets/images/android.svg')}}" alt="">
-                            </a>
-                            <a href="#" class="btn btn-primary my-1 waves-effect">
-                                <img src="{{asset('assets/images/apple.svg')}}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-5 col-lg-6 col-md-6">
-                    <div class="appss-img">
-                        <img class="img-fluid" src="{{asset('assets/images/app2.png')}}" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="blog section-padding" data-scroll-index="5">
+    {{-- <div class="blog section-padding" data-scroll-index="5">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-6">
@@ -589,7 +688,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 
     <div class="get-touch section-padding" data-scroll-index="6">
@@ -601,7 +700,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-xl-6 col-lg-6 col-md-6">
                     <div class="get-touch-content">
                         <div class="media">
@@ -609,42 +708,6 @@
                             <div class="media-body">
                                 <h4>24 / 7 Support</h4>
                                 <p>Got a problem? Just get in touch. Our support team is available 24/7.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6 col-md-6">
-                    <div class="get-touch-content">
-                        <div class="media">
-                            <span><i class="fa fa-cubes"></i></span>
-                            <div class="media-body">
-                                <h4>Bullish Experts Blog</h4>
-                                <p>News and updates from the world’s leading cryptocurrency exchange.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6 col-md-6">
-                    <div class="get-touch-content">
-                        <div class="media">
-                            <span><i class="fa fa-certificate"></i></span>
-                            <div class="media-body">
-                                <h4>Careers</h4>
-                                <p>Help build the future of technology. Start your new career at Bullish Experts.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6 col-md-6">
-                    <div class="get-touch-content">
-                        <div class="media">
-                            <span><i class="fa fa-life-ring"></i></span>
-                            <div class="media-body">
-                                <h4>Community</h4>
-                                <p>Bullish Experts is global. Join the discussion in our worldwide communities.
                                 </p>
                             </div>
                         </div>
@@ -661,9 +724,7 @@
                     <div class="bottom-logo">
                         <strong class="text-light">BULLISH EXPERTS</strong>
 
-                        <p>Number One For Spreads. Lightning-Fast Execution.
-                            Fast and Easy Deposit, Multiple Trading Platforms , Algorithmic
-                            Trading And Exceptional Client Service.</p>
+                        <p>Easy and secure way to invest in forex trading and crytpo currency trading.</p>
                     </div>
                 </div>
                 <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6">
@@ -671,9 +732,6 @@
                         <h4 class="widget-title">Company</h4>
                         <ul>
                             <li><a href="#">About</a></li>
-                            <li><a href="#">Career</a></li>
-                            <li><a href="#">Affiliate</a></li>
-                            <li><a href="#">Our Partner</a></li>
                         </ul>
                     </div>
                 </div>
@@ -681,10 +739,7 @@
                     <div class="bottom-widget">
                         <h4 class="widget-title">Support</h4>
                         <ul>
-                            <li><a href="#">Ticket</a></li>
                             <li><a href="#">FAQ</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Helpdesk</a></li>
                         </ul>
                     </div>
                 </div>

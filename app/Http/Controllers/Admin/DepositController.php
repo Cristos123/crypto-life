@@ -26,26 +26,27 @@ class DepositController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param Deposit $deposit
+     * @param Deposit $usersDeposit
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Deposit $deposit)
+    public function update(Request $request, Deposit $usersDeposit)
     {
         $message = "No action performed";
 
+
         if ($request->approved) {
-            if ($deposit->status == 'pending') {
+            if ($usersDeposit->status == 'pending') {
                 DB::beginTransaction();
 
                 try {
-                    $deposit->status = 'succeed';
+                    $usersDeposit->status = 'approved';
 
-                    $deposit->save();
+                    $usersDeposit->save();
 
 
                     // Credit the users wallet
-                    $amount = $deposit->amount;
-                    $user = $deposit->user;
+                    $amount = $usersDeposit->amount;
+                    $user = $usersDeposit->user;
 
                     $user->credit($amount);
                 } catch (Throwable $ex) {
@@ -60,10 +61,10 @@ class DepositController extends Controller
                 $message = "Deposit approved! User will  be automatically credited.";
             }
         } elseif ($request->cancel) {
-            if ($deposit->status == 'pending') {
-                $deposit->status = 'closed';
+            if ($usersDeposit->status == 'pending') {
+                $usersDeposit->status = 'rejected';
 
-                $deposit->save();
+                $usersDeposit->save();
 
                 $message = "Deposit cancelled!";
             }

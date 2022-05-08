@@ -8,12 +8,12 @@
               </div>
               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                   <div class="footer-social">
-                      <ul>
+                      {{-- <ul>
                           <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                           <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                           <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                           <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                      </ul>
+                      </ul> --}}
                   </div>
               </div>
           </div>
