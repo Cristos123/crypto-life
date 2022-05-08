@@ -18,7 +18,7 @@ class InvestmentController extends Controller
      */
     public function index()
     {
-        $investments = Investment::with(['asset', 'category', 'duration', 'user'])->desc()->paginate(25);
+        $investments = Investment::pending()->with(['asset', 'category', 'duration', 'user'])->desc()->paginate(50);
         // return $investments;
         return view('admin.investment.index', compact('investments'));
     }

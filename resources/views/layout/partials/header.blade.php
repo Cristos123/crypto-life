@@ -19,11 +19,9 @@
                                         <a class="nav-link" href="{{ url('/') }}" data-scroll-nav="0">Home</a>
                                     </li>
 
-                                    @auth
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ url('home') }}" data-scroll-nav="0">Dashboard</a>
+                                        <a class="nav-link" href="{{ route('home') }}" data-scroll-nav="0">Dashboard</a>
                                     </li>
-                                    @endauth
                                 </ul>
                             </div>
 

@@ -29,4 +29,9 @@ class Withdrawal extends Model
     {
         return $this->belongsTo(Asset::class);
     }
+
+    public function scopePending($query)
+    {
+        return $query->where('status', 'pending');
+    }
 }

@@ -86,4 +86,9 @@ class Investment extends Model
 
         return ($today->diffInDays($startDate));
     }
+
+    public function scopePending($query)
+    {
+        return $query->where('status', 'pending');
+    }
 }
