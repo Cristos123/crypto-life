@@ -33,6 +33,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/about', function() {
+    return view('about');
+})->name('about');
+
+Route::get('/terms-and-conditions', function() {
+    return view('terms');
+})->name('terms');
+
 Route::get('/mail', function () {
     return new App\Mail\WithdrawalRequest();
 });
