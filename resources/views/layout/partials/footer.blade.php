@@ -13,6 +13,7 @@
                     <h4 class="widget-title">Company</h4>
                     <ul>
                         <li><a href="{{ route('about') }}">About</a></li>
+                        <li><a href="{{ route('terms') }}">Terms and Conditions</a></li>
                     </ul>
                 </div>
             </div>
@@ -20,7 +21,7 @@
                 <div class="bottom-widget">
                     <h4 class="widget-title">Support</h4>
                     <ul>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="mailto:{{ config('mail.admin_email') }}">Contact Us Now</a></li>
                     </ul>
                 </div>
             </div>

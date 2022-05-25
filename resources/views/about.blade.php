@@ -42,7 +42,7 @@
 
             </div>
 
-            <div class="row text-center py-5">
+            <div class="row justify-content-center text-center py-5">
                 <div class="col">
                     <div class="counter bg-dark">
                         <i class="fa fa-bitcoin fa-2x"></i>
