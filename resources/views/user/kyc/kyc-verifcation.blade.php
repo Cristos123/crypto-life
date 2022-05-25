@@ -77,6 +77,8 @@
                                                 @enderror
                                             </div>
 
+                                            <br>
+
                                             <div class="form-group  col-xl-6 col-md-6">
 
                                                 <label class="mr-sm-2">Upload Passport </label>

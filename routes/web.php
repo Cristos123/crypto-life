@@ -59,14 +59,16 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     );
 });
 
-Route::group(['middleware' => ['auth', 'verified', 'kyc']], function () {
+Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('dashboard', DashboardController::class)->name('home');
     Route::post('invest', [InvestmentController::class, 'store'])->name('invest');
 
-    // Withdraw  ✅
-    Route::get('withdrawals', [WithdrawalController::class, 'index'])->name('withdrawals.index');
-    Route::get('withdraw-funds', [WithdrawalController::class, 'create'])->name('withdrawals.create');
-    Route::post('withdraw-funds', [WithdrawalController::class, 'store'])->name('withdrawals.store');
+    Route::group(['middleware' => 'kyc'], function () {
+        // Withdraw  ✅
+        Route::get('withdrawals', [WithdrawalController::class, 'index'])->name('withdrawals.index');
+        Route::get('withdraw-funds', [WithdrawalController::class, 'create'])->name('withdrawals.create');
+        Route::post('withdraw-funds', [WithdrawalController::class, 'store'])->name('withdrawals.store');
+    });
 
     // Deposit
     Route::get('deposits', [DepositController::class, 'index'])->name('deposits.index');
