@@ -12,7 +12,7 @@
                     <div class="intro-content">
                         <h1>Trade with <strong class="text-primary">Bullish Experts</strong>. <br>
                          Forex trading <br>
-                         Crypto Trading 
+                         Crypto Trading
                         </h1>
                         <p>Easy and secure way to invest in forex trading and crytpo currency trading.</p>
                     </div>
@@ -30,13 +30,13 @@
 
     <div class="price-grid section-padding" data-scroll-index="1">
         <div class="container">
-        
+
             <div class="row">
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-3">
                     <!-- TradingView Widget BEGIN -->
                     <div class="tradingview-widget-container">
                         <div class="tradingview-widget-container__widget"></div>
-                        
+
                         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
                             {
                                 "symbol": "FX:EURUSD",
@@ -61,7 +61,7 @@
                     <!-- TradingView Widget BEGIN -->
                     <div class="tradingview-widget-container">
                         <div class="tradingview-widget-container__widget"></div>
-                        
+
                         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
                             {
                                 "symbol": "FX:USDJPY",
@@ -86,7 +86,7 @@
                     <!-- TradingView Widget BEGIN -->
                     <div class="tradingview-widget-container">
                         <div class="tradingview-widget-container__widget"></div>
-                        
+
                         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
                             {
                                 "symbol": "FX:GPBUSD",
@@ -111,7 +111,7 @@
                    <!-- TradingView Widget BEGIN -->
                     <div class="tradingview-widget-container">
                         <div class="tradingview-widget-container__widget"></div>
-                        
+
                         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
                             {
                                 "symbol": "FX:AUDUSD",
@@ -136,7 +136,7 @@
                     <!-- TradingView Widget BEGIN -->
                     <div class="tradingview-widget-container">
                         <div class="tradingview-widget-container__widget"></div>
-                        
+
                         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
                             {
                                 "symbol": "BINANCE:BTCUSDT",
@@ -161,7 +161,7 @@
                    <!-- TradingView Widget BEGIN -->
                     <div class="tradingview-widget-container">
                         <div class="tradingview-widget-container__widget"></div>
-                        
+
                         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
                             {
                                 "symbol": "BINANCE:ETHUSDT",
@@ -186,7 +186,7 @@
                     <!-- TradingView Widget BEGIN -->
                     <div class="tradingview-widget-container">
                         <div class="tradingview-widget-container__widget"></div>
-                        
+
                         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
                             {
                                 "symbol": "UNISWAP:FMTUSDT",
@@ -211,7 +211,7 @@
                     <!-- TradingView Widget BEGIN -->
                     <div class="tradingview-widget-container">
                         <div class="tradingview-widget-container__widget"></div>
-                        
+
                         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
                             {
                                 "symbol": "HUOBI:ARVUSDT",
@@ -450,7 +450,7 @@
                                 <div class="col-xl-12 col-lg-12">
                                     <div class="customer-review">
                                         <p class="text-center">
-                                            I have tried trading Forex myself but it never worked. I gave up because I did not have enough skill to do it. You guys have made me realize that I don't necessarily need to trade to be into forex trading and make profits. Thank you for this amazing service. 
+                                            I have tried trading Forex myself but it never worked. I gave up because I did not have enough skill to do it. You guys have made me realize that I don't necessarily need to trade to be into forex trading and make profits. Thank you for this amazing service.
                                         </p>
                                         <div class="customer-info text-center">
                                             <h6>Stephan McReynolds</h6>
@@ -463,7 +463,7 @@
                                 <div class="col-xl-12 col-lg-12">
                                     <div class="customer-review">
                                         <p class="text-center">
-                                            I have never tried to invest because of fear but to my great surprise it took bullish experts just a month to change my mind. No service charge and I get to withdraw my money any time I want. Never ever thought I could invest a dollar  in anything crytpo talkless of ten thousand. 
+                                            I have never tried to invest because of fear but to my great surprise it took bullish experts just a month to change my mind. No service charge and I get to withdraw my money any time I want. Never ever thought I could invest a dollar  in anything crytpo talkless of ten thousand.
                                         </p>
                                         <div class="customer-info text-center">
                                             <h6>Amber Pabawena</h6>
@@ -476,7 +476,7 @@
                                 <div class="col-xl-12 col-lg-12">
                                     <div class="customer-review">
                                         <p class="text-center">
-                                            I hardly write reviews for anything. I'm hard to impress but you guys have been incredible so far. You deserve every accolades you get. I have made a nice profit return on my crypto investments so far. 
+                                            I hardly write reviews for anything. I'm hard to impress but you guys have been incredible so far. You deserve every accolades you get. I have made a nice profit return on my crypto investments so far.
                                         </p>
                                         <div class="customer-info text-center">
                                             <h6>Ashley Pearson</h6>
@@ -528,7 +528,7 @@
                                 <div class="col-xl-12 col-lg-12">
                                     <div class="customer-review">
                                         <p class="text-center">
-                                            Nice doing business with you. See you at the end of the month for another profit withdrawal. You guys are actually making me lazy. I stopped my third job because you got me covered. Don't fuck me up. 
+                                            Nice doing business with you. See you at the end of the month for another profit withdrawal. You guys are actually making me lazy. I stopped my third job because you got me covered. Don't fuck me up.
                                         </p>
                                         <div class="customer-info text-center">
                                             <h6>Anna Pratt</h6>
@@ -541,7 +541,7 @@
                                 <div class="col-xl-12 col-lg-12">
                                     <div class="customer-review">
                                         <p class="text-center">
-                                            This is my second month and so far so good everything is going on fine. I hope I won't regret my actions at the end. Thank you for your service. 
+                                            This is my second month and so far so good everything is going on fine. I hope I won't regret my actions at the end. Thank you for your service.
                                         </p>
                                         <div class="customer-info text-center">
                                             <h6>Rebecca Ferber </h6>
@@ -709,6 +709,7 @@
                                 <h4>24 / 7 Support</h4>
                                 <p>Got a problem? Just get in touch. Our support team is available 24/7.
                                 </p>
+                                <a href="mailto:{{ config('mail.admin_email') }}">Contact us now</a>
                             </div>
                         </div>
                     </div>
