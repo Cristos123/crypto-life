@@ -24,7 +24,7 @@
                                                 <th> Fullname </th>
                                                 <th> DOB </th>
                                                 <th> Type </th>
-                                                <th> SSN </th>
+                                                {{-- <th> SSN </th> --}}
                                                 <th> UserID </th>
                                                 <th> Created Date </th>
                                                 <th> Status </th>
@@ -43,7 +43,7 @@
                                                     </td>
                                                     <td> {{ $kyc->date_of_birth }} </td>
                                                     <td> {{ $kyc->type }} </td>
-                                                    <td> {{ $kyc->ssn }} </td>
+                                                    {{-- <td> {{ $kyc->ssn }} </td> --}}
                                                     <td> {{ $kyc->user_id }} </td>
                                                     <td> {{ $kyc->created_at }}</td>
                                                     <td>

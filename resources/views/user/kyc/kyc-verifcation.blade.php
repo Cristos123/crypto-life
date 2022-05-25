@@ -37,7 +37,7 @@
                                                     </div>
                                                 @enderror
                                             </div>
-                                            <div class="form-group col-xl-6 col-md-6">
+                                            {{-- <div class="form-group col-xl-6 col-md-6">
                                                 <label class="mr-sm-2">SSN</label>
                                                 <input type="text" class="form-control @error('ssn') is-invalid @enderror"
                                                     placeholder="Enter your SSN" required name="ssn">
@@ -45,7 +45,7 @@
                                                     <div class="invalid-feedback d-block">
                                                         {{ $message }}
                                                     </div>
-                                                @enderror
+                                                @enderror --}}
                                             </div>
                                             <div class="form-group col-xl-6 col-md-6">
                                                 <label class="mr-sm-2">Date of birth</label>

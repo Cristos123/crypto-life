@@ -29,7 +29,7 @@ class KYCController extends Controller
                 'mimes:jpeg,png',
                 'max:2048',
             ],
-            'ssn' => ['required', 'alpha_num'],
+            // 'ssn' => ['required', 'alpha_num'],
             'identificationType' => ['required', 'string'],
             'dob' => ['date_format:d-m-Y'],
         ]);
@@ -62,7 +62,7 @@ class KYCController extends Controller
             'identification' => $pathToIdentification,
             'photo' => $pathToPhoto,
             'fullname' => $request['fullname'],
-            'ssn' => $request['ssn'],
+            'ssn' => "---",
             'date_of_birth' => date(
                 'Y-m-d',
                 strtotime($request['dob'])
