@@ -21,7 +21,7 @@
                         <a href="{{ route('login') }}" class="btn btn-primary">Get Started</a>
                     </div>
                 </div>
-                <div class="col-xl-5 col-lg-6 col-12">
+                <div class="col-xl-6 col-lg-6 col-12">
                     <img class="img-fluid " src="{{ asset('assets/images/trader.jpg') }}" alt="Bullish Experts">
                 </div>
             </div>
