@@ -14,7 +14,7 @@
                 </div>
             </div>
 
-            <div class="row justify-content-center">
+            <div class="row justify-content-center terms">
                 <div class="col-md-10">
                     <p>
                         We at <strong class="text-dark">BULLISH EXPERT TRADERS</strong> provide services for trading
@@ -114,16 +114,16 @@
 
 @push('styles')
     <style>
-        OL {
+        .terms OL {
             counter-reset: item
         }
 
-        LI {
+        .terms LI {
             display: block;
             padding-bottom: 10px;
         }
 
-        LI:before {
+        .terms LI:before {
             content: counters(item, ".") " ";
             counter-increment: item;
             font-weight: 500;

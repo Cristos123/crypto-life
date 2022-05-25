@@ -420,8 +420,6 @@
         </div>
     </div>
 
-
-
     <div class="testimonial section-padding bg-light" data-scroll-index="3">
         <div class="container">
             <div class="row justify-content-center">
@@ -440,6 +438,9 @@
                                     <div class="customer-review">
                                         <p class="text-center">Investing with bullish experts is one of the best decisions I have made so far this year. I have made a mouth watering amount of profit out of my savings by investing it here. My bank has never given me 10% of the profit I have made here in 4 months on my savings with them in 2 years.</p>
                                         <div class="customer-info text-center">
+                                            <span class="img-thumbnail rounded-circle">
+                                                <span class="fa fa-user fa-2x"></span>
+                                            </span>
                                             <h6>Jerry Ladder</h6>
                                         </div>
                                     </div>
@@ -453,6 +454,9 @@
                                             I have tried trading Forex myself but it never worked. I gave up because I did not have enough skill to do it. You guys have made me realize that I don't necessarily need to trade to be into forex trading and make profits. Thank you for this amazing service.
                                         </p>
                                         <div class="customer-info text-center">
+                                            <span class="img-thumbnail rounded-circle" style="width: 40px; height: 40px;">
+                                                <span class="fa fa-user fa-2x"></span>
+                                            </span>
                                             <h6>Stephan McReynolds</h6>
                                         </div>
                                     </div>
@@ -466,6 +470,9 @@
                                             I have never tried to invest because of fear but to my great surprise it took bullish experts just a month to change my mind. No service charge and I get to withdraw my money any time I want. Never ever thought I could invest a dollar  in anything crytpo talkless of ten thousand.
                                         </p>
                                         <div class="customer-info text-center">
+                                            <span class="img-thumbnail rounded-circle">
+                                                <span class="fa fa-user fa-2x"></span>
+                                            </span>
                                             <h6>Amber Pabawena</h6>
                                         </div>
                                     </div>
@@ -479,6 +486,9 @@
                                             I hardly write reviews for anything. I'm hard to impress but you guys have been incredible so far. You deserve every accolades you get. I have made a nice profit return on my crypto investments so far.
                                         </p>
                                         <div class="customer-info text-center">
+                                            <span class="img-thumbnail rounded-circle">
+                                                <span class="fa fa-user fa-2x"></span>
+                                            </span>
                                             <h6>Ashley Pearson</h6>
                                         </div>
                                     </div>
@@ -492,6 +502,9 @@
                                             I don't do online investments because most times online investments deals are too good to be true but you made me understand that I could make loses even though profit is 99% guaranteed. I have never come across an honest investment platform like this. You know it is real when your profit rate is not fixed but according to market progression. Kudos.
                                         </p>
                                         <div class="customer-info text-center">
+                                            <span class="img-thumbnail rounded-circle">
+                                                <span class="fa fa-user fa-2x"></span>
+                                            </span>
                                             <h6>Christopher Wesley</h6>
                                         </div>
                                     </div>
@@ -505,6 +518,9 @@
                                             I wish I started investing with you people earlier. I waited for 4 months to hear a bad news from my friend about her investments with you but I was disappointed. At first I thought it was the normal crypto that rises and fall with no warning but I later got to know that it is actually crypto trading by well trained skilled crypto traders. I got my 3rd month profit yesterday and I'm so happy I'm proud to me a member here. I trust this platform more and more everyday. Let's goooooooo
                                         </p>
                                         <div class="customer-info text-center">
+                                            <span class="img-thumbnail rounded-circle">
+                                                <span class="fa fa-user fa-2x"></span>
+                                            </span>
                                             <h6>Christiana Fernandez</h6>
                                         </div>
                                     </div>
@@ -518,6 +534,9 @@
                                             I wanna say a big thank you to you guys for paying my rent every month for the past 5 months. Haha, all I had to do was to invest and pay my rent with my profit. I wish I knew about bullish experts earlier. Maybe you will buy me a new car if I increase my investment to grab more profits. Let's see lol.
                                         </p>
                                         <div class="customer-info text-center">
+                                            <span class="img-thumbnail rounded-circle">
+                                                <span class="fa fa-user fa-2x"></span>
+                                            </span>
                                             <h6>Frank Oliver</h6>
                                         </div>
                                     </div>
@@ -531,6 +550,9 @@
                                             Nice doing business with you. See you at the end of the month for another profit withdrawal. You guys are actually making me lazy. I stopped my third job because you got me covered. Don't fuck me up.
                                         </p>
                                         <div class="customer-info text-center">
+                                            <span class="img-thumbnail rounded-circle">
+                                                <span class="fa fa-user fa-2x"></span>
+                                            </span>
                                             <h6>Anna Pratt</h6>
                                         </div>
                                     </div>
@@ -544,6 +566,9 @@
                                             This is my second month and so far so good everything is going on fine. I hope I won't regret my actions at the end. Thank you for your service.
                                         </p>
                                         <div class="customer-info text-center">
+                                            <span class="img-thumbnail rounded-circle">
+                                                <span class="fa fa-user fa-2x"></span>
+                                            </span>
                                             <h6>Rebecca Ferber </h6>
                                         </div>
                                     </div>
@@ -557,6 +582,9 @@
                                             I'm here to commend the great service if your support. I encountered a problem that almost gave me an heart attack but the response I got was swift and my issue was resolved almost immediately. You have completely won me. Thank you.
                                         </p>
                                         <div class="customer-info text-center">
+                                            <span class="img-thumbnail rounded-circle">
+                                                <span class="fa fa-user fa-2x"></span>
+                                            </span>
                                             {{-- <h6>Ashley Pearson</h6> --}}
                                         </div>
                                     </div>
@@ -594,7 +622,7 @@
                 <div class="col-xl-4 col-lg-4 col-md-4">
                     <div class="promo-content">
                         <div class="promo-content-img">
-                            <img class="img-fluid" src="{{asset('assets/images/svg/cyber.svg')}}" alt="">
+                            <img class="img-fluid" src="{{asset('assets/images/aig.png')}}" alt="">
                         </div>
                         <h3>Protected by insurance</h3>
                         {{-- <p>Cryptocurrency stored on our servers is covered by our insurance policy.</p> --}}
@@ -603,7 +631,7 @@
                 <div class="col-xl-4 col-lg-4 col-md-4">
                     <div class="promo-content">
                         <div class="promo-content-img">
-                            <img class="img-fluid" src="{{asset('assets/images/svg/protect.svg')}}" alt="">
+                            <img class="img-fluid" src="{{asset('assets/images/vdb.jpg')}}" alt="">
                         </div>
                         <h3>Backed up by bank of investment and development of Vietnam</h3>
                         {{-- <p>Bullish Experts supports a variety of the most popular digital currencies.</p> --}}
@@ -689,7 +717,6 @@
             </div>
         </div>
     </div> --}}
-
 
     <div class="get-touch section-padding" data-scroll-index="6">
         <div class="container">
