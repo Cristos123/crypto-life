@@ -83,7 +83,7 @@
                                                     id="currency" name="currency">
                                                     <option value="">Select</option>
                                                     @forelse ($assets as $asset)
-                                                        <option value="{{ $asset->name }}"> {{ $asset->name }} </option>
+                                                        <option value="{{ $asset->name }}" {{ old('currency') == $asset->name ? 'selected' : '' }}> {{ $asset->name }} </option>
                                                     @empty
                                                     @endforelse
 
@@ -111,7 +111,7 @@
                                                         <label class="input-group-text bg-primary"><i
                                                                 class="fa fa-bitcoin text-white"></i></label>
                                                     </div>
-                                                    <input type="text" value="{{ old('amount') }}" id="transactionID"
+                                                    <input type="text" value="{{ old('transactionID') }}" id="transactionID"
                                                         class="form-control text-black @error('transactionID') is-invalid @enderror text-right"
                                                         name="transactionID" placeholder="Transaction ID" required>
                                                     @error('transactionID')
