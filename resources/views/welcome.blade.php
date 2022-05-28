@@ -667,7 +667,7 @@
                 <div class="col-xl-4 col-lg-4 col-md-4">
                     <div class="promo-content">
                         <div class="promo-content-img">
-                            <img class="img-fluid" src="{{ asset('assets/images/AIG.png') }}" alt="">
+                            <img class="img-fluid" src="{{ asset('assets/images/aig.png') }}" alt="">
                         </div>
                         <h3>Protected by insurance</h3>
                         {{-- <p>Cryptocurrency stored on our servers is covered by our insurance policy.</p> --}}
