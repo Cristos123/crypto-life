@@ -39,7 +39,13 @@ class DepositController extends Controller
     {
         $inputs = $request->validate([
             'currency' => ['required', 'string'],
-            'amount' => ['required', 'numeric', 'min:1']
+            'amount' => ['required', 'numeric', 'min:1'],
+            'transactionID' => ['required', 'string', 'min:64', 'max:64'],
+        ], [
+            'transactionID.min' => 'Invalid Transaction ID. Check to be sure you copied properly!',
+            'transactionID.max' => 'Invalid Transaction ID. Check to be sure you copied properly!',
+            'currency.required' => 'Currency Deposited to is important.',
+            'transactionID.required' => 'Transaction ID is needed to track your deposit.'
         ]);
 
         $deposit = Deposit::create([
