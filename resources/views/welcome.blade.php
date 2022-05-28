@@ -452,7 +452,8 @@
                                             decisions I have made so far this year. I have made a mouth watering amount of
                                             profit out of my savings by investing it here. My bank has never given me 10% of
                                             the profit I have made here in 4 months on my savings with them in 2 years.</p>
-                                        <div class="text-center d-flex flex-column justify-content-center align-items-center mt-2">
+                                        <div
+                                            class="text-center d-flex flex-column justify-content-center align-items-center mt-2">
                                             <img class="img-thumbnail img-fluid rounded-circle mb-1"
                                                 src="{{ asset('assets/images/profile/bullish_experts_10.jpeg') }}" />
                                             <h6>Jerry Ladder</h6>
@@ -470,10 +471,11 @@
                                             necessarily need to trade to be into forex trading and make profits. Thank you
                                             for this amazing service.
                                         </p>
-                                        <div class="text-center d-flex flex-column justify-content-center align-items-center mt-2">
+                                        <div
+                                            class="text-center d-flex flex-column justify-content-center align-items-center mt-2">
                                             <img class="img-thumbnail img-fluid rounded-circle mb-1"
                                                 src="{{ asset('assets/images/profile/bullish_experts_9.jpeg') }}" />
-                                                <h6>Stephan McReynolds</h6>
+                                            <h6>Stephan McReynolds</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -488,10 +490,11 @@
                                             withdraw my money any time I want. Never ever thought I could invest a dollar in
                                             anything crytpo talkless of ten thousand.
                                         </p>
-                                        <div class="text-center d-flex flex-column justify-content-center align-items-center mt-2">
+                                        <div
+                                            class="text-center d-flex flex-column justify-content-center align-items-center mt-2">
                                             <img class="img-thumbnail img-fluid rounded-circle mb-1"
                                                 src="{{ asset('assets/images/profile/bullish_experts_1.jpeg') }}" />
-                                                <h6>Amber Pabawena</h6>
+                                            <h6>Amber Pabawena</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -505,10 +508,11 @@
                                             incredible so far. You deserve every accolades you get. I have made a nice
                                             profit return on my crypto investments so far.
                                         </p>
-                                        <div class="text-center d-flex flex-column justify-content-center align-items-center mt-2">
+                                        <div
+                                            class="text-center d-flex flex-column justify-content-center align-items-center mt-2">
                                             <img class="img-thumbnail img-fluid rounded-circle mb-1"
                                                 src="{{ asset('assets/images/profile/bullish_experts_2.jpeg') }}" />
-                                                <h6>Ashley Pearson</h6>
+                                            <h6>Ashley Pearson</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -524,10 +528,11 @@
                                             platform like this. You know it is real when your profit rate is not fixed but
                                             according to market progression. Kudos.
                                         </p>
-                                        <div class="text-center d-flex flex-column justify-content-center align-items-center mt-2">
+                                        <div
+                                            class="text-center d-flex flex-column justify-content-center align-items-center mt-2">
                                             <img class="img-thumbnail img-fluid rounded-circle mb-1"
                                                 src="{{ asset('assets/images/profile/bullish_experts_8.jpeg') }}" />
-                                                <h6>Christopher Wesley</h6>
+                                            <h6>Christopher Wesley</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -546,10 +551,11 @@
                                             everyday. Let's goooooooo
                                         </p>
 
-                                        <div class="text-center d-flex flex-column justify-content-center align-items-center mt-2">
+                                        <div
+                                            class="text-center d-flex flex-column justify-content-center align-items-center mt-2">
                                             <img class="img-thumbnail img-fluid rounded-circle mb-1"
                                                 src="{{ asset('assets/images/profile/bullish_experts_3.jpeg') }}" />
-                                                <h6>Christiana Fernandez</h6>
+                                            <h6>Christiana Fernandez</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -564,10 +570,11 @@
                                             profit. I wish I knew about bullish experts earlier. Maybe you will buy me a new
                                             car if I increase my investment to grab more profits. Let's see lol.
                                         </p>
-                                        <div class="text-center d-flex flex-column justify-content-center align-items-center mt-2">
+                                        <div
+                                            class="text-center d-flex flex-column justify-content-center align-items-center mt-2">
                                             <img class="img-thumbnail img-fluid rounded-circle mb-1"
                                                 src="{{ asset('assets/images/profile/bullish_experts_7.jpeg') }}" />
-                                                <h6>Frank Oliver</h6>
+                                            <h6>Frank Oliver</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -582,10 +589,11 @@
                                             you got me covered. Don't fuck me up.
                                         </p>
 
-                                        <div class="text-center d-flex flex-column justify-content-center align-items-center mt-2">
+                                        <div
+                                            class="text-center d-flex flex-column justify-content-center align-items-center mt-2">
                                             <img class="img-thumbnail img-fluid rounded-circle mb-1"
                                                 src="{{ asset('assets/images/profile/bullish_experts_4.jpeg') }}" />
-                                                <h6>Anna Pratt</h6>
+                                            <h6>Anna Pratt</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -599,10 +607,11 @@
                                             won't regret my actions at the end. Thank you for your service.
                                         </p>
 
-                                        <div class="text-center d-flex flex-column justify-content-center align-items-center mt-2">
+                                        <div
+                                            class="text-center d-flex flex-column justify-content-center align-items-center mt-2">
                                             <img class="img-thumbnail img-fluid rounded-circle mb-1"
                                                 src="{{ asset('assets/images/profile/bullish_experts_5.jpeg') }}" />
-                                                <h6>Rebecca Ferber</h6>
+                                            <h6>Rebecca Ferber</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -617,10 +626,11 @@
                                             issue was resolved almost immediately. You have completely won me. Thank you.
                                         </p>
 
-                                        <div class="text-center d-flex flex-column justify-content-center align-items-center mt-2">
+                                        <div
+                                            class="text-center d-flex flex-column justify-content-center align-items-center mt-2">
                                             <img class="img-thumbnail img-fluid rounded-circle mb-1"
                                                 src="{{ asset('assets/images/profile/bullish_experts_6.jpeg') }}" />
-                                                {{-- <h6>Rebecca Ferber</h6> --}}
+                                            {{-- <h6>Rebecca Ferber</h6> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -644,7 +654,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row align-items-center justify-content-center py-5">
+            <div class="row align-items-start justify-content-center py-5">
                 {{-- <div class="col-xl-4 col-lg-4 col-md-4">
                     <div class="promo-content">
                         <div class="promo-content-img">
@@ -657,7 +667,7 @@
                 <div class="col-xl-4 col-lg-4 col-md-4">
                     <div class="promo-content">
                         <div class="promo-content-img">
-                            <img class="img-fluid" src="{{ asset('assets/images/aig.png') }}" alt="">
+                            <img class="img-fluid" src="{{ asset('assets/images/AIG.png') }}" alt="">
                         </div>
                         <h3>Protected by insurance</h3>
                         {{-- <p>Cryptocurrency stored on our servers is covered by our insurance policy.</p> --}}
@@ -790,6 +800,26 @@
             object-fit: cover;
             margin-bottom: 30px;
             filter: unset;
+        }
+
+        .promo-content-img img {
+            width: 100%;
+        }
+
+        .promo .promo-content .promo-content-img img {
+            max-width: 200px;
+        }
+
+        .promo .promo-content .promo-content-img {
+            background: #F0B90B;
+            height: 200px;
+            width: unset;
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
         }
 
     </style>
