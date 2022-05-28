@@ -18,8 +18,8 @@
                     <div class="card">
                         <div class="card-header flex-column align-items-start">
                             <h4 class="card-title">Wallet Deposit Address</h4>
-                            <p class="text-danger">Select your preferred wallet and make transfer of the amount you want pay.</p>
-                            <a href="{{ route('deposits.index') }}">View Deposit History</a>
+                            <a class="my-2" href="{{ route('deposits.index') }}">View Deposit History <i class="fa fa-arrow-right"></i> </a>
+                            <p class="text-danger">Select your <strong class="text-danger font-weight-bold">preferred wallet</strong> and make transfer of the amount you want pay.</p>
                         </div>
                         <div class="card-body" id="deposits">
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -36,6 +36,9 @@
                                             <img src="{{ asset('assets/images/qr.svg') }}" alt="" width="150">
                                         </div> --}}
                                         <form action="">
+                                            <div class="alert alert-info">
+                                                <p>Copy the payment wallet address below!</p>
+                                            </div>
                                             <div class="input-group">
                                                 <input type="text" class="form-control"
                                                     value="{{ $asset->default_address->address }}">
@@ -72,7 +75,7 @@
                                         @csrf
                                         <div class="form-group row align-items-center">
                                             <div class="col-sm-4">
-                                                <label for="asset_id" class="mr-sm-2">Currency</label><br />
+                                                <label for="asset_id" class="mr-sm-2">Currency</label> <span class="text-danger">*</span><br />
                                                 <small>Select the specific wallet currency you made payment to.</small>
                                             </div>
                                             <div class="col-sm-8">
@@ -97,7 +100,32 @@
 
                                         <div class="form-group row align-items-center">
                                             <div class="col-sm-4">
-                                                <label for="amount" class="col-form-label">Amount
+                                                <label for="amount" class="col-form-label">Transaction ID <span class="text-danger">*</span>
+                                                    <br />
+                                                    <small>Enter the Transaction ID for the deposit</small>
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <label class="input-group-text bg-primary"><i
+                                                                class="fa fa-bitcoin text-white"></i></label>
+                                                    </div>
+                                                    <input type="text" value="{{ old('amount') }}" id="transactionID"
+                                                        class="form-control text-black @error('transactionID') is-invalid @enderror text-right"
+                                                        name="transactionID" placeholder="Transaction ID" required>
+                                                    @error('transactionID')
+                                                        <div class="invalid-feedback d-block">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row align-items-center">
+                                            <div class="col-sm-4">
+                                                <label for="amount" class="col-form-label">Amount <span class="text-danger">*</span>
                                                     <br />
                                                     <small>Enter the amount you transferred in USD</small>
                                                 </label>
