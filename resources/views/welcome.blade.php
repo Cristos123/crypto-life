@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-12">
-                    <img class="img-fluid " src="{{ asset('assets/images/trader.jpg') }}" alt="Bullish Experts">
+                    <img class="img-fluid" style="height: 500px" src="{{ asset('assets/images/trader.jpg') }}" alt="Bullish Experts">
                 </div>
             </div>
         </div>
