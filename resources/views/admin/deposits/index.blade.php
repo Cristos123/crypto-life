@@ -21,6 +21,7 @@
                                         <thead>
                                             <tr>
                                                 <th>Reference</th>
+                                                <th>TRX ID</th>
                                                 <th>Full Name</th>
                                                 <th>Amount (USD)</th>
                                                 <th>Wallet Type</th>
@@ -35,6 +36,7 @@
                                                     <td> #{{ $deposit->reference }}
                                                         <small class="d-block">{{ $deposit->created_at() }}</small>
                                                     </td>
+                                                    <td> {{ $deposit->transactionID ?? 'No ID' }}</td>
                                                     <td> {{ $deposit->user->fullname }}</td>
                                                     <td> {{ toMoney($deposit->amount) }}</td>
                                                     <td> {{ $deposit->currency }}</td>
